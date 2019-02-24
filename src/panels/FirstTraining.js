@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-
-const WATER_PER_KILOGRAM = 0.03;
+import {Params} from 'src/params/Params'
 
 class FirstTraining extends React.Component {
     onChange = (event) => {
@@ -30,7 +29,7 @@ const showTheAmountOfWater = () => {
 
     const newWeight = parseInt(document.getElementById("userWeight").value, 10);
     const newTag = document.createElement('h2');
-    newTag.innerText = "Чтобы быть здоровым, тебе необходимо пить " + (newWeight * WATER_PER_KILOGRAM).toFixed(1) + "л воды каждый день.";
+    newTag.innerText = "Чтобы быть здоровым, тебе необходимо пить " + (newWeight * Params.WATER_PER_KILOGRAM).toFixed(1) + "л воды каждый день.";
     newTag.id = "the-amount-of-water";
     container.insertBefore(newTag, container.children[2]);
 };
