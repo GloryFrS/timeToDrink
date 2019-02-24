@@ -5,8 +5,8 @@ import '@vkontakte/vkui/dist/vkui.css';
 
 import Main from './panels/Main';
 import Start from './panels/Start';
-import FirstTraining from "./panels/FirstTraining";
 import SecondTraining from "./panels/SecondTraining";
+import FirstTraining from "./panels/FirstTraining";
 import PropTypes from "prop-types";
 
 class App extends React.Component {
@@ -50,10 +50,11 @@ class App extends React.Component {
                     <Route exact path="/start" render={() => (
                         <Start fetchedUser={this.state.fetchedUser}/>
                     )}/>
-                    <Route exact path="/first-training" component={FirstTraining}/>
-                    <Route exact path="/second-training" render={() => (
-                        <SecondTraining updateWeight={this.updateWeight}/>
+                    <Route exact path="/first-training" render={() => (
+                        <FirstTraining updateWeight={this.updateWeight}/>
                     )}/>
+                    <Route exact path="/second-training" component={SecondTraining}/>
+
                 </Switch>
         );
     }
