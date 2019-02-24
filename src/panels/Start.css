@@ -1,0 +1,51 @@
+h1,h2,img, button, img {
+    margin: auto;
+    text-align: center;
+}
+
+
+.user-name {
+    color:blue;
+    font-size:25px;
+}
+
+.addition-first {
+    color:rgb(65, 61, 61);
+    font-size:20px;
+    width: 45%;
+    margin-top: 10px;
+}
+
+.user-photo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%; /* Радиус скругления */
+    border: 3px solid white; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+    max-width: 200px;
+    width: 45%;
+    margin-top: 30px;
+}
+
+
+.addition-second {
+    color: rgb(54, 47, 47);
+    font-size:20px;
+    width: 40%;
+    margin-top: 20px;
+}
+
+button {
+    display: block;
+    max-width: 300px;
+    color: white;
+    cursor: pointer;
+    background-color: blue;
+    border: 3px solid white;
+    font-size: 16px;
+    padding: 15px;
+    width: 45%;
+    border-radius: 50px 50px 50px 50px;
+    margin-top: 20px;
+}
