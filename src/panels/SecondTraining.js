@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import {Params} from 'src/params/Params'
+import {Params} from '../params/Params';
 
 const SecondTraining = (props) => (
     <div>
