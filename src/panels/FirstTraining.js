@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import PropTypes from 'prop-types';
 
 const WATER_PER_KILOGRAM = 0.03;
 

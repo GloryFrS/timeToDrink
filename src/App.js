@@ -7,7 +7,6 @@ import Main from './panels/Main';
 import Start from './panels/Start';
 import SecondTraining from "./panels/SecondTraining";
 import FirstTraining from "./panels/FirstTraining";
-import PropTypes from "prop-types";
 
 class App extends React.Component {
     constructor(props) {
