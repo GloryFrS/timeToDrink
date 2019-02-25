@@ -3,10 +3,10 @@ import connect from '@vkontakte/vkui-connect-mock';
 import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
 
-import Main from './panels/Main';
-import Start from './panels/Start';
-import SecondTraining from "./panels/SecondTraining";
-import FirstTraining from "./panels/FirstTraining";
+import Main from './components/Main';
+import Start from './components/Start';
+import SecondTraining from "./components/SecondTraining";
+import FirstTraining from "./components/FirstTraining";
 
 class App extends React.Component {
     constructor(props) {
@@ -60,9 +60,13 @@ class App extends React.Component {
                     <SecondTraining
                         fetchedUser={this.state.fetchedUser}
                         userWeight={this.state.userWeight}
-                        updateTimeToSleep={this.state.updateTimeToSleep}
-                    />
+                        updateTimeToSleep={this.state.updateTimeToSleep}/>
                 )}/>
+                <Route exact path="/main" render={() => (
+                    <Main
+                        fetchedUser={this.state.fetchedUser}/>
+                )}/>
+
             </Switch>
         );
     }
