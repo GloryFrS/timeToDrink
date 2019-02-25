@@ -3,8 +3,6 @@ import Link from "react-router-dom/es/Link";
 import {Params} from '../params/Params';
 
 class SecondTraining extends React.Component {
-    goTo = '/';
-
     getTimes = () => {
         const times = {
             weekdaysWakeUp: document.getElementById("weekdays-time-wake-up").value,
@@ -17,12 +15,17 @@ class SecondTraining extends React.Component {
         if (times.weekdaysWakeUp === '' || times.weekdaysGoTOSleep === '' ||
             times.weekendsWakeUp === '' || times.weekendsGoTOSleep === '' ) {
             times.wrong_data = true;
-            document.getElementById('link').to = '/second-training';
-
-            this.goTo = '/second-training';
-            alert('Invalid value!');
         }
         return times
+    };
+
+    checkAndUpdateTimes = (event) => {
+        const times = this.getTimes();
+        if (!times.wrong_data) {
+            this.props.updateTimeToSleep(times);
+        } else {
+            event.preventDefault();
+        }
     };
 
     render() {
@@ -49,9 +52,9 @@ class SecondTraining extends React.Component {
                     <input type="time" id="weekends-time-go-to-sleep"/>
                 </div>
                 <br/>
-                <Link id='link' to={this.goTo} onClick={this.getTimes} >Начнем</Link>
+                <Link id='link' to='/' onClick={this.checkAndUpdateTimes} >Начнем</Link>
             </div>
-        );
+        )
     };
 }
 

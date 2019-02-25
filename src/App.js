@@ -72,14 +72,12 @@ class App extends React.Component {
     }
 
     updateTimeToSleep(times) {
-        if (!times.wrong_data) {
-            this.setState({
-                weekdaysWakeUp: times.weekdaysWakeUp,
-                weekdaysGoTOSleep: times.weekdaysGoTOSleep,
-                weekendsWakeUp: times.weekendsWakeUp,
-                weekendsGoTOSleep: times.weekendsGoTOSleep
-            });
-        }
+        this.setState({
+            weekdaysWakeUp: times.weekdaysWakeUp,
+            weekdaysGoTOSleep: times.weekdaysGoTOSleep,
+            weekendsWakeUp: times.weekendsWakeUp,
+            weekendsGoTOSleep: times.weekendsGoTOSleep
+        });
     }
 }
 
