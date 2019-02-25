@@ -16,7 +16,7 @@ const Start = ({fetchedUser}) =>{
 			<h2 className='addition-first'>достаточно ли ты пьешь воды?</h2>
 			<div className="user-photo-container">
                 <img className='user-photo' src={fetchedUser.photo_200} alt=""/>
-                <img src = {imgDrop} className="water-drop"/>
+                <img src = {imgDrop} className="water-drop" alt=""/>
 			</div>
 
 			<h2 className='addition-second'>Сервис “Время пить воду” поможет тебе стать более здоровым.</h2>

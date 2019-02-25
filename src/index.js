@@ -6,7 +6,7 @@ import connect from '@vkontakte/vkui-connect';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom";
 
-// import registerServiceWorker from './sw';
+import registerServiceWorker from './sw';
 
 // Init VK App
 connect.send('VKWebAppInit', {});
@@ -15,7 +15,7 @@ connect.send('VKWebAppInit', {});
 // расскомментируйте строку с registerServiceWorker();
 // Но не забывайте, что на данный момент у технологии есть достаточно подводных камней
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT 
-// registerServiceWorker();
+registerServiceWorker();
 
 ReactDOM.render((
     <Router>

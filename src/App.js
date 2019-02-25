@@ -1,6 +1,6 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect-mock';
-import { Switch, Route} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
 
 import Main from './panels/Main';
@@ -16,7 +16,11 @@ class App extends React.Component {
             activePanel: 'start',
             userWeight: null,
             fetchedUser: null,
-            geoData: null
+            geoData: null,
+            weekdaysWakeUp: null,
+            weekdaysGoTOSleep: null,
+            weekendsWakeUp: null,
+            weekendsGoTOSleep: null
         };
         this.updateWeight = this.updateWeight.bind(this);
     }
@@ -44,23 +48,39 @@ class App extends React.Component {
 
     render() {
         return (
-                <Switch>
-                    <Route exact path="/" component={Main}/>
-                    <Route exact path="/start" render={() => (
-                        <Start fetchedUser={this.state.fetchedUser}/>
-                    )}/>
-                    <Route exact path="/first-training" render={() => (
-                        <FirstTraining updateWeight={this.updateWeight}/>
-                    )}/>
-                    <Route exact path="/second-training" component={SecondTraining}/>
-
-                </Switch>
+            <Switch>
+                <Route exact path="/" component={Main}/>
+                <Route exact path="/start" render={() => (
+                    <Start fetchedUser={this.state.fetchedUser}/>
+                )}/>
+                <Route exact path="/first-training" render={() => (
+                    <FirstTraining updateWeight={this.updateWeight}/>
+                )}/>
+                <Route exact path="/second-training" render={() => (
+                    <SecondTraining
+                        fetchedUser={this.state.fetchedUser}
+                        userWeight={this.state.userWeight}
+                        updateTimeToSleep={this.state.updateTimeToSleep}
+                    />
+                )}/>
+            </Switch>
         );
     }
 
-    updateWeight (event){
-        this.setState({activePanel: event.target.value })
-    };
+    updateWeight(event) {
+        this.setState({activePanel: event.target.value});
+    }
+
+    updateTimeToSleep(times) {
+        if (!times.wrong_data) {
+            this.setState({
+                weekdaysWakeUp: times.weekdaysWakeUp,
+                weekdaysGoTOSleep: times.weekdaysGoTOSleep,
+                weekendsWakeUp: times.weekendsWakeUp,
+                weekendsGoTOSleep: times.weekendsGoTOSleep
+            });
+        }
+    }
 }
 
 export default App;

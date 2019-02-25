@@ -4,8 +4,10 @@ import {Params} from '../params/Params';
 
 class FirstTraining extends React.Component {
     onChange = (event) => {
-        this.props.updateWeight(event);
-        showTheAmountOfWater();
+        if (event.target.value !== '') {
+            this.props.updateWeight(event);
+            showTheAmountOfWater();
+        }
     };
     render() {
         return (
