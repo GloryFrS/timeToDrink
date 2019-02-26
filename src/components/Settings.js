@@ -24,7 +24,7 @@ class Settings extends React.Component {
 
     checkAndUpdateParameters = (event) => {
         const newParameters = this.getNewParameters();
-        if (!newParameters) {
+        if (newParameters) {
             this.props.updateParameters(newParameters);
         } else {
             event.preventDefault();
@@ -34,10 +34,10 @@ class Settings extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/main' onClick={this.checkAndUpdateParameters}>
+                <Link to='/'>
                     <img src={BackIcon} width='25px' alt=''/>
                 </Link>
-                <Link to='/info' onClick={this.checkAndUpdateParameters}>
+                <Link to='/info'>
                     <img src={InfoIcon} width='25px' alt=''/>
                 </Link>
                 <br/>
@@ -57,7 +57,7 @@ class Settings extends React.Component {
                     <input type="time" id="weekends-time-go-to-sleep"/>
                 </div>
                 <br/>
-                <Link to='/main' onClick={this.checkAndUpdateParameters} >Сохранить</Link>
+                <Link to='/' onClick={this.checkAndUpdateParameters} >Сохранить</Link>
             </div>
         )
     };

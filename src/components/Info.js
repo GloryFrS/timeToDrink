@@ -7,7 +7,7 @@ class Info extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/main' onClick={this.checkAndUpdateParameters}>
+                <Link to='/'>
                     <img width='25px' src={BackIcon} alt=''/>
                 </Link>
                 <br/>

@@ -74,7 +74,6 @@ class App extends React.Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/" component={Main}/>
                 <Route exact path="/start" render={() => (
                     <Start fetchedUser={this.state.fetchedUser}/>
                 )}/>
@@ -87,7 +86,7 @@ class App extends React.Component {
                         userWeight={this.state.userWeight}
                         updateTimeToSleep={this.state.updateTimeToSleep}/>
                 )}/>
-                <Route exact path="/main" render={() => (
+                <Route exact path="/" render={() => (
                     <Main
                         fetchedUser={this.state.fetchedUser}/>
                 )}/>

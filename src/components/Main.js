@@ -8,10 +8,10 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/settings' onClick={this.checkAndUpdateParameters}>
+                <Link to='/settings'>
                     <img src={SettingsIcon} width='25px' alt='' />
                 </Link>
-                <Link to='/info' onClick={this.checkAndUpdateParameters}>
+                <Link to='/info'>
                     <img src={InfoIcon} width='25px' alt=''/>
                 </Link>
                 <br/>
