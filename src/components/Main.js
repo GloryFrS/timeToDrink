@@ -9,6 +9,7 @@ class Main extends React.Component {
                 <h2>Main</h2>
                 <h2 className='addition-first'>Привет {this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</h2>
                 <Link to="/start">Start</Link>
+                <br/>
                 <Drink/>
             </div>
         )
