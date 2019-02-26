@@ -7,6 +7,8 @@ import Main from './components/Main';
 import Start from './components/Start';
 import SecondTraining from "./components/SecondTraining";
 import FirstTraining from "./components/FirstTraining";
+import Settings from "./components/Settings";
+import Info from "./components/Info";
 
 class App extends React.Component {
     constructor(props) {
@@ -46,6 +48,29 @@ class App extends React.Component {
         connect.send("VKWebAppGetGeodata", {});
     }
 
+    updateWeight(event) {
+        this.setState({activePanel: event.target.value});
+    }
+
+    updateTimeToSleep(times) {
+        this.setState({
+            weekdaysWakeUp: times.weekdaysWakeUp,
+            weekdaysGoTOSleep: times.weekdaysGoTOSleep,
+            weekendsWakeUp: times.weekendsWakeUp,
+            weekendsGoTOSleep: times.weekendsGoTOSleep
+        });
+    }
+
+    updateParameters(newParameters) {
+        this.setState({
+            userWeight: newParameters.userWeight,
+            weekdaysWakeUp: newParameters.weekdaysWakeUp,
+            weekdaysGoTOSleep: newParameters.weekdaysGoTOSleep,
+            weekendsWakeUp: newParameters.weekendsWakeUp,
+            weekendsGoTOSleep: newParameters.weekendsGoTOSleep
+        });
+    }
+
     render() {
         return (
             <Switch>
@@ -66,22 +91,14 @@ class App extends React.Component {
                     <Main
                         fetchedUser={this.state.fetchedUser}/>
                 )}/>
+                <Route exact path="/settings" render={() => (
+                    <Settings
+                        updateParameters={this.updateParameters}/>
+                )}/>
+                <Route exact path="/info" component={Info}/>
 
             </Switch>
         );
-    }
-
-    updateWeight(event) {
-        this.setState({activePanel: event.target.value});
-    }
-
-    updateTimeToSleep(times) {
-        this.setState({
-            weekdaysWakeUp: times.weekdaysWakeUp,
-            weekdaysGoTOSleep: times.weekdaysGoTOSleep,
-            weekendsWakeUp: times.weekendsWakeUp,
-            weekendsGoTOSleep: times.weekendsGoTOSleep
-        });
     }
 }
 
