@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Start.css'
 import Link from "react-router-dom/es/Link";
 import imgDrop from "../img/drop-water.svg";
+// import imgBackground1 from "../img/background1.svg";
 
 
 const Start = ({fetchedUser}) =>{
@@ -12,6 +13,7 @@ const Start = ({fetchedUser}) =>{
 	};
 	return (
 		<div className="body-container">
+			{/*<img className="background" src={imgBackground1}/>*/}
 			<h1 className='user-name'>{fetchedUser.first_name}</h1>
 			<h2 className='addition-first'>достаточно ли ты пьешь воды?</h2>
 			<div className="user-photo-container">
