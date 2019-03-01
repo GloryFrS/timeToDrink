@@ -1,44 +1,73 @@
-h1,h2,img, button, img {
+@font-face {
+    font-family: GothamPro;
+    src: url("../fonts/GothamPro.ttf");
+}
+
+h1, h2, img, button, img {
     margin: auto;
     text-align: center;
 }
 
 .body-container {
-    background: url("../img/Ellipse-1.svg") 25% 85% no-repeat, url("../img/Ellipse-2.svg") 29% 70% no-repeat, url("../img/Ellipse-3.svg") 23% 60% no-repeat,
-    url("../img/Ellipse-4.svg") 48% 93% no-repeat, url("../img/Ellipse-5.svg") 65% 73% no-repeat, url("../img/Ellipse-6.svg") 65% 50% no-repeat,
-    url("../img/Ellipse-7.svg") 73% 70% no-repeat, url("../img/Ellipse-8.svg") 78% 53% no-repeat, url("../img/background1.svg") no-repeat, url("../img/background2.svg") 100% 23% no-repeat fixed;
-    background-size: auto, auto, auto, auto, auto, auto, auto, auto, cover, 60%;
-    /*transform: rotate(-8.13deg);*/
+    position: relative;
+    background: url("../img/background_start_cloud_3.svg") 100% 0 no-repeat fixed,
+    url("../img/Ellipse-1.svg") 31% 90% no-repeat fixed,
+    url("../img/Ellipse-2.svg") 33% 80% no-repeat fixed,
+    url("../img/Ellipse-3.svg") 28% 70% no-repeat fixed,
+    url("../img/Ellipse-4.svg") 48% 95% no-repeat fixed,
+    url("../img/Ellipse-5.svg") 60% 78% no-repeat fixed,
+    url("../img/Ellipse-6.svg") 62% 65% no-repeat fixed,
+    url("../img/Ellipse-7.svg") 58% 60% no-repeat fixed,
+    url("../img/Ellipse-8.svg") 68% 81% no-repeat fixed,
+    url("../img/background_start_wave_1.svg") no-repeat fixed,
+    url("../img/background_start_wave_2.svg") 100% 23% no-repeat fixed,
+    #F1F2FB;
+
+    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, cover, 60%, cover;
     height: 100%;
+    margin: 0;
 }
+
+.container-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 .user-name {
     margin-top: 84px;
     color: #4848F4;
-    font-family: Gotham Pro;
+    font-family: GothamPro;
     line-height: 30px;
     font-size: 25px;
     text-align: center;
 }
 
 .addition-first {
-    color:rgb(65, 61, 61);
+    color: rgb(65, 61, 61);
     margin-top: 10px;
-    font-family: Gotham Pro;
+    font-family: GothamPro;
     line-height: 22px;
     font-size: 20px;
     text-align: center;
 }
+
 .user-photo-container {
     position: relative;
     width: 100%;
     height: 300px;
 }
+
 .water-drop {
     position: absolute;
-   left: 50%;
+    left: 50%;
     margin-left: -86px;
     bottom: 0;
 }
+
 .user-photo {
     position: absolute;
     left: 50%;
@@ -56,14 +85,14 @@ h1,h2,img, button, img {
     color: white;
     width: 40%;
     margin-top: 20px;
-    font-family: Gotham Pro;
+    font-family: GothamPro;
     line-height: 22px;
-    font-size: 20px;/*было 15, но тут 18 т к на экарне ноута слишком мелко*/
+    font-size: 18px; /*было 15, но тут 18 т к на экарне ноута слишком мелко*/
     text-align: center;
 }
 
 .button-start {
-    font-family: Gotham Pro;
+    font-family: GothamPro;
     line-height: 57px; /*спросить*/
     font-size: 20px;
     text-align: center;
@@ -73,10 +102,9 @@ h1,h2,img, button, img {
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 56px;
-    background: rgba(5,9,7, 0);
-    margin: auto;
+    background: rgba(5, 9, 7, 0);
     width: 246px;
     height: 64px;
     cursor: pointer;
-    margin-top: 19px;
+    margin: 19px auto auto;
 }

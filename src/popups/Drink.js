@@ -47,7 +47,7 @@ export default () => (
                     closeOnDocumentClick
                     contentStyle={contentStyle}
                     onClose={close}>
-                    <div>
+                    <div onClick={close}>
                         <h1>Прекрасно!</h1>
                         <p>Следующий прием пищи через:</p>
                         <h2>02:40:55</h2>
