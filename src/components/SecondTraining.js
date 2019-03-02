@@ -3,25 +3,26 @@ import Link from "react-router-dom/es/Link";
 import {Params} from '../params/Params';
 
 class SecondTraining extends React.Component {
+
     getTimes = () => {
         const times = {
             weekdaysWakeUp: document.getElementById("weekdays-time-wake-up").value,
             weekdaysGoTOSleep: document.getElementById("weekdays-time-go-to-sleep").value,
             weekendsWakeUp: document.getElementById("weekends-time-wake-up").value,
             weekendsGoTOSleep: document.getElementById("weekends-time-go-to-sleep").value,
-            wrong_data: false
+            dataIsCorrect: false
         };
 
         if (times.weekdaysWakeUp === '' || times.weekdaysGoTOSleep === '' ||
             times.weekendsWakeUp === '' || times.weekendsGoTOSleep === '' ) {
-            times.wrong_data = true;
+            times.dataIsCorrect = true;
         }
         return times
     };
 
     checkAndUpdateTimes = (event) => {
         const times = this.getTimes();
-        if (!times.wrong_data) {
+        if (!times.dataIsCorrect) {
             this.props.updateTimeToSleep(times);
         } else {
             event.preventDefault();
@@ -32,8 +33,8 @@ class SecondTraining extends React.Component {
         return (
             <div>
                 <h2 className='addition-first'>
-                    {this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}, {(this.props.userWeight ? this.props.userWeight : 70) * Params.WATER_PER_KILOGRAM}
-                    л это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость
+                    {this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}, {(this.props.weight ? this.props.weight : 70) * Params.WATER_PER_KILOGRAM} л
+                    это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость
                     выпить
                     жидкости.
                 </h2>
@@ -52,7 +53,7 @@ class SecondTraining extends React.Component {
                     <input type="time" id="weekends-time-go-to-sleep"/>
                 </div>
                 <br/>
-                <Link id='link' to='/' onClick={this.checkAndUpdateTimes} >Начнем</Link>
+                <Link id='link' to='/' onClick={this.checkAndUpdateTimes.bind(this)} >Начнем</Link>
             </div>
         )
     };

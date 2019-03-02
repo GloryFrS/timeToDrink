@@ -12,7 +12,7 @@ class Settings extends React.Component {
             weekdaysGoTOSleep: document.getElementById("weekdays-time-go-to-sleep").value,
             weekendsWakeUp: document.getElementById("weekends-time-wake-up").value,
             weekendsGoTOSleep: document.getElementById("weekends-time-go-to-sleep").value,
-            userWeight: document.getElementById("userWeight").value,
+            weight: document.getElementById("weight").value,
         };
 
         if (newParameters.weekdaysWakeUp === '' || newParameters.weekdaysGoTOSleep === '' || newParameters.userWeight === '' ||

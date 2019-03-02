@@ -15,10 +15,8 @@ class App extends React.Component {
         super(props);
 
         this.state = {
-            activePanel: 'start',
-            userWeight: null,
+            weight: null,
             fetchedUser: null,
-            geoData: null,
             weekdaysWakeUp: null,
             weekdaysGoTOSleep: null,
             weekendsWakeUp: null,
@@ -33,23 +31,15 @@ class App extends React.Component {
                 case 'VKWebAppGetUserInfoResult':
                     this.setState({fetchedUser: e.detail.data});
                     break;
-                case 'VKWebAppGeodataResult':
-                    this.setState({geoData: e.detail.data});
-                    /*console.log(
-                        'lat:' + this.state.geoData.lat +
-                        'long:' + this.state.geoData.long
-                    )*/
-                    break;
                 default:
                     console.log(e.detail.type);
             }
         });
         connect.send('VKWebAppGetUserInfo', {});
-        connect.send("VKWebAppGetGeodata", {});
     }
 
     updateWeight(event) {
-        this.setState({activePanel: event.target.value});
+        this.setState({weight: event.target.value});
     }
 
     updateTimeToSleep(times) {
@@ -58,12 +48,12 @@ class App extends React.Component {
             weekdaysGoTOSleep: times.weekdaysGoTOSleep,
             weekendsWakeUp: times.weekendsWakeUp,
             weekendsGoTOSleep: times.weekendsGoTOSleep
-        });
+        }, ()=>console.log(this.state));
     }
 
     updateParameters(newParameters) {
         this.setState({
-            userWeight: newParameters.userWeight,
+            weight: newParameters.weight,
             weekdaysWakeUp: newParameters.weekdaysWakeUp,
             weekdaysGoTOSleep: newParameters.weekdaysGoTOSleep,
             weekendsWakeUp: newParameters.weekendsWakeUp,
@@ -74,24 +64,24 @@ class App extends React.Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/start" render={() => (
-                    <Start fetchedUser={this.state.fetchedUser}/>
+                <Route exact path="/start" render={(props) => (
+                    <Start {...props} fetchedUser={this.state.fetchedUser}/>
                 )}/>
-                <Route exact path="/first-training" render={() => (
-                    <FirstTraining updateWeight={this.updateWeight}/>
+                <Route exact path="/first-training" render={(props) => (
+                    <FirstTraining {...props} updateWeight={this.updateWeight}/>
                 )}/>
-                <Route exact path="/second-training" render={() => (
-                    <SecondTraining
+                <Route exact path="/second-training" render={(props) => (
+                    <SecondTraining {...props}
                         fetchedUser={this.state.fetchedUser}
-                        userWeight={this.state.userWeight}
+                        userWeight={this.state.weight}
                         updateTimeToSleep={this.state.updateTimeToSleep}/>
                 )}/>
-                <Route exact path="/" render={() => (
-                    <Main
+                <Route exact path="/" render={(props) => (
+                    <Main {...props}
                         fetchedUser={this.state.fetchedUser}/>
                 )}/>
-                <Route exact path="/settings" render={() => (
-                    <Settings
+                <Route exact path="/settings" render={(props) => (
+                    <Settings {...props}
                         updateParameters={this.updateParameters}/>
                 )}/>
                 <Route exact path="/info" component={Info}/>
