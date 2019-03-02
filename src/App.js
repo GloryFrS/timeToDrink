@@ -23,6 +23,8 @@ class App extends React.Component {
             weekendsGoTOSleep: null
         };
         this.updateWeight = this.updateWeight.bind(this);
+        this.updateTimeToSleep = this.updateTimeToSleep.bind(this);
+        this.updateParameters = this.updateParameters.bind(this);
     }
 
     componentDidMount() {
@@ -74,7 +76,7 @@ class App extends React.Component {
                     <SecondTraining {...props}
                         fetchedUser={this.state.fetchedUser}
                         userWeight={this.state.weight}
-                        updateTimeToSleep={this.state.updateTimeToSleep}/>
+                        updateTimeToSleep={this.updateTimeToSleep}/>
                 )}/>
                 <Route exact path="/" render={(props) => (
                     <Main {...props}
