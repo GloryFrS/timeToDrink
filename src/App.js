@@ -1,7 +1,8 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect-mock';
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route, Redirect} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
+import axios from 'axios';
 
 import Main from './components/Main';
 import Start from './components/Start';
@@ -20,24 +21,42 @@ class App extends React.Component {
             weekdaysWakeUp: null,
             weekdaysGoTOSleep: null,
             weekendsWakeUp: null,
-            weekendsGoTOSleep: null
+            weekendsGoTOSleep: null,
+            userIsRegistered: false
         };
         this.updateWeight = this.updateWeight.bind(this);
         this.updateTimeToSleep = this.updateTimeToSleep.bind(this);
         this.updateParameters = this.updateParameters.bind(this);
+        this.loadUserInfo = this.loadUserInfo.bind(this);
     }
+
 
     componentDidMount() {
         connect.subscribe((e) => {
             switch (e.detail.type) {
                 case 'VKWebAppGetUserInfoResult':
-                    this.setState({fetchedUser: e.detail.data});
+                    // this.setState({fetchedUser: e.detail.data}, this.loadUserInfo);
+                    this.setState({fetchedUser: e.detail.data}, this.loadUserInfo);
                     break;
                 default:
                     console.log(e.detail.type);
             }
         });
         connect.send('VKWebAppGetUserInfo', {});
+    }
+
+    loadUserInfo() {
+        axios.get(`http://timetodrink/api/user/read.php`,{params:{id: this.state.fetchedUser.id}})
+            .then(res => {
+                this.setState({userIsRegistered: true});
+                console.log(res);
+            })
+            .catch(error => {
+                console.log(error.response.status);
+                this.setState({userIsRegistered: false});
+                let { history } = this.props;
+                history.push({pathname: '/start'});
+            })
     }
 
     updateWeight(event) {
@@ -64,6 +83,7 @@ class App extends React.Component {
     }
 
     render() {
+        //if (!this.state.userIsRegistered) return (<Redirect to="/start"/>);
         return (
             <Switch>
                 <Route exact path="/start" render={(props) => (
