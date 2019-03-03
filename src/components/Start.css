@@ -3,6 +3,7 @@
     src: url("../fonts/GothamPro.ttf");
 }
 
+
 h1, h2, img, button, img {
     margin: auto;
     text-align: center;
@@ -11,22 +12,44 @@ h1, h2, img, button, img {
 .body-container {
     position: relative;
     background: url("../img/background_start_cloud_3.svg") 100% 0 no-repeat fixed,
+    url("../img/background_start_cloud_4.svg") 80% 0 no-repeat fixed,
     url("../img/Ellipse-1.svg") 31% 90% no-repeat fixed,
-    url("../img/Ellipse-2.svg") 33% 80% no-repeat fixed,
-    url("../img/Ellipse-3.svg") 28% 70% no-repeat fixed,
+    url("../img/Ellipse-2.svg") 35% 80% no-repeat fixed,
+    url("../img/Ellipse-3.svg") 25% 70% no-repeat fixed,
     url("../img/Ellipse-4.svg") 48% 95% no-repeat fixed,
     url("../img/Ellipse-5.svg") 60% 78% no-repeat fixed,
     url("../img/Ellipse-6.svg") 62% 65% no-repeat fixed,
     url("../img/Ellipse-7.svg") 58% 60% no-repeat fixed,
     url("../img/Ellipse-8.svg") 68% 81% no-repeat fixed,
-    url("../img/background_start_wave_1.svg") no-repeat fixed,
+    url("../img/background_start_wave_1.svg") repeat-x fixed,
     url("../img/background_start_wave_2.svg") 100% 23% no-repeat fixed,
+    url("../img/water.svg") 50% 35% no-repeat fixed,
+    url("../img/Ellipse-9.svg") 25% 45% no-repeat fixed,
+    url("../img/Ellipse-10.svg") 29% 35% no-repeat fixed,
+    url("../img/Ellipse-11.svg") 60% 35% no-repeat fixed,
+    url("../img/Ellipse-12.svg") 65% 30% no-repeat fixed,
     #F1F2FB;
 
-    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, cover, 60%, cover;
-    height: 100%;
+    animation: wave 10s linear infinite;
+    -webkit-animation: wave 10s linear infinite;
+
+    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, cover, 60%, 35%, auto, auto, auto, auto, cover;
     margin: 0;
+    height: 100%;
+
 }
+
+@keyframes wave {
+    from { background-position: 100% 0, 80% 0, 31% 90%, 35% 80%, 25% 70%, 48% 95%, 60% 78%, 62% 65%,58% 60%, 68% 81% , 0 0, 100% 23%, 50% 35%, 25% 45%, 29% 35%, 60% 35%, 65% 30%, 0 0;
+    }
+    to { background-position: 100% 0, 80% 0, 25% -10%, 40% -10%, 35% -10%, 53% -10%, 58% -10%, 68% -10%,63% -10%, 75% -10% , 0 0,100% 23%, 50% 35%, 25% -10%,29% -10%, 60% -10%, 65% -10%, 0 0;;}
+}
+@-webkit-keyframes wave {
+    from { background-position: 100% 0, 80% 0, 31% 90%, 33% 80%, 28% 70%, 48% 95%, 60% 78%, 62% 65%, 58% 60%, 68% 81% , 0 0, 100% 23%, 50% 35%, 25% 45%,29% 35%, 60% 35%, 65% 30%, 0 0;}
+    to { background-position: 100% 0, 80% 0, 31% 90%, 33% 80%, 28% 70%, 48% 95%, 60% 78%, 62% 65%, 58% 60%, 68% 81% , 0 0, 100% 23%, 50% 35%, 25% 45%, 29% 35%,60% 35%, 65% 30%, 0 0; }
+}
+
+
 
 .container-info {
     position: absolute;
