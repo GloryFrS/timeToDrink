@@ -20,10 +20,10 @@ class SecondTraining extends React.Component {
         return times
     };
 
-    checkAndUpdateTimes = (event) => {
+    checkAndRegisterUser = (event) => {
         const times = this.getTimes();
         if (!times.dataIsCorrect) {
-            this.props.updateTimeToSleep(times);
+            this.props.updateStateAndRegisterUser(times);
         } else {
             event.preventDefault();
         }
@@ -53,7 +53,7 @@ class SecondTraining extends React.Component {
                     <input type="time" id="weekends-time-go-to-sleep"/>
                 </div>
                 <br/>
-                <Link id='link' to='/' onClick={this.checkAndUpdateTimes.bind(this)} >Начнем</Link>
+                <Link id='link' to='/main' onClick={this.checkAndRegisterUser.bind(this)} >Начнем</Link>
             </div>
         )
     };
