@@ -63,16 +63,16 @@ class ApiManager {
             })
     };
 
-    static loadUserInfo(id, redirect) {
+    static loadUserInfo(id, processLoadedData) {
         axios.get(ApiManager.url + ApiManager.action.read, {params: {id: id}})
             .then(res => {
                 console.log(res);
-                redirect('/main');
+                processLoadedData(res.data, '/main');
             })
             .catch(error => {
                 console.log(error.response.status);
                 console.log(error.response.data.message);
-                redirect('/start');
+                processLoadedData(null, '/start');
             })
     }
 }

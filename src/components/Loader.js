@@ -10,17 +10,20 @@ class Loader extends React.Component {
         super(props);
         this.state = {
             redirectTo: null,
+            loadedData: null,
         };
-        this.setRedirect = this.setRedirect.bind(this);
+        this.processLoadedData = this.processLoadedData.bind(this);
     }
 
-    setRedirect(newRedirect) {
-        this.setState({redirectTo: newRedirect}, () => console.log(this.state.redirectTo));
-    }
+    processLoadedData = (loadedData, newRedirect) =>{
+        this.setState({
+            redirectTo: newRedirect,
+            loadedData: loadedData,
+        }, ()=>this.props.setNewStateFromLoadedData(this.state.loadedData));
+    };
 
     componentWillReceiveProps(nextProps, nextContext) {
-        // if (nextProps.fetchedUser) this.loadUserInfo(nextProps.fetchedUser.id);
-        if (nextProps.fetchedUser) ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.setRedirect);
+        if (nextProps.fetchedUser) ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.processLoadedData);
     }
 
     render() {

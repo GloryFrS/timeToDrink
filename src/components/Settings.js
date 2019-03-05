@@ -15,7 +15,7 @@ class Settings extends React.Component {
             weight: document.getElementById("weight").value,
         };
 
-        if (newParameters.weekdaysWakeUp === '' || newParameters.weekdaysGoTOSleep === '' || newParameters.userWeight === '' ||
+        if (newParameters.weekdaysWakeUp === '' || newParameters.weekdaysGoTOSleep === '' || newParameters.weight === '' ||
             newParameters.weekendsWakeUp === '' || newParameters.weekendsGoTOSleep === '' ) {
             return null
         }
@@ -25,7 +25,7 @@ class Settings extends React.Component {
     checkAndUpdateParameters = (event) => {
         const newParameters = this.getNewParameters();
         if (newParameters) {
-            this.props.setNewState(newParameters);
+            this.props.setNewStateFromSettings(newParameters);
         } else {
             event.preventDefault();
         }

@@ -27,7 +27,8 @@ class App extends React.Component {
         };
         this.setWeight = this.setWeight.bind(this);
         this.setStateAndRegisterUser = this.setStateAndRegisterUser.bind(this);
-        this.setNewState = this.setNewState.bind(this);
+        this.setNewStateFromSettings = this.setNewStateFromSettings.bind(this);
+        this.setNewStateFromLoadedData = this.setNewStateFromLoadedData.bind(this);
     }
 
     componentDidMount() {
@@ -59,7 +60,7 @@ class App extends React.Component {
     }
 
     // Set new state from Settings and send to DB update request
-    setNewState(newState) {
+    setNewStateFromSettings(newState) {
         this.setState({
             weight: newState.weight,
             weekdaysWakeUp: newState.weekdaysWakeUp,
@@ -67,6 +68,20 @@ class App extends React.Component {
             weekendsWakeUp: newState.weekendsWakeUp,
             weekendsGoTOSleep: newState.weekendsGoTOSleep
         }, () =>  ApiManager.updateDataFromSettings(this.state));
+    }
+
+    // Set new state from Loaded Data
+    setNewStateFromLoadedData(loadedData) {
+        if (loadedData) {
+            this.setState({
+                weight: loadedData.weight,
+                weekdaysWakeUp: loadedData.weekdays_wake_time,
+                weekdaysGoTOSleep: loadedData.weekdays_sleep_time,
+                weekendsWakeUp: loadedData.weekends_wake_time,
+                weekendsGoTOSleep: loadedData.weekends_sleep_time,
+                lastWaterIntake: loadedData.last_water_intake,
+            }, ()=>console.log(this.state));
+        }
     }
 
     render() {
@@ -87,7 +102,7 @@ class App extends React.Component {
 
                 <Route exact path="/settings" render={(props) => (
                     <Settings {...props}
-                              setNewState={this.setNewState}/>
+                              setNewStateFromSettings={this.setNewStateFromSettings}/>
                 )}/>
                 <Route exact path="/main" render={(props) => (
                     <Main {...props} fetchedUser={this.state.fetchedUser}/>
@@ -95,7 +110,9 @@ class App extends React.Component {
                 <Route exact path="/info" component={Info}/>
 
                 <Route exact path="/" render={(props) => (
-                    <Loader {...props} fetchedUser={this.state.fetchedUser}/>
+                    <Loader {...props}
+                            fetchedUser={this.state.fetchedUser}
+                            setNewStateFromLoadedData={this.setNewStateFromLoadedData}/>
                 )}/>
             </Switch>
         );
