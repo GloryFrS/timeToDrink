@@ -1,8 +1,8 @@
 import React from 'react';
 import Loading from "../img/loading.gif";
 import './Loader.css';
-import axios from "axios";
 import {Redirect} from "react-router-dom";
+import ApiManager from "../api/ApiManager";
 
 class Loader extends React.Component {
 
@@ -11,23 +11,16 @@ class Loader extends React.Component {
         this.state = {
             redirectTo: null,
         };
+        this.setRedirect = this.setRedirect.bind(this);
     }
 
-    loadUserInfo(id) {
-        axios.get(`http://timetodrink/api/user/read.php`, {params: {id: id}})
-            .then(res => {
-                this.setState({redirectTo: '/main'});
-                console.log(res);
-            })
-            .catch(error => {
-                this.setState({redirectTo: "/start"}, () => console.log(this.state.redirectTo));
-                console.log(error.response.status);
-                console.log(error.response.data.message);
-            })
+    setRedirect(newRedirect) {
+        this.setState({redirectTo: newRedirect}, () => console.log(this.state.redirectTo));
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (nextProps.fetchedUser) this.loadUserInfo(nextProps.fetchedUser.id);
+        // if (nextProps.fetchedUser) this.loadUserInfo(nextProps.fetchedUser.id);
+        if (nextProps.fetchedUser) ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.setRedirect);
     }
 
     render() {

@@ -2,9 +2,8 @@ import React from 'react';
 import connect from '@vkontakte/vkui-connect-mock';
 import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
-import axios from "axios";
 
-
+import ApiManager from "./api/ApiManager";
 import Main from './components/Main';
 import Start from './components/Start';
 import SecondTraining from "./components/SecondTraining";
@@ -26,9 +25,9 @@ class App extends React.Component {
             weekendsGoTOSleep: null,
             lastWaterIntake: null,
         };
-        this.updateWeight = this.updateWeight.bind(this);
-        this.updateStateAndRegisterUser = this.updateStateAndRegisterUser.bind(this);
-        this.updateParameters = this.updateParameters.bind(this);
+        this.setWeight = this.setWeight.bind(this);
+        this.setStateAndRegisterUser = this.setStateAndRegisterUser.bind(this);
+        this.setNewState = this.setNewState.bind(this);
     }
 
     componentDidMount() {
@@ -44,64 +43,30 @@ class App extends React.Component {
         connect.send('VKWebAppGetUserInfo', {});
     }
 
-    updateWeight(event) {
-        this.setState({weight: event.target.value}, () => console.log(this.state));
+    // Set new state weight
+    setWeight(event) {
+        this.setState({weight: event.target.value});
     }
 
-    updateStateAndRegisterUser(times) {
+    // Set new state and send to DB create request
+    setStateAndRegisterUser(times) {
         this.setState({
             weekdaysWakeUp: times.weekdaysWakeUp,
             weekdaysGoTOSleep: times.weekdaysGoTOSleep,
             weekendsWakeUp: times.weekendsWakeUp,
-            weekendsGoTOSleep: times.weekendsGoTOSleep
-        }, this.registerUser);
+            weekendsGoTOSleep: times.weekendsGoTOSleep,
+        }, () => ApiManager.registerUser(this.state));
     }
 
-    updateParameters(newParameters) {
+    // Set new state from Settings and send to DB update request
+    setNewState(newState) {
         this.setState({
-            weight: newParameters.weight,
-            weekdaysWakeUp: newParameters.weekdaysWakeUp,
-            weekdaysGoTOSleep: newParameters.weekdaysGoTOSleep,
-            weekendsWakeUp: newParameters.weekendsWakeUp,
-            weekendsGoTOSleep: newParameters.weekendsGoTOSleep
-        });
-    }
-
-    registerUser() {
-        const data = {
-            id: this.state.fetchedUser.id,
-            weight: this.state.weight,
-            weekdays_wake_time: this.state.weekdaysWakeUp,
-            weekdays_sleep_time: this.state.weekdaysGoTOSleep,
-            weekends_wake_time: this.state.weekendsWakeUp,
-            weekends_sleep_time: this.state.weekendsGoTOSleep,
-            last_water_intake: this.state.lastWaterIntake,
-        };
-        axios.post(`http://timetodrink/api/user/create.php`, data)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(error => {
-                console.log(error.response.status);
-                console.log(error.response.data.message);
-            })
-
-        // axios({
-        //     method: 'POST',
-        //     url: `http://timetodrink/api/user/create.php`,
-        //     data: data,
-        //     header: {
-        //         'Content-Type': 'application/json',
-        //         //'Access-Control-Request-Headers': 'X-Custom-Header',
-        //     }
-        // })
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(error => {
-        //         console.log(error.response.status);
-        //         console.log(error.response.data.message);
-        //     })
+            weight: newState.weight,
+            weekdaysWakeUp: newState.weekdaysWakeUp,
+            weekdaysGoTOSleep: newState.weekdaysGoTOSleep,
+            weekendsWakeUp: newState.weekendsWakeUp,
+            weekendsGoTOSleep: newState.weekendsGoTOSleep
+        }, () =>  ApiManager.updateDataFromSettings(this.state));
     }
 
     render() {
@@ -111,18 +76,18 @@ class App extends React.Component {
                     <Start {...props} fetchedUser={this.state.fetchedUser}/>
                 )}/>
                 <Route exact path="/first-training" render={(props) => (
-                    <FirstTraining {...props} updateWeight={this.updateWeight}/>
+                    <FirstTraining {...props} updateWeight={this.setWeight}/>
                 )}/>
                 <Route exact path="/second-training" render={(props) => (
                     <SecondTraining {...props}
                                     fetchedUser={this.state.fetchedUser}
                                     userWeight={this.state.weight}
-                                    updateStateAndRegisterUser={this.updateStateAndRegisterUser}/>
+                                    updateStateAndRegisterUser={this.setStateAndRegisterUser}/>
                 )}/>
 
                 <Route exact path="/settings" render={(props) => (
                     <Settings {...props}
-                              updateParameters={this.updateParameters}/>
+                              updateParameters={this.setNewState}/>
                 )}/>
                 <Route exact path="/main" render={(props) => (
                     <Main {...props} fetchedUser={this.state.fetchedUser}/>

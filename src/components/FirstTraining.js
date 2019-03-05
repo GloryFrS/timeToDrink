@@ -14,7 +14,7 @@ class FirstTraining extends React.Component {
 
     onChange = (event) => {
         if (event.target.value !== '') {
-            this.props.updateWeight(event);
+            this.props.setWeight(event);
             this.setState({
                 dataIsCorrect: true,
                 theAmountOfWater: <h2>Чтобы быть здоровым, тебе необходимо пить {(event.target.value * Params.WATER_PER_KILOGRAM).toFixed(1)} л воды каждый день.</h2>

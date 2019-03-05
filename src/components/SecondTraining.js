@@ -23,7 +23,7 @@ class SecondTraining extends React.Component {
     checkAndRegisterUser = (event) => {
         const times = this.getTimes();
         if (!times.dataIsCorrect) {
-            this.props.updateStateAndRegisterUser(times);
+            this.props.setStateAndRegisterUser(times);
         } else {
             event.preventDefault();
         }
