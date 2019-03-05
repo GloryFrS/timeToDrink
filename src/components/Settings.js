@@ -34,7 +34,7 @@ class Settings extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/'>
+                <Link to='/main'>
                     <img src={BackIcon} width='25px' alt=''/>
                 </Link>
                 <Link to='/info'>
@@ -42,7 +42,8 @@ class Settings extends React.Component {
                 </Link>
                 <br/>
                 <p>Укажите свой актуальный вес:</p>
-                <input type="number" min="1" max="250" id="userWeight" onChange={this.onChange}/>
+                <input type="number" min="1" max="250" id="weight" onChange={this.onChange}/>
+                <br/>
                 <div style={{display: 'inline'}}>
                     <span>По будням я просыпаюсь в </span>
                     <input type="time" id="weekdays-time-wake-up"/>
@@ -57,7 +58,7 @@ class Settings extends React.Component {
                     <input type="time" id="weekends-time-go-to-sleep"/>
                 </div>
                 <br/>
-                <Link to='/' onClick={this.checkAndUpdateParameters} >Сохранить</Link>
+                <Link to='/main' onClick={this.checkAndUpdateParameters} >Сохранить</Link>
             </div>
         )
     };

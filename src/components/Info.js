@@ -7,7 +7,7 @@ class Info extends React.Component {
     render() {
         return (
             <div>
-                <Link to='/'>
+                <Link to='/main'>
                     <img width='25px' src={BackIcon} alt=''/>
                 </Link>
                 <br/>

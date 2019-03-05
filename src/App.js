@@ -76,18 +76,18 @@ class App extends React.Component {
                     <Start {...props} fetchedUser={this.state.fetchedUser}/>
                 )}/>
                 <Route exact path="/first-training" render={(props) => (
-                    <FirstTraining {...props} updateWeight={this.setWeight}/>
+                    <FirstTraining {...props} setWeight={this.setWeight}/>
                 )}/>
                 <Route exact path="/second-training" render={(props) => (
                     <SecondTraining {...props}
                                     fetchedUser={this.state.fetchedUser}
-                                    userWeight={this.state.weight}
-                                    updateStateAndRegisterUser={this.setStateAndRegisterUser}/>
+                                    weight={this.state.weight}
+                                    setStateAndRegisterUser={this.setStateAndRegisterUser}/>
                 )}/>
 
                 <Route exact path="/settings" render={(props) => (
                     <Settings {...props}
-                              updateParameters={this.setNewState}/>
+                              setNewState={this.setNewState}/>
                 )}/>
                 <Route exact path="/main" render={(props) => (
                     <Main {...props} fetchedUser={this.state.fetchedUser}/>

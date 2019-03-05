@@ -22,13 +22,11 @@ const Start = ({fetchedUser}) => {
                 </div>
 
                 <h2 className='addition-second'>Сервис “Время пить воду” поможет тебе стать более здоровым.</h2>
-                <Link to="/first-training" onClick={go} data-to="main" className="button-start">Начнем!</Link>
+                <Link to="/first-training" data-to="main" className="button-start">Начнем!</Link>
             </div>
         </div>
     );
 };
-
-const go = () => console.log('kek');
 
 Start.propTypes = {
     fetchedUser: PropTypes.shape({

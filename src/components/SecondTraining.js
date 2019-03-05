@@ -33,7 +33,7 @@ class SecondTraining extends React.Component {
         return (
             <div>
                 <h2 className='addition-first'>
-                    {this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}, {(this.props.weight ? this.props.weight : 70) * Params.WATER_PER_KILOGRAM} л
+                    {this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}, {((this.props.weight ? this.props.weight : 70) * Params.WATER_PER_KILOGRAM).toFixed(1)} л
                     это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость
                     выпить
                     жидкости.
