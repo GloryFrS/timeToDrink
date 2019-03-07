@@ -1,0 +1,68 @@
+.user-name {
+    color: white;
+    font-family: GothamPro;
+    line-height: 30px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.wakeup-text {
+    color: white;
+    font-family: GothamPro;
+    line-height: 19px;
+    font-size: 17px;
+    padding-left: 45px;
+    padding-right: 45px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.wake-time {
+    display: block;
+    font-family: GothamPro;
+    line-height: 17px;
+    font-size: 15px;
+    color: white;
+    padding-left: 45px;
+    text-align: center;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+.time-to-wakesleep {
+    position: relative;
+    margin: auto;
+}
+
+.time-to-wake {
+    background: white;
+    border-radius: 49px;
+    border: 0;
+    width: 154px;
+    height: 51px;
+    outline: none;
+    font-family: GothamPro;
+    line-height: 20px;
+    font-size: 18px;
+    color: #4848F4;
+    font-weight: bold;
+    position: absolute;
+    left: 40%;
+}
+
+.time-to-sleep {
+    background: white;
+    border-radius: 49px;
+    border: 0;
+    width: 154px;
+    height: 51px;
+    outline:  none;
+    font-family: GothamPro;
+    line-height: 20px;
+    font-size: 18px;
+    color: #4848F4;
+    font-weight: bold;
+    position: absolute;
+    left: 55%;
+
+}

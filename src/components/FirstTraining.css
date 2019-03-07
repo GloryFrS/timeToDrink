@@ -1,0 +1,96 @@
+body {
+    height: 100%;
+    background: url("../img/Ellipse-1.svg") 22% 86% no-repeat fixed,
+    url("../img/Ellipse-2.svg") 25% 74% no-repeat fixed,
+    url("../img/Ellipse-3.svg") 20% 61% no-repeat fixed,
+    url("../img/Ellipse-4.svg") 50% 90% no-repeat fixed,
+    url("../img/Ellipse-5.svg") 68% 73% no-repeat fixed,
+    url("../img/Ellipse-6.svg") 90% 55% no-repeat fixed,
+    url("../img/Ellipse-7.svg") 85% 81% no-repeat fixed,
+    url("../img/Ellipse-8.svg") 30% 66% no-repeat fixed,
+    url("../img/Ellipse-1.svg") 50% 45% no-repeat fixed,
+    url("../img/Ellipse-13.svg") 53% 40% no-repeat fixed,
+    #4848F4  no-repeat fixed;
+
+    animation: bobble 20s linear infinite;
+    -webkit-animation: bobble 20s linear infinite;
+
+    margin: 0;
+    background-size: auto, auto, auto,auto,auto,auto,auto,auto, auto, auto, cover;
+}
+
+
+@keyframes bobble {
+    from { background-position: 22% 86%, 25% 74%, 20% 61%, 50% 90%, 68% 73%, 90% 55%, 85% 81%, 30% 66%, 50% 45%, 53% 40%, 0 0;}
+    to { background-position: 20% -10%, 23% -10%, 28% -10%, 45% -10%, 65% -10%, 83% -10%, 90% -10%, 35% -10%, 55% -10%, 58% -10%, 0 0;}
+}
+@-webkit-keyframes bobble {
+    from { background-position: 22% 86%, 25% 74%, 20% 61%, 50% 90%, 68% 73%, 90% 55%, 85% 81%, 30% 66%, 50% 45%, 53% 40%, 0 0;}
+    to { background-position: 22% 86%, 25% 74%, 20% 61%, 50% 90%, 68% 73%, 90% 55%, 85% 81%, 30% 66%, 50% 45%, 53% 40%, 0 0;}
+}
+
+@font-face {
+    font-family: GothamPro;
+    src: url("../fonts/GothamPro.ttf");
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -moz-appearance: textfield;
+}
+
+.addition-first {
+    color: white;
+    font-family: GothamPro;
+    line-height: 22px;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 154px;
+    padding-right: 45px;
+    padding-left: 45px;
+}
+
+.enter-weight {
+    line-height: 22px;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+    font-family: GothamPro;
+    padding-top: 52px;
+}
+
+.weight {
+    background: white;
+    border-radius: 52px;
+    width: 246px;
+    height: 58px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    outline: none;
+    border: 0;
+    font-family: GothamPro;
+    line-height: 20px;
+    font-size: 18px;
+    color: #4848F4;
+    font-weight: bold;
+}
+
+.drink-water {
+    color: white;
+    font-family: GothamPro;
+    line-height: 22px;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 52px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
