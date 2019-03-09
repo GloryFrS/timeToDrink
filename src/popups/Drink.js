@@ -1,6 +1,8 @@
 import React from "react";
 import Popup from "reactjs-popup";
 import './Drink.css';
+//import ApiManager from "../api/ApiManager";
+
 
 const contentStyle = {
     maxWidth: "600px",
@@ -38,7 +40,7 @@ export default () => (
                     <label className="amount-cc ml300" htmlFor="ml300"/>
                     <input id="ml400" type="radio" name="select-amount" value="ml400"/>
                     <label className="amount-cc ml400" htmlFor="ml400"/>
-                    <input id="ml500" type="radio" name="select-amount" value="ml500"/>
+                    <input id="ml500" type="radio" name="select-amount" value="ml500" />
                     <label className="amount-cc ml500" htmlFor="ml500"/>
                 </div>
                 <Popup
@@ -46,10 +48,14 @@ export default () => (
                     modal
                     closeOnDocumentClick
                     contentStyle={contentStyle}
+                    onOpen={()=>{
+                        //const amount = document.querySelector('input[name="select-amount"]:checked').value;
+                        //this.props.updateLastWaterIntake(ApiManager.updateLastWaterIntake(this.props.state, amount));
+                    }}
                     onClose={close}>
                     <div onClick={close}>
                         <h1>Прекрасно!</h1>
-                        <p>Следующий прием пищи через:</p>
+                        <p>Следующий прием воды через:</p>
                         <h2>02:40:55</h2>
                     </div>
                 </Popup>

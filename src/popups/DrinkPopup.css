@@ -1,0 +1,98 @@
+
+.drink-popup-container {
+    background: #fff;
+    padding: 1%;
+    width: 40%;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+    cursor: default;
+    z-index: 10001;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
+/* Все накопировал*/
+/* пример можешь глянуть по ссылке http://jsfiddle.net/La8wQ/22/    там понятнее!*/
+
+/* ВЫБОР НАПИТКА*/
+.cc-selector-drink input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+
+.water{background-image: url('../img/water.png');}
+.juice{background-image: url('../img/water.png');}
+.tea{background-image: url('../img/water.png');}
+.coffee{background-image: url('../img/water.png');}
+
+.cc-selector-drink input:active +.drink-cc{opacity: .9;}
+.cc-selector-drink input:checked +.drink-cc{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+
+.drink-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.drink-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* ВЫБОР КОЛИЧЕСТВА*/
+
+.cc-selector-amount input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+
+.ml200{background-image: url('../img/amount-water.jpg');}
+.ml300{background-image: url('../img/amount-water.jpg');}
+.ml400{background-image: url('../img/amount-water.jpg');}
+.ml500{background-image: url('../img/amount-water.jpg');}
+
+.cc-selector-amount input:active +.amount-cc{opacity: .9;}
+.cc-selector-amount input:checked +.amount-cc{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+
+.amount-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+
+.amount-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+}

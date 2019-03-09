@@ -9,7 +9,7 @@ class FirstTraining extends React.Component {
         super(props);
         this.state = {
             dataIsCorrect: false,
-            theAmountOfWater: <br/>
+            theAmountOfWater: <br/>,
         }
     }
 
