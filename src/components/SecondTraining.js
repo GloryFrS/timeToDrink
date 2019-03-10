@@ -32,27 +32,27 @@ class SecondTraining extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2 className='addition-first'>
-                    <p className='user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</p><br/> {getAmountOfWater(this.props.weight)} л
+            <div className='secondtraining-container'>
+                <h2 className='secondtraining-addition-first'>
+                    <p className='secondtraining-user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</p><br/> {getAmountOfWater(this.props.weight)} л
                     это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость выпить жидкости
                 </h2>
 
-                <div style={{display: 'inline'}}>
-                    <p className='wakeup-text'>В будние дни:</p>
-                    <span className='wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
-                    <div className='time-to-wakesleep'><input type="time" id="weekdays-time-wake-up" className='time-to-wake'/>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="time" id="weekdays-time-go-to-sleep" className='time-to-sleep'/></div>
+                <div className='secondtraining-container-info' style={{display: 'inline'}}>
+                    <p className='secondtraining-wakeup-text'>В будние дни:</p>
+                    <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
+                    <div className='secondtraining-time-to-wake-sleep'><input type="time" id="weekdays-time-wake-up" className='secondtraining-time-to-wake-up'/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="time" id="weekdays-time-go-to-sleep" className='secondtraining-time-to-sleep'/></div>
                 </div>
                 <br/>
                 <div style={{display: 'inline'}}>
-                    <span>По будням я просыпаюсь в </span>
-                    <input type="time" id="weekends-time-wake-up"/>
-                    <span> и засыпаю в </span>
-                    <input type="time" id="weekends-time-go-to-sleep"/>
-                </div>
+                    <p className='secondtraining-wakeup-text'>В выходные дни:</p>
+                    <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
+                    <div className='secondtraining-time-to-wake-sleep'><input type="time" id="weekends-time-wake-up" className='secondtraining-time-to-wake-up'/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="time" id="weekends-time-go-to-sleep" className='secondtraining-time-to-sleep'/></div>
+                    </div>
                 <br/>
-                <Link id='link' to='/main' onClick={this.checkAndRegisterUser.bind(this)} >Начнем</Link>
+                <Link id='link' to='/main' className='secondtraining-button-start' onClick={this.checkAndRegisterUser.bind(this)} >Начать больше пить</Link>
             </div>
         )
     };

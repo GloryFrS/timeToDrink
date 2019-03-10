@@ -9,7 +9,9 @@ h1, h2, img, button, img {
     text-align: center;
 }
 
-.body-container {
+.start-body-container {
+    overflow: auto;
+    height: 100%;
     position: relative;
     background: url("../img/background_start_cloud_3.svg") 100% 0 no-repeat fixed,
     url("../img/background_start_cloud_4.svg") 80% 0 no-repeat fixed,
@@ -35,7 +37,7 @@ h1, h2, img, button, img {
 
     background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, cover, 60%, 35%, auto, auto, auto, auto, cover;
     margin: 0;
-    height: 100%;
+
 
 }
 
@@ -50,7 +52,7 @@ h1, h2, img, button, img {
 
 
 
-.container-info {
+.start-container-info {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,7 +61,7 @@ h1, h2, img, button, img {
     margin: auto;
 }
 
-.user-name {
+.start-user-name {
     margin-top: 84px;
     color: #4848F4;
     font-family: GothamPro;
@@ -68,7 +70,7 @@ h1, h2, img, button, img {
     text-align: center;
 }
 
-.addition-first {
+.start-addition-first {
     color: rgb(65, 61, 61);
     margin-top: 10px;
     font-family: GothamPro;
@@ -77,20 +79,20 @@ h1, h2, img, button, img {
     text-align: center;
 }
 
-.user-photo-container {
+.start-user-photo-container {
     position: relative;
     width: 100%;
     height: 300px;
 }
 
-.water-drop {
+.start-water-drop {
     position: absolute;
     left: 50%;
     margin-left: -86px;
     bottom: 0;
 }
 
-.user-photo {
+.start-user-photo {
     position: absolute;
     left: 50%;
     margin-left: -62.3px;
@@ -103,7 +105,7 @@ h1, h2, img, button, img {
 }
 
 
-.addition-second {
+.start-addition-second {
     color: white;
     width: 40%;
     margin-top: 20px;
@@ -113,7 +115,7 @@ h1, h2, img, button, img {
     text-align: center;
 }
 
-.button-start {
+.start-button-start {
     font-family: GothamPro;
     line-height: 57px; /*спросить*/
     font-size: 20px;
@@ -129,5 +131,6 @@ h1, h2, img, button, img {
     height: 64px;
     cursor: pointer;
     margin: 19px auto auto;
+    /*padding-bottom: 50px;*/
     margin-bottom: 50px;
 }

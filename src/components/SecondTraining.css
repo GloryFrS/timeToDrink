@@ -1,4 +1,56 @@
-.user-name {
+
+.secondtraining-container {
+    overflow: auto;
+    height: 100vh;
+    background: url("../img/Ellipse-1.svg") 22% 86% no-repeat fixed,
+    url("../img/Ellipse-2.svg") 25% 74% no-repeat fixed,
+    url("../img/Ellipse-3.svg") 20% 61% no-repeat fixed,
+    url("../img/Ellipse-4.svg") 50% 90% no-repeat fixed,
+    url("../img/Ellipse-5.svg") 68% 73% no-repeat fixed,
+    url("../img/Ellipse-6.svg") 90% 55% no-repeat fixed,
+    url("../img/Ellipse-7.svg") 85% 81% no-repeat fixed,
+    url("../img/Ellipse-8.svg") 30% 66% no-repeat fixed,
+    url("../img/Ellipse-1.svg") 50% 45% no-repeat fixed,
+    url("../img/Ellipse-13.svg") 53% 40% no-repeat fixed,
+    #4848F4  no-repeat fixed;
+
+    animation: bobble 20s linear infinite;
+    -webkit-animation: bobble 20s linear infinite;
+
+    margin: 0;
+    background-size: auto, auto, auto,auto,auto,auto,auto,auto, auto, auto, cover;
+}
+
+
+@keyframes bobble {
+    from { background-position: 22% 86%, 25% 74%, 20% 61%, 50% 90%, 68% 73%, 90% 55%, 85% 81%, 30% 66%, 50% 45%, 53% 40%, 0 0;}
+    to { background-position: 20% -10%, 23% -10%, 28% -10%, 45% -10%, 65% -10%, 83% -10%, 90% -10%, 35% -10%, 55% -10%, 58% -10%, 0 0;}
+}
+@-webkit-keyframes bobble {
+    from { background-position: 22% 86%, 25% 74%, 20% 61%, 50% 90%, 68% 73%, 90% 55%, 85% 81%, 30% 66%, 50% 45%, 53% 40%, 0 0;}
+    to { background-position: 22% 86%, 25% 74%, 20% 61%, 50% 90%, 68% 73%, 90% 55%, 85% 81%, 30% 66%, 50% 45%, 53% 40%, 0 0;}
+}
+
+@font-face {
+    font-family: GothamPro;
+    src: url("../fonts/GothamPro.ttf");
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+    -moz-appearance: textfield;
+}
+
+
+.secondtraining-user-name {
     color: white;
     font-family: GothamPro;
     line-height: 30px;
@@ -6,7 +58,21 @@
     text-align: center;
 }
 
-.wakeup-text {
+.secondtraining-addition-first {
+    color: white;
+    font-family: GothamPro;
+    line-height: 22px;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 154px;
+    padding-right: 45px;
+    padding-left: 45px;
+}
+
+
+
+.secondtraining-wakeup-text {
+
     color: white;
     font-family: GothamPro;
     line-height: 19px;
@@ -15,9 +81,10 @@
     padding-right: 45px;
     text-align: center;
     font-weight: bold;
+
 }
 
-.wake-time {
+.secondtraining-wake-time {
     display: block;
     font-family: GothamPro;
     line-height: 17px;
@@ -25,44 +92,65 @@
     color: white;
     padding-left: 45px;
     text-align: center;
-    padding-left: 45px;
     padding-right: 45px;
 }
 
-.time-to-wakesleep {
-    position: relative;
-    margin: auto;
+.secondtraining-time-to-wake-sleep {
+    text-align: center;
 }
 
-.time-to-wake {
+.secondtraining-time-to-wake-up {
+    text-align: center;
     background: white;
     border-radius: 49px;
     border: 0;
-    width: 154px;
-    height: 51px;
+    width: 88px;
+    height: 40px;
     outline: none;
     font-family: GothamPro;
     line-height: 20px;
     font-size: 18px;
     color: #4848F4;
     font-weight: bold;
-    position: absolute;
-    left: 40%;
+    display:inline-block;
+    vertical-align: middle;
+
 }
 
-.time-to-sleep {
+.secondtraining-time-to-sleep {
+    text-align: center;
     background: white;
     border-radius: 49px;
     border: 0;
-    width: 154px;
-    height: 51px;
+    width: 88px;
+    height: 40px;
     outline:  none;
     font-family: GothamPro;
     line-height: 20px;
     font-size: 18px;
     color: #4848F4;
     font-weight: bold;
-    position: absolute;
-    left: 55%;
+    display:inline-block;
+    vertical-align: middle;
 
+}
+
+
+.secondtraining-button-start {
+    font-family: GothamPro;
+    line-height: 57px; /*спросить*/
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color: white;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 56px;
+    background: rgba(5, 9, 7, 0);
+    width: 246px;
+    height: 64px;
+    cursor: pointer;
+    margin: 19px auto auto;
+    margin-bottom: 50px;
 }

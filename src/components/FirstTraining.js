@@ -18,7 +18,7 @@ class FirstTraining extends React.Component {
             this.props.setWeight(event);
             this.setState({
                 dataIsCorrect: true,
-                theAmountOfWater: <h2 className="drink-water">Чтобы быть здоровым, тебе необходимо пить {getAmountOfWater(event.target.value )} л воды каждый день</h2>
+                theAmountOfWater: <h2 className="firsttraining-drink-water">Чтобы быть здоровым, тебе необходимо пить {getAmountOfWater(event.target.value )} л воды каждый день</h2>
             });
         } else  {
             this.setState({dataIsCorrect: false});
@@ -28,14 +28,14 @@ class FirstTraining extends React.Component {
     render() {
 
         return (
-            <div id="second-training-container">
-                <h2 className='addition-first'>Для того, чтобы вычислить твою суточную норму жидкости, укажи свой
+            <div  className='firsttraining-container'>
+                <h2 className='firsttraining-addition-first'>Для того, чтобы вычислить твою суточную норму жидкости, укажи свой
                     вес.</h2>
-                <p className='enter-weight'>Введите свой вес:</p>
-                <input type="number" min="1" max="250" id="weight" onChange={this.onChange} className='weight'/>
+                <p className='firsttraining-enter-weight'>Введите свой вес:</p>
+                <input type="number" min="1" max="250" id="weight" onChange={this.onChange} className='firsttraining-weight'/>
                 <br/>
                 {this.state.theAmountOfWater}
-                <Link to="/second-training" className="button-start" onClick={e => {if(!this.state.dataIsCorrect) e.preventDefault()} }>Начнем</Link>
+                <Link to="/second-training" className="firsttraining-button-start" onClick={e => {if(!this.state.dataIsCorrect) e.preventDefault()} }>Начнем</Link>
             </div>
         );
     }

@@ -1,5 +1,9 @@
-body {
-    height: 100%;
+
+
+.firsttraining-container {
+    overflow: auto;
+
+    height: 100vh;
     background: url("../img/Ellipse-1.svg") 22% 86% no-repeat fixed,
     url("../img/Ellipse-2.svg") 25% 74% no-repeat fixed,
     url("../img/Ellipse-3.svg") 20% 61% no-repeat fixed,
@@ -47,7 +51,7 @@ input[type="number"]:focus {
     -moz-appearance: textfield;
 }
 
-.addition-first {
+.firsttraining-addition-first {
     color: white;
     font-family: GothamPro;
     line-height: 22px;
@@ -58,7 +62,7 @@ input[type="number"]:focus {
     padding-left: 45px;
 }
 
-.enter-weight {
+.firsttraining-enter-weight {
     line-height: 22px;
     font-size: 15px;
     text-align: center;
@@ -67,7 +71,7 @@ input[type="number"]:focus {
     padding-top: 52px;
 }
 
-.weight {
+.firsttraining-weight {
     background: white;
     border-radius: 52px;
     width: 246px;
@@ -84,7 +88,7 @@ input[type="number"]:focus {
     font-weight: bold;
 }
 
-.drink-water {
+.firsttraining-drink-water {
     color: white;
     font-family: GothamPro;
     line-height: 22px;
@@ -93,4 +97,23 @@ input[type="number"]:focus {
     padding-top: 52px;
     padding-left: 45px;
     padding-right: 45px;
+}
+
+.firsttraining-button-start {
+    font-family: GothamPro;
+    line-height: 57px; /*спросить*/
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color: white;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 56px;
+    background: rgba(5, 9, 7, 0);
+    width: 246px;
+    height: 64px;
+    cursor: pointer;
+    margin: 19px auto auto;
+    margin-bottom: 50px;
 }
