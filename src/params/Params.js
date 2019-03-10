@@ -1,5 +1,6 @@
 export const Params = {
-    WATER_PER_KILOGRAM: 0.03
+    WATER_PER_KILOGRAM: 0.03,
+    TIME_BETWEEN_WATER_INTAKES: 7200   // in seconds = 2 hours
 };
 
 export const formatDate = date =>{
@@ -27,3 +28,17 @@ export const secondsToTime = totalSeconds => {
     const seconds = totalSeconds % 60;
     return formatNull(hours)+ ':' + formatNull(minutes )+ ':' + formatNull(seconds);
 };
+
+export const diffDatesInSeconds = (date1, date2 = new Date()) => {
+    date1 = new Date(date1);
+    const diff = (date2.getTime() - date1.getTime()) / 1000;
+    return diff > 0 ? diff.toFixed(0) : (diff * -1).toFixed(0);
+};
+
+export const getTimeUntilTheNextWaterIntake = date => {
+    const diff = parseInt(diffDatesInSeconds(date), 10);
+    console.log(diffDatesInSeconds(date));
+    console.log(diff >= Params.TIME_BETWEEN_WATER_INTAKES ? 0 : Params.TIME_BETWEEN_WATER_INTAKES - diff);
+    return diff >= Params.TIME_BETWEEN_WATER_INTAKES ? 0 : Params.TIME_BETWEEN_WATER_INTAKES - diff;
+};
+

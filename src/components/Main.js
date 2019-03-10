@@ -3,9 +3,10 @@ import {Link} from "react-router-dom";
 import DrinkPopup from '../popups/DrinkPopup'
 import InfoIcon from "../img/info.png";
 import SettingsIcon from "../img/settings.png";
-import {dateIsToday, getAmountOfWater, Params} from "../params/Params";
+import {dateIsToday, getAmountOfWater, getTimeUntilTheNextWaterIntake} from "../params/Params";
 import Timer from "./Timer";
 import "./Main.css";
+import WellDonePopup from "../popups/WellDonePopup";
 
 class Main extends React.Component {
     constructor(props) {
@@ -15,16 +16,24 @@ class Main extends React.Component {
             newAmountOfWaterPerDay: null,
             updatedData: null,
             drinkPopupIsVisible: false,
+            wellDonePopupIsVisible: false,
         };
         this.updateLastWaterIntake = this.updateLastWaterIntake.bind(this);
         this.changeDrinkPopupVisibility = this.changeDrinkPopupVisibility.bind(this);
+        this.changeWellDonePopupVisibility = this.changeWellDonePopupVisibility.bind(this);
+
     }
 
     updateLastWaterIntake = (updatedData) => {
         if (updatedData) {
             this.setState({updatedData: updatedData}, () => this.props.setNewStateAfterDrinking(this.state.updatedData));
             this.changeDrinkPopupVisibility();
+            this.changeWellDonePopupVisibility();
         }
+    };
+
+    changeWellDonePopupVisibility() {
+        this.setState({wellDonePopupIsVisible: !this.state.wellDonePopupIsVisible});
     };
 
     changeDrinkPopupVisibility() {
@@ -38,9 +47,12 @@ class Main extends React.Component {
             />
             : "";
 
+        let wellDonePopup = this.state.wellDonePopupIsVisible ?
+            <WellDonePopup changeWellDonePopupVisibility={this.changeWellDonePopupVisibility}/>: "";
+
         let amountOfWaterDrinkingToday = dateIsToday(this.props.state.lastWaterIntake) && this.props.state.amountOfWaterPerDay
             ? this.props.state.amountOfWaterPerDay : 0;
-        console.log(((this.props.state.weight ? this.props.state.weight : 70) * Params.WATER_PER_KILOGRAM).toFixed(1));
+
         return (
             <div>
                 <Link to='/settings'>
@@ -50,10 +62,13 @@ class Main extends React.Component {
                     <img src={InfoIcon} width='25px' alt=''/>
                 </Link>
                 <br/>
-                <img className='user-photo'
-                     src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
-                     alt=""/>
-                <h2 className='addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
+                <div>
+                    <img className='user-photo'
+                         src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
+                         alt="..."/>
+                    <h2 className='addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
+                </div>
+
                 <Link to="/start">Start</Link>
                 <br/>
                 <button onClick={this.changeDrinkPopupVisibility}>Водички ебануть</button>
@@ -61,15 +76,15 @@ class Main extends React.Component {
                     <div >
                         <h2>Вы выпили сегодня</h2>
                         <br/>
-                        <h1>{amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h1>
+                        <h2>{amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h2>
                     </div>
                     <div >
                         <h2>Прием воды через</h2>
-                        <br/>
-                        <Timer seconds={1000}/>
+                        <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>
                     </div>
                 </div>
                 {drinkPopup}
+                {wellDonePopup}
             </div>
         )
     }

@@ -78,7 +78,7 @@ class ApiManager {
     };
 
     static updateLastWaterIntake(state, amountOfWater, changeUpdatedData) {
-        amountOfWater = 0.001 * parseFloat(amountOfWater);
+        amountOfWater = 0.001 * parseInt(amountOfWater, 10);
         const today = new Date();
 
 
@@ -108,7 +108,7 @@ class ApiManager {
                 changeUpdatedData(null);
                 const updatedData = {
                     lastWaterIntake: todayFormat,
-                    amountOfWaterPerDay: amountOfWater,
+                    amountOfWaterPerDay: parseFloat(amountOfWater.toFixed(1)),
                 };
                 changeUpdatedData(updatedData);
             })

@@ -3,6 +3,8 @@ import './Start.css'
 import {secondsToTime} from "../params/Params";
 
 class Timer extends React.Component {
+    _isMounted = false;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -11,19 +13,31 @@ class Timer extends React.Component {
     };
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (nextProps.seconds) {
-            this.setState({seconds: nextProps.seconds}, this.startTimer)
-        }
+        this.setNewStateAndClearInterval(nextProps);
     };
+
+    componentDidMount() {
+        this._isMounted = true;
+        this.setNewStateAndClearInterval(this.props);
+    }
 
     startTimer() {
-        this.timer = setInterval(() => this.setState({
-            seconds: this.state.seconds !== 0 ? this.state.seconds - 1 : this.state.seconds
-        }), 1000);
+        this.timer = setInterval(() => {
+            if (this._isMounted) this.setState({
+                seconds: this.state.seconds !== 0 ? this.state.seconds - 1 : this.state.seconds
+            })}, 1000);
     };
 
+    setNewStateAndClearInterval(newState) {
+        if (newState.seconds) {
+            if (this.timer) clearInterval(this.timer);
+            this.setState({seconds: newState.seconds}, this.startTimer)
+        }
+    }
+
     componentWillUnmount() {
-        clearInterval(this.timer)
+        this._isMounted = false;
+        clearInterval(this.timer);
     };
 
     render() {
