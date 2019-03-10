@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import DrinkPopup from '../popups/DrinkPopup'
 import InfoIcon from "../img/info.png";
 import SettingsIcon from "../img/settings.png";
-import {dateIsToday, Params} from "../params/Params";
+import {dateIsToday, getAmountOfWater, Params} from "../params/Params";
 
 class Main extends React.Component {
     constructor(props) {
@@ -56,7 +56,7 @@ class Main extends React.Component {
                 <div className="bottom_block">
                     <h1>Вы выпили сегодня</h1>
                     <br/>
-                    <h1>{amountOfWaterDrinkingToday}/{((this.props.state.weight ? this.props.state.weight : 70) * Params.WATER_PER_KILOGRAM).toFixed(1)}</h1>
+                    <h1>{amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h1>
                 </div>
                 {drinkPopup}
                 {/*<DrinkPopup*/}

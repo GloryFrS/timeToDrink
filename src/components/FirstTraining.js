@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import {Params} from '../params/Params';
+import {getAmountOfWater} from '../params/Params';
 import './FirstTraining.css'
 
 class FirstTraining extends React.Component {
@@ -18,7 +18,7 @@ class FirstTraining extends React.Component {
             this.props.setWeight(event);
             this.setState({
                 dataIsCorrect: true,
-                theAmountOfWater: <h2 className="drink-water">Чтобы быть здоровым, тебе необходимо пить {(event.target.value * Params.WATER_PER_KILOGRAM).toFixed(1)} л воды каждый день</h2>
+                theAmountOfWater: <h2 className="drink-water">Чтобы быть здоровым, тебе необходимо пить {getAmountOfWater(event.target.value )} л воды каждый день</h2>
             });
         } else  {
             this.setState({dataIsCorrect: false});

@@ -17,3 +17,5 @@ export const dateIsToday = date =>{
     const today = new Date();
     return today.toDateString() === receivedDate.toDateString();
 };
+
+export const getAmountOfWater = weight => (Params.WATER_PER_KILOGRAM * (weight ?  parseFloat(weight) : 70)).toFixed(1);
