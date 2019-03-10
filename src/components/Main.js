@@ -44,6 +44,7 @@ class Main extends React.Component {
         let drinkPopup = this.state.drinkPopupIsVisible ?
             <DrinkPopup updateLastWaterIntake={this.updateLastWaterIntake}
                         state={this.props.state}
+                        changeDrinkPopupVisibility={this.changeDrinkPopupVisibility}
             />
             : "";
 

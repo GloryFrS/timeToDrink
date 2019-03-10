@@ -22,6 +22,7 @@ class Timer extends React.Component {
     }
 
     startTimer() {
+        if (this.timer) clearInterval(this.timer);
         this.timer = setInterval(() => {
             if (this._isMounted) this.setState({
                 seconds: this.state.seconds !== 0 ? this.state.seconds - 1 : this.state.seconds
@@ -30,8 +31,7 @@ class Timer extends React.Component {
 
     setNewStateAndClearInterval(newState) {
         if (newState.seconds) {
-            if (this.timer) clearInterval(this.timer);
-            this.setState({seconds: newState.seconds}, this.startTimer)
+            this.setState({seconds: newState.seconds}, this.startTimer);
         }
     }
 

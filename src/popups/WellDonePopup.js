@@ -1,6 +1,7 @@
 import React from 'react';
 import Timer from "../components/Timer";
 import {Params} from "../params/Params";
+import "./WellDonePopup.css";
 
 class WellDonePopup extends React.Component {
     render() {

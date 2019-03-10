@@ -10,6 +10,7 @@ class DrinkPopup extends React.Component {
             updatedDate: null,
         };
         this.changeUpdatedData = this.changeUpdatedData.bind(this);
+        this.handleOutsideClick = this.handleOutsideClick.bind(this);
     }
 
     changeUpdatedData = (updatedData) => {
@@ -21,9 +22,24 @@ class DrinkPopup extends React.Component {
         ApiManager.updateLastWaterIntake(this.props.state, amountOfWater, this.changeUpdatedData);
     };
 
+    handleOutsideClick(e) {
+        // ignore clicks on the component itself
+        if (this.node.contains(e.target)) {
+            return;
+        }
+        document.removeEventListener('click', this.handleOutsideClick, false);
+        this.props.changeDrinkPopupVisibility();
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
     render() {
+        document.addEventListener('click', this.handleOutsideClick, false);
+
         return (
-            <div className='drink-popup-container'>
+            <div className='drink-popup-container' ref={node => {this.node = node}}>
                 <p>Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}
                 <div className="cc-selector-drink">
