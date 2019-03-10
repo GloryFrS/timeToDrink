@@ -1,5 +1,4 @@
 import React from 'react';
-import './Start.css'
 import {secondsToTime} from "../params/Params";
 
 class Timer extends React.Component {
@@ -13,12 +12,12 @@ class Timer extends React.Component {
     };
 
     componentWillReceiveProps(nextProps, nextContext) {
-        this.setNewStateAndClearInterval(nextProps);
+        this.setNewState(nextProps.seconds);
     };
 
     componentDidMount() {
         this._isMounted = true;
-        this.setNewStateAndClearInterval(this.props);
+        this.setNewState(this.props.seconds);
     }
 
     startTimer() {
@@ -29,9 +28,9 @@ class Timer extends React.Component {
             })}, 1000);
     };
 
-    setNewStateAndClearInterval(newState) {
-        if (newState.seconds) {
-            this.setState({seconds: newState.seconds}, this.startTimer);
+    setNewState(seconds) {
+        if (seconds) {
+            this.setState({seconds: seconds}, this.startTimer);
         }
     }
 

@@ -7,6 +7,7 @@ import {dateIsToday, getAmountOfWater, getTimeUntilTheNextWaterIntake} from "../
 import Timer from "./Timer";
 import "./Main.css";
 import WellDonePopup from "../popups/WellDonePopup";
+import ProgressBar from "./ProgressBar";
 
 class Main extends React.Component {
     constructor(props) {
@@ -84,6 +85,7 @@ class Main extends React.Component {
                         <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>
                     </div>
                 </div>
+                <ProgressBar progress={100 * amountOfWaterDrinkingToday / getAmountOfWater(this.props.state.weight)}/>
                 {drinkPopup}
                 {wellDonePopup}
             </div>
