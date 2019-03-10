@@ -36,7 +36,7 @@ class ApiManager {
                 console.log(res);
             })
             .catch(error => {
-                console.log(error.response.data.message);
+                console.log(error);
             })
     };
 
@@ -60,7 +60,7 @@ class ApiManager {
                 console.log(res);
             })
             .catch(error => {
-                console.log(error.response.data.message);
+                console.log(error);
             })
     };
 
@@ -71,8 +71,8 @@ class ApiManager {
                 processLoadedData(res.data, '/main');
             })
             .catch(error => {
-                console.log(error.response.status);
-                console.log(error.response.data.message);
+                console.log(error);
+                //console.log(error.response.data.message);
                 processLoadedData(null, '/start');
             })
     };
@@ -113,7 +113,7 @@ class ApiManager {
                 changeUpdatedData(updatedData);
             })
             .catch(error => {
-                console.log(error.response.data);
+                console.log(error);
                 changeUpdatedData(null);
             })
     };
