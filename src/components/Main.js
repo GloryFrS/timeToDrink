@@ -4,6 +4,8 @@ import DrinkPopup from '../popups/DrinkPopup'
 import InfoIcon from "../img/info.png";
 import SettingsIcon from "../img/settings.png";
 import {dateIsToday, getAmountOfWater, Params} from "../params/Params";
+import Timer from "./Timer";
+import "./Main.css";
 
 class Main extends React.Component {
     constructor(props) {
@@ -20,12 +22,12 @@ class Main extends React.Component {
 
     updateLastWaterIntake = (updatedData) => {
         if (updatedData) {
-            this.setState({updatedData: updatedData},() => this.props.setNewStateAfterDrinking(this.state.updatedData));
+            this.setState({updatedData: updatedData}, () => this.props.setNewStateAfterDrinking(this.state.updatedData));
             this.changeDrinkPopupVisibility();
         }
     };
 
-    changeDrinkPopupVisibility(){
+    changeDrinkPopupVisibility() {
         this.setState({drinkPopupIsVisible: !this.state.drinkPopupIsVisible});
     };
 
@@ -42,27 +44,32 @@ class Main extends React.Component {
         return (
             <div>
                 <Link to='/settings'>
-                    <img src={SettingsIcon} width='25px' alt='' />
+                    <img src={SettingsIcon} width='25px' alt=''/>
                 </Link>
                 <Link to='/info'>
                     <img src={InfoIcon} width='25px' alt=''/>
                 </Link>
                 <br/>
-                <img className='user-photo' src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'} alt=""/>
+                <img className='user-photo'
+                     src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
+                     alt=""/>
                 <h2 className='addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
                 <Link to="/start">Start</Link>
                 <br/>
                 <button onClick={this.changeDrinkPopupVisibility}>Водички ебануть</button>
-                <div className="bottom_block">
-                    <h1>Вы выпили сегодня</h1>
-                    <br/>
-                    <h1>{amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h1>
+                <div className="container-bottom-blocks">
+                    <div >
+                        <h2>Вы выпили сегодня</h2>
+                        <br/>
+                        <h1>{amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h1>
+                    </div>
+                    <div >
+                        <h2>Прием воды через</h2>
+                        <br/>
+                        <Timer seconds={1000}/>
+                    </div>
                 </div>
                 {drinkPopup}
-                {/*<DrinkPopup*/}
-                    {/*state={this.props.state}*/}
-                    {/*updateLastWaterIntake={this.updateLastWaterIntake}*/}
-                {/*/>*/}
             </div>
         )
     }

@@ -19,3 +19,11 @@ export const dateIsToday = date =>{
 };
 
 export const getAmountOfWater = weight => (Params.WATER_PER_KILOGRAM * (weight ?  parseFloat(weight) : 70)).toFixed(1);
+
+export const secondsToTime = totalSeconds => {
+    const hours = Math.floor(totalSeconds / 3600);
+    totalSeconds %= 3600;
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return formatNull(hours)+ ':' + formatNull(minutes )+ ':' + formatNull(seconds);
+};
