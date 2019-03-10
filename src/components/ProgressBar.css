@@ -1,0 +1,103 @@
+.line9 {
+    position: absolute;
+    width: 22px;
+    height: 3px;
+    right: 10%;
+    top: 175px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+
+.line8 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 198px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+.line7 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 221px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+.line6 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 244px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+.line5 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 267px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+
+.line4 {
+    position: absolute;
+    width: 22px;
+    height: 3px;
+    right: 10%;
+    top: 290px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+
+.line3 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 313px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+.line2 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 336px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+.line1 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 359px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
+.line0 {
+    position: absolute;
+    width: 11px;
+    height: 3px;
+    right: 10%;
+    top: 382px;
+
+    background: #DBDEF2;
+    border-radius: 16px;
+}
