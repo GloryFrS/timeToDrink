@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import {Params} from '../params/Params';
+import {getAmountOfWater} from '../params/Params';
 import './SecondTraining.css';
 
 class SecondTraining extends React.Component {
@@ -34,7 +34,7 @@ class SecondTraining extends React.Component {
         return (
             <div>
                 <h2 className='addition-first'>
-                    <p className='user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</p><br/> {((this.props.weight ? this.props.weight : 70) * Params.WATER_PER_KILOGRAM).toFixed(1)} л
+                    <p className='user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</p><br/> {getAmountOfWater(this.props.weight)} л
                     это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость выпить жидкости
                 </h2>
 

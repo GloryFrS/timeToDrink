@@ -24,11 +24,13 @@ class App extends React.Component {
             weekendsWakeUp: null,
             weekendsGoTOSleep: null,
             lastWaterIntake: null,
+            amountOfWaterPerDay: null,
         };
         this.setWeight = this.setWeight.bind(this);
         this.setStateAndRegisterUser = this.setStateAndRegisterUser.bind(this);
         this.setNewStateFromSettings = this.setNewStateFromSettings.bind(this);
         this.setNewStateFromLoadedData = this.setNewStateFromLoadedData.bind(this);
+        this.setNewStateAfterDrinking = this.setNewStateAfterDrinking.bind(this);
     }
 
     componentDidMount() {
@@ -67,20 +69,31 @@ class App extends React.Component {
             weekdaysGoTOSleep: newState.weekdaysGoTOSleep,
             weekendsWakeUp: newState.weekendsWakeUp,
             weekendsGoTOSleep: newState.weekendsGoTOSleep
-        }, () =>  ApiManager.updateDataFromSettings(this.state));
+        }, () => ApiManager.updateDataFromSettings(this.state));
     }
 
     // Set new state from Loaded Data
     setNewStateFromLoadedData(loadedData) {
         if (loadedData) {
             this.setState({
-                weight: loadedData.weight,
+                weight: parseInt(loadedData.weight, 10),
                 weekdaysWakeUp: loadedData.weekdays_wake_time,
                 weekdaysGoTOSleep: loadedData.weekdays_sleep_time,
                 weekendsWakeUp: loadedData.weekends_wake_time,
                 weekendsGoTOSleep: loadedData.weekends_sleep_time,
                 lastWaterIntake: loadedData.last_water_intake,
-            }, ()=>console.log(this.state));
+                amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day)
+            }, () => console.log(this.state));
+        }
+    }
+
+    // Set new state lastWaterIntake and amountOfWaterPerDay after drinking
+    setNewStateAfterDrinking(newState) {
+        if (newState.lastWaterIntake && newState.amountOfWaterPerDay) {
+            this.setState({
+                lastWaterIntake: newState.lastWaterIntake,
+                amountOfWaterPerDay: newState.amountOfWaterPerDay
+            }, () => console.log(this.state));
         }
     }
 
@@ -90,29 +103,39 @@ class App extends React.Component {
                 <Route exact path="/start" render={(props) => (
                     <Start {...props} fetchedUser={this.state.fetchedUser}/>
                 )}/>
+
                 <Route exact path="/first-training" render={(props) => (
                     <FirstTraining {...props} setWeight={this.setWeight}/>
                 )}/>
+
                 <Route exact path="/second-training" render={(props) => (
                     <SecondTraining {...props}
                                     fetchedUser={this.state.fetchedUser}
                                     weight={this.state.weight}
-                                    setStateAndRegisterUser={this.setStateAndRegisterUser}/>
+                                    setStateAndRegisterUser={this.setStateAndRegisterUser}
+                    />
                 )}/>
 
                 <Route exact path="/settings" render={(props) => (
                     <Settings {...props}
-                              setNewStateFromSettings={this.setNewStateFromSettings}/>
+                              setNewStateFromSettings={this.setNewStateFromSettings}
+                    />
                 )}/>
+
                 <Route exact path="/main" render={(props) => (
-                    <Main {...props} fetchedUser={this.state.fetchedUser}/>
+                    <Main {...props}
+                          state={this.state}
+                          setNewStateAfterDrinking={this.setNewStateAfterDrinking}
+                    />
                 )}/>
+
                 <Route exact path="/info" component={Info}/>
 
                 <Route exact path="/" render={(props) => (
                     <Loader {...props}
                             fetchedUser={this.state.fetchedUser}
-                            setNewStateFromLoadedData={this.setNewStateFromLoadedData}/>
+                            setNewStateFromLoadedData={this.setNewStateFromLoadedData}
+                    />
                 )}/>
             </Switch>
         );
