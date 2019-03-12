@@ -1,16 +1,32 @@
 
 .drink-popup-container {
-    background: #fff;
-    padding: 1%;
-    width: 40%;
     position: absolute;
-    top: 15%;
+    background: #fff;
+    width: 336px;
+    height: 568px;
+    top: 50%;
     left: 50%;
-    margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
-    cursor: default;
-    z-index: 10001;
-    border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+    margin-top: -284px;
+    margin-left: -168px;
+    border-radius: 40px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.drink-popup-button {
+    position: absolute;
+    background: #4848F4;
+    top: 50%;
+    left: 50%;
+    margin-top: 252px;
+    margin-left: -123px;
+    width: 246px;
+    height: 64px;
+    border-radius: 56px;
+
+    color: #FFFFFF;
+    text-font-family: Gotham Pro;
+    line-height: 29px;
+    font-size: 24px;
 }
 
 /* Все накопировал*/

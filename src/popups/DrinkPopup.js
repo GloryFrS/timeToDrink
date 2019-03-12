@@ -66,7 +66,7 @@ class DrinkPopup extends React.Component {
                     <input id="ml500" type="radio" name="select-amount" value="500" />
                     <label className="amount-cc ml500" htmlFor="ml500"/>
                 </div>
-                <button className="closes" onClick={()=> {this.drinkWaterAndUpdateState()}}>Выпить</button>
+                <button className="drink-popup-button" onClick={()=> {this.drinkWaterAndUpdateState()}}>Выпить</button>
             </div>
         );
     }
