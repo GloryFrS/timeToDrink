@@ -1,0 +1,41 @@
+.info-main-container {
+    overflow: auto;
+    height: 100%;
+    position: relative;
+
+
+    background:
+            url("../img/info-background-wave1.svg") 100% 0 no-repeat fixed,
+            url("../img/info-background-wave2.svg") 100% 0 no-repeat fixed,
+            url("../img/info-ellipse-1.svg") 77% 42% no-repeat fixed,
+            url("../img/info-ellipse-2.svg") 85% 40% no-repeat fixed,
+            url("../img/info-ellipse-3.svg") 74% 39% no-repeat fixed,
+            rgba(221, 223, 230, 0.5);
+
+    background-size: 100% 100%, 100% 100%, auto, auto, auto, cover;
+    margin: 0;
+}
+
+h1 {
+    line-height: 32px;
+    font-size: 23px;
+    text-align: left;
+    padding: 8% 15% 8% 8%;
+    color: #4E4E61;
+}
+
+h2 {
+    line-height: 28px;
+    font-size: 20px;
+    padding: 8%;
+    text-align: left;
+
+    color: #4E4E61;
+}
+
+li {
+    line-height: 22px;
+    font-size: 16px;
+    padding: 8% 15% 8% 8%;
+    color: #4E4E61;
+}

@@ -65,7 +65,7 @@ class Main extends React.Component {
                 </Link>
                 <br/>
                 <div>
-                    <img className='user-photo'
+                    <img className='main-user-photo'
                          src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
                          alt="..."/>
                     <h2 className='addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>

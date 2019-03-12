@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
 import BackIcon from "../img/back.png";
-
+import "./Info.css";
 
 class Info extends React.Component {
     render() {
         return (
-            <div>
+            <div className="info-main-container">
                 <Link to='/main'>
                     <img width='25px' src={BackIcon} alt=''/>
                 </Link>
@@ -14,11 +14,14 @@ class Info extends React.Component {
                 <h1>Сервис разработан и поддерживается командой LUNA Apps</h1>
                 <br/>
                 <h2>Ждем писем:</h2>
-                <ul>
-                    <li>С предложениями по улучшению наших сервисов;</li>
-                    <li>С заказами на разработку сервисов;</li>
-                </ul>
-                <br/>
+                {/*{Картинки для галочки уже загрузил info-check-mark!!!!!!!!!!!!!!!!!!!!!!!!*/}
+                <span>
+                    <p>С предложениями по улучшению наших сервисов;</p>
+                </span>
+                <span>
+                    <p>С заказами на разработку сервисов;</p>
+                </span>
+
                 <button>Написать нам</button>
                 <br/>
                 <small>

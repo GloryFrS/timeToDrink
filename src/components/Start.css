@@ -4,9 +4,10 @@
 }
 
 
-h1, h2, img, button, img {
+h1, h2, p, img, button, img {
     margin: auto;
     text-align: center;
+    font-family: GothamPro;
 }
 
 .start-body-container {
