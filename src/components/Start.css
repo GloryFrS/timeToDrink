@@ -3,11 +3,6 @@
     src: url("../fonts/GothamPro.ttf");
 }
 
-body {
-    font-family: GothamPro;
-}
-
-
 h1, h2, p, img, button {
     margin: auto;
     text-align: center;

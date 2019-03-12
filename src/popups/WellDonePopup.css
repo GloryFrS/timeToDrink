@@ -1,14 +1,43 @@
 .well-done-popup-container {
-    background: #fff;
-    padding: 1%;
-    width: 40%;
-    height: 30%;
     position: absolute;
-    top: 15%;
+    background: #4848F4;
+    padding: 1%;
+    width: 350px;
+    height: 230px;
+    top: 45%;
     left: 50%;
-    margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+    margin-top: -115px;
+    margin-left: -175px;
     cursor: default;
     z-index: 10001;
-    border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+    border-radius: 40px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.well-done-popup-h1 {
+    line-height: 44px;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 50px;
+    font-family: GothamPro;
+    color: #FFFFFF;
+}
+
+.well-done-popup-h2 {
+    line-height: 21px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 25px;
+    font-family: GothamPro;
+    color: #FFFFFF;
+}
+
+.well-done-popup-container div .timer {
+    line-height: 29px;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 25px;
+    font-family: GothamPro;
+    color: #FFFFFF;
 }
