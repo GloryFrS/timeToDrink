@@ -18,3 +18,9 @@
     margin: 0 auto;
     border-radius: 50%; /* Радиус скругления */
 }
+
+.main-drop-wave-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}

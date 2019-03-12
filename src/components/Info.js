@@ -11,9 +11,9 @@ class Info extends React.Component {
                     <img width='25px' src={BackIcon} alt=''/>
                 </Link>
                 <br/>
-                <h1>Сервис разработан и поддерживается командой LUNA Apps</h1>
+                <h1 className="info-header">Сервис разработан и поддерживается командой LUNA Apps</h1>
                 <br/>
-                <h2>Ждем писем:</h2>
+                <h2 className="info-header2">Ждем писем:</h2>
                 {/*{Картинки для галочки уже загрузил info-check-mark!!!!!!!!!!!!!!!!!!!!!!!!*/}
                 <span>
                     <p>С предложениями по улучшению наших сервисов;</p>

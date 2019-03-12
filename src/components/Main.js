@@ -8,6 +8,7 @@ import Timer from "./Timer";
 import "./Main.css";
 import WellDonePopup from "../popups/WellDonePopup";
 import ProgressBar from "./ProgressBar";
+import imgDrop from "../img/drop-water.svg";
 
 class Main extends React.Component {
     constructor(props) {
@@ -70,7 +71,9 @@ class Main extends React.Component {
                          alt="..."/>
                     <h2 className='addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
                 </div>
-
+                <div className="main-drop-wave-container">
+                    <img src={imgDrop} className="main-water-drop" alt=""/>
+                </div>
                 <Link to="/start">Start</Link>
                 <br/>
                 <button onClick={this.changeDrinkPopupVisibility}>Водички ебануть</button>

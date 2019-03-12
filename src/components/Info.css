@@ -16,7 +16,7 @@
     margin: 0;
 }
 
-h1 {
+.info-header {
     line-height: 32px;
     font-size: 23px;
     text-align: left;
@@ -24,18 +24,11 @@ h1 {
     color: #4E4E61;
 }
 
-h2 {
+.info-header2 {
     line-height: 28px;
     font-size: 20px;
     padding: 8%;
     text-align: left;
 
-    color: #4E4E61;
-}
-
-li {
-    line-height: 22px;
-    font-size: 16px;
-    padding: 8% 15% 8% 8%;
     color: #4E4E61;
 }
