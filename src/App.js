@@ -25,8 +25,11 @@ class App extends React.Component {
             weekendsGoTOSleep: null,
             lastWaterIntake: null,
             amountOfWaterPerDay: null,
+            signedUpForNotifications: null,
+            ACCESS_TOKEN: null,
         };
         this.setWeight = this.setWeight.bind(this);
+        this.setAccessToken = this.setAccessToken.bind(this);
         this.setStateAndRegisterUser = this.setStateAndRegisterUser.bind(this);
         this.setNewStateFromSettings = this.setNewStateFromSettings.bind(this);
         this.setNewStateFromLoadedData = this.setNewStateFromLoadedData.bind(this);
@@ -37,13 +40,38 @@ class App extends React.Component {
         connect.subscribe((e) => {
             switch (e.detail.type) {
                 case 'VKWebAppGetUserInfoResult':
-                    this.setState({fetchedUser: e.detail.data});
+                    this.setState({fetchedUser: e.detail.data}, () => ApiManager.loadAccessKey(this.setAccessToken));
+                    break;
+                case 'VKWebAppCallAPIMethodResult':
+                    this.setState({
+                        signedUpForNotifications: !!e.detail.data.response.is_allowed
+                    }, () => ApiManager.updateNotificationsSubscriptionAndTime(
+                        this.state.fetchedUser,
+                        this.state.signedUpForNotifications
+                    ));
                     break;
                 default:
                     console.log(e.detail.type);
             }
         });
         connect.send('VKWebAppGetUserInfo', {});
+
+    }
+
+    // Set new state access token
+    setAccessToken(token) {
+        this.setState({ACCESS_TOKEN: token},
+            () => {
+                connect.send("VKWebAppCallAPIMethod",
+                    {
+                        "method": "apps.isNotificationsAllowed",
+                        "params": {
+                            "user_id": this.state.fetchedUser.id,
+                            "v": "5.92",
+                            "access_token": this.state.ACCESS_TOKEN
+                        }
+                    });
+            });
     }
 
     // Set new state weight

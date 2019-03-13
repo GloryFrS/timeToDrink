@@ -12,6 +12,7 @@ class ApiManager {
             read: 'read.php',
             create: 'create.php',
             update: 'update.php',
+            readKey: 'readKey.php',
         }
     }
 
@@ -105,7 +106,7 @@ class ApiManager {
         })
             .then(res => {
                 console.log(res);
-                changeUpdatedData(null);
+                //changeUpdatedData(null);
                 const updatedData = {
                     lastWaterIntake: todayFormat,
                     amountOfWaterPerDay: parseFloat(amountOfWater.toFixed(1)),
@@ -118,6 +119,46 @@ class ApiManager {
             })
     };
 
+    static updateNotificationsSubscriptionAndTime(user, subToNotification) {
+
+        const timezone = new Date().getTimezoneOffset();
+
+        console.log(timezone);
+        let formData = new FormData();
+
+        formData.set('id', user.id);
+        formData.set('signed_up_for_notifications', subToNotification ? 1 : 0);
+        formData.set('timezone', user.timezone ? user.timezone : 3);
+
+        axios({
+            method: 'post',
+            url: ApiManager.url + ApiManager.action.update,
+            data: formData,
+            config: {headers: {'Content-Type': 'multipart/form-data'}}
+        })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(error => {
+                console.log(error.message);
+                console.log(error);
+            })
+    };
+
+    static loadAccessKey(setAccessToken) {
+        axios({
+            method: 'get',
+            url: ApiManager.url + ApiManager.action.readKey,
+            //config: {headers: {'Content-Type': 'multipart/form-data'}}
+        })
+            .then(res => {
+                console.log(res.data.key);
+                setAccessToken(res.data.key);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    };
 }
 
 export default ApiManager;

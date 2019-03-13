@@ -26,16 +26,16 @@ class ProgressBar extends React.Component {
         }
         return (
             <div>
-                <div className='line9' id='line9'/>
-                <div className='line8' id='line8'/>
-                <div className='line7' id='line7'/>
-                <div className='line6' id='line6'/>
-                <div className='line5' id='line5'/>
-                <div className='line4' id='line4'/>
-                <div className='line3' id='line3'/>
-                <div className='line2' id='line2'/>
-                <div className='line1' id='line1'/>
-                <div className='line0' id='line0'/>
+                <div className='line9 progress-bar-line' id='line9'/>
+                <div className='line8 progress-bar-line' id='line8'/>
+                <div className='line7 progress-bar-line' id='line7'/>
+                <div className='line6 progress-bar-line' id='line6'/>
+                <div className='line5 progress-bar-line' id='line5'/>
+                <div className='line4 progress-bar-line' id='line4'/>
+                <div className='line3 progress-bar-line' id='line3'/>
+                <div className='line2 progress-bar-line' id='line2'/>
+                <div className='line1 progress-bar-line' id='line1'/>
+                <div className='line0 progress-bar-line' id='line0'/>
             </div>
         );
     };

@@ -5,6 +5,8 @@ import {Redirect} from "react-router-dom";
 import ApiManager from "../api/ApiManager";
 
 class Loader extends React.Component {
+    _isMounted = false;
+    _dataIsLoaded = false;
 
     constructor(props) {
         super(props);
@@ -15,15 +17,29 @@ class Loader extends React.Component {
         this.processLoadedData = this.processLoadedData.bind(this);
     }
 
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
     processLoadedData = (loadedData, newRedirect) =>{
-        this.setState({
-            redirectTo: newRedirect,
-            loadedData: loadedData,
-        }, ()=>this.props.setNewStateFromLoadedData(this.state.loadedData));
+        if (this._isMounted) {
+            this._dataIsLoaded = true;
+            this.setState({
+                redirectTo: newRedirect,
+                loadedData: loadedData,
+            }, ()=>this.props.setNewStateFromLoadedData(this.state.loadedData));
+        }
     };
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (nextProps.fetchedUser) ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.processLoadedData);
+        this._isMounted = true;
+        if (nextProps.fetchedUser && !this.state.loadedData && !this._dataIsLoaded) {
+            ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.processLoadedData);
+        }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {

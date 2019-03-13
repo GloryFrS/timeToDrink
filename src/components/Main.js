@@ -76,7 +76,7 @@ class Main extends React.Component {
                 </div>
                 <Link to="/start">Start</Link>
                 <br/>
-                <button onClick={this.changeDrinkPopupVisibility}>Водички ебануть</button>
+                <button onClick={this.changeDrinkPopupVisibility}>Водички хлебнуть</button>
                 <div className="container-bottom-blocks">
                     <div >
                         <h2>Вы выпили сегодня</h2>
