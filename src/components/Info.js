@@ -1,32 +1,34 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import BackIcon from "../img/back.png";
+import BackIcon from "../img/back.svg";
 import "./Info.css";
+import Galochka from "../img/Ellipsecheck.svg";
 
 class Info extends React.Component {
     render() {
         return (
             <div className="info-main-container">
                 <Link to='/main'>
-                    <img width='25px' src={BackIcon} alt=''/>
+                    <img src={BackIcon} alt=''/>
                 </Link>
                 <br/>
                 <h1 className="info-header">Сервис разработан и поддерживается командой LUNA Apps</h1>
                 <br/>
                 <h2 className="info-header2">Ждем писем:</h2>
                 {/*{Картинки для галочки уже загрузил info-check-mark!!!!!!!!!!!!!!!!!!!!!!!!*/}
+
                 <span>
-                    <p>С предложениями по улучшению наших сервисов;</p>
+                    <p className="info-first"><img src={Galochka} alt=" " className="info-image-galochka"/>&nbsp;С предложениями по улучшению наших сервисов;</p>
                 </span>
                 <span>
-                    <p>С заказами на разработку сервисов;</p>
+                    <p className="info-second"><img src={Galochka} alt=" " className="info-image-galochka"/>&nbsp;С заказами на разработку сервисов;</p>
                 </span>
 
-                <button>Написать нам</button>
+                <button className="info-button">Написать нам</button>
                 <br/>
-                <small>
+                <small className="info-connect">
                     Свяжитесь с нами по email: <br/>
-                    <a href="mailto:ask@htmlbook.ru"> hello@lunaapps.ru</a>
+                    <a href="mailto:ask@htmlbook.ru" className="info-connect-mail"> hello@lunaapps.ru</a>
                 </small>
             </div>
         )

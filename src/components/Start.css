@@ -34,7 +34,7 @@ h1, h2, p, img, button {
     animation: wave 20s linear infinite;
     -webkit-animation: wave 20s linear infinite;
 
-    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, cover, 60%, 35%, auto, auto, auto, auto, cover;
+    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, 100% 100%, 60%, 35%, auto, auto, auto, auto, cover;
     margin: 0;
 
 
