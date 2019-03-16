@@ -121,14 +121,13 @@ class ApiManager {
 
     static updateNotificationsSubscriptionAndTime(user, subToNotification) {
 
-        const timezone = new Date().getTimezoneOffset();
+        const timezone = parseInt(new Date().getTimezoneOffset() / -60 , 10);
 
-        console.log(timezone);
         let formData = new FormData();
 
         formData.set('id', user.id);
-        formData.set('signed_up_for_notifications', subToNotification ? 1 : 0);
-        formData.set('timezone', user.timezone ? user.timezone : 3);
+        formData.set('signed_up_for_notifications', (subToNotification ? 1 : 0).toString());
+        formData.set('timezone', timezone.toString());
 
         axios({
             method: 'post',
