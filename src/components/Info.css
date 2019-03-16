@@ -17,18 +17,98 @@
 }
 
 .info-header {
+    font-family: GothamPro;
+    font-weight: bolder;
     line-height: 32px;
     font-size: 23px;
     text-align: left;
-    padding: 8% 15% 8% 8%;
+    margin-left: 22px;
+    /*margin-top: 70px;*/
+    margin-right: 59px;
     color: #4E4E61;
 }
 
 .info-header2 {
+    font-family: GothamPro;
+    font-weight: bolder;
     line-height: 28px;
     font-size: 20px;
-    padding: 8%;
+    margin-top: 74px;
+    margin-left: 22px;
     text-align: left;
-
     color: #4E4E61;
 }
+
+.info-image-galochka {
+    width: 15px;
+    height: 15px;
+    /*margin-left: 22px;*/
+    margin-top: 20px;
+    vertical-align: -2px;
+}
+
+.info-first {
+    text-align: left;
+    font-family: GothamPro;
+    font-size: 16px;
+    line-height: 22px;
+    color: #4E4E61;
+    margin-left: 22px;
+    margin-right: 45px;
+    font-weight: bolder;
+}
+
+.info-second {
+    text-align: left;
+    font-family: GothamPro;
+    font-size: 16px;
+    line-height: 22px;
+    color: #4E4E61;
+    margin-left: 22px;
+    margin-right: 45px;
+    font-weight: bolder;
+}
+
+.info-button {
+    outline: none;
+    font-family: GothamPro;
+    line-height: 57px; /*спросить*/
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    color: white;
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 56px;
+    background: #4848F4;
+    width: 270px;
+    height: 64px;
+    cursor: pointer;
+    margin-top: 40px;
+    padding-left: 22px;
+    padding-right: 22px;
+    margin-bottom: 10px;
+}
+
+.info-connect {
+    font-family: GothamPro;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4E4E61;
+    font-weight: bolder;
+    padding-bottom: 50px;
+    margin-left: 22px;
+    margin-right: 50px;
+}
+
+.info-connect-mail {
+    font-family: Gotham Pro;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration: none;
+    margin-left: 22px;
+    cursor: pointer;
+}
+
+
