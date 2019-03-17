@@ -40,7 +40,7 @@ class DrinkPopup extends React.Component {
 
         return (
             <div className='drink-popup-container' ref={node => {this.node = node}}>
-                <p>Время пить жидкость!</p>
+                <p className="drinkpopup-time-to-water">Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}
                 <div className="cc-selector-drink">
                     <input id="water" type="radio" name="select-drink" value="water" defaultChecked={true}/>
@@ -54,7 +54,7 @@ class DrinkPopup extends React.Component {
                     <label className="drink-cc coffee" htmlFor="coffee"/>
                 </div>
                 <br/>
-                <p>Выбери количество:</p>
+                <p className="drinkpopup-choice">Выберите кол-во:</p>
                 {/*Выбираем сколько пить*/}
                 <div className="cc-selector-amount">
                     <input id="ml200" type="radio" name="select-amount" value="200" defaultChecked={true}/>

@@ -2,12 +2,12 @@
 .drink-popup-container {
     position: absolute;
     background: #fff;
-    width: 336px;
-    height: 568px;
+    width: 270px;
+    height: 450px;
     top: 50%;
     left: 50%;
-    margin-top: -284px;
-    margin-left: -168px;
+    margin-top: -225px;
+    margin-left: -135px;
     border-radius: 40px;
     box-shadow: 0 0 3px rgba(0,0,0,0.3);
 }
@@ -17,16 +17,41 @@
     background: #4848F4;
     top: 50%;
     left: 50%;
-    margin-top: 252px;
-    margin-left: -123px;
-    width: 246px;
-    height: 64px;
+    margin-top: 195px;
+    margin-left: -95px;
+    width: 190px;
+    height: 55px;
     border-radius: 56px;
-
     color: #FFFFFF;
-    text-font-family: Gotham Pro;
+    font-family: GothamPro;
+    font-weight: bolder;
     line-height: 29px;
     font-size: 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.drinkpopup-time-to-water {
+    font-family: GothamPro;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    font-weight: bolder;
+    color: #4E4E61;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.drinkpopup-choice {
+    font-family: Gotham Pro;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    font-weight: bolder;
+    color: #4E4E61;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 /* Все накопировал*/
@@ -57,7 +82,7 @@
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:100px;height:70px;
+    width:70px;height:50px;
     -webkit-transition: all 100ms ease-in;
     -moz-transition: all 100ms ease-in;
     transition: all 100ms ease-in;
