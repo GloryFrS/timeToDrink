@@ -33,6 +33,7 @@ class Loader extends React.Component {
 
     componentWillReceiveProps(nextProps, nextContext) {
         this._isMounted = true;
+        console.log('Loader WillReceiveProps', nextProps.fetchedUser.id);
         if (nextProps.fetchedUser && !this.state.loadedData && !this._dataIsLoaded) {
             ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.processLoadedData);
         }

@@ -73,8 +73,9 @@ class ApiManager {
             })
             .catch(error => {
                 console.log(error);
+                const redirect = error.message === "Network Error" ? '/network-error' : '/start' ;
                 //console.log(error.response.data.message);
-                processLoadedData(null, '/start');
+                processLoadedData(null, redirect);
             })
     };
 

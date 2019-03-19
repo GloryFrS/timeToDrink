@@ -2,8 +2,20 @@ import React from 'react';
 import Link from "react-router-dom/es/Link";
 import {getAmountOfWater} from '../params/Params';
 import './SecondTraining.css';
+import RegistrationIsComplete from "../popups/RegistrationIsComplete";
 
 class SecondTraining extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            popupIsVisible: false
+        };
+        this.changePopupVisibility = this.changePopupVisibility.bind(this);
+    }
+    changePopupVisibility() {
+        this.setState({popupIsVisible: !this.state.popupIsVisible});
+    }
 
     getTimes = () => {
         const times = {
@@ -14,8 +26,8 @@ class SecondTraining extends React.Component {
             dataIsCorrect: false
         };
 
-        if (times.weekdaysWakeUp === '' || times.weekdaysGoTOSleep === '' ||
-            times.weekendsWakeUp === '' || times.weekendsGoTOSleep === '' ) {
+        if (times.weekdaysWakeUp !== '' && times.weekdaysGoTOSleep !== '' &&
+            times.weekendsWakeUp !== '' && times.weekendsGoTOSleep !== '' ) {
             times.dataIsCorrect = true;
         }
         return times
@@ -23,14 +35,21 @@ class SecondTraining extends React.Component {
 
     checkAndRegisterUser = (event) => {
         const times = this.getTimes();
-        if (!times.dataIsCorrect) {
+        if (times.dataIsCorrect) {
             this.props.setStateAndRegisterUser(times);
+            this.changePopupVisibility();
         } else {
             event.preventDefault();
         }
     };
 
     render() {
+
+        let popup = this.state.popupIsVisible ?
+            <Link to='/main' >
+                <RegistrationIsComplete/>
+            </Link>
+        : '';
         return (
             <div className='secondtraining-container'>
                 <h2 className='secondtraining-addition-first'>
@@ -52,7 +71,8 @@ class SecondTraining extends React.Component {
                         <input type="time" id="weekends-time-go-to-sleep" className='secondtraining-time-to-sleep'/></div>
                     </div>
                 <br/>
-                <Link id='link' to='/main' className='secondtraining-button-start' onClick={this.checkAndRegisterUser.bind(this)} >Начать больше пить</Link>
+                <button className='secondtraining-button-start' onClick={this.checkAndRegisterUser.bind(this)} >Начать больше пить</button>
+                {popup}
             </div>
         )
     };

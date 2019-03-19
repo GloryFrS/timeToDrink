@@ -1,0 +1,35 @@
+.registration-is-complete-container {
+    position: absolute;
+    background: #FFFFFF;
+    padding: 1%;
+    width: 340px;
+    height: 190px;
+    top: 45%;
+    left: 50%;
+    margin-top: -95px;
+    margin-left: -170px;
+    cursor: default;
+    z-index: 10001;
+    border-radius: 40px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+.registration-is-complete-header {
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    margin-top: 38px;
+    font-family: GothamPro;
+    color: #4848F4;
+}
+
+.registration-is-complete-content {
+    line-height: 36px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 15px;
+    font-family: GothamPro;
+    color: #4E4E61;
+}

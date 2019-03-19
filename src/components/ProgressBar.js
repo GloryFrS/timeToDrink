@@ -22,7 +22,7 @@ class ProgressBar extends React.Component {
         let topProgressLine = parseInt(this.state.progress / 10 , 10);
         if (topProgressLine >= 10) topProgressLine = 10;
         for (let i = 0; i < topProgressLine; i++) {
-            document.getElementById('line' + i).style.backgroundColor = '#f1000e';
+            document.getElementById('line' + i).style.backgroundColor = '#4847F1';
         }
         return (
             <div>

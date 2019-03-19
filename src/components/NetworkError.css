@@ -1,0 +1,29 @@
+.network-error-header {
+    font-family: GothamPro;
+    margin-top: 160px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.network-error-content {
+    font-family: GothamPro;
+    margin-top: 30px;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.network-error-container {
+    overflow: auto;
+    height: 100%;
+    position: relative;
+
+    background: url("../img/info-background-wave1.svg") 100% 0 no-repeat fixed,
+    url("../img/info-background-wave2.svg") 100% 0 no-repeat fixed,
+    url("../img/info-ellipse-1.svg") 77% 42% no-repeat fixed,
+    url("../img/info-ellipse-2.svg") 85% 40% no-repeat fixed,
+    url("../img/info-ellipse-3.svg") 74% 39% no-repeat fixed,
+    rgba(221, 223, 230, 0.5);
+
+    background-size: 100% 100%, 100% 100%, auto, auto, auto, cover;
+    margin: 0;
+}

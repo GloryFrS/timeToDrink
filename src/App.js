@@ -11,6 +11,7 @@ import FirstTraining from "./components/FirstTraining";
 import Settings from "./components/Settings";
 import Info from "./components/Info";
 import Loader from "./components/Loader";
+import NetworkError from "./components/NetworkError";
 
 class App extends React.Component {
     constructor(props) {
@@ -165,6 +166,8 @@ class App extends React.Component {
                             setNewStateFromLoadedData={this.setNewStateFromLoadedData}
                     />
                 )}/>
+
+                <Route exact path="/network-error" component={NetworkError}/>
             </Switch>
         );
     }
