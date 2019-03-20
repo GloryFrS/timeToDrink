@@ -14,7 +14,7 @@ class SecondTraining extends React.Component {
         this.changePopupVisibility = this.changePopupVisibility.bind(this);
     }
     changePopupVisibility() {
-        this.setState({popupIsVisible: !this.state.popupIsVisible});
+        this.setState({popupIsVisible: true});
     }
 
     getTimes = () => {

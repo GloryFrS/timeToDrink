@@ -66,6 +66,14 @@
     position: relative;
 }
 
+.cc-selector-drink input:active + .drink-cc {opacity: .5}
+.cc-selector-drink input:checked +.drink-cc{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    background-color: blue;
+}
+
 .white-block-water {
      position: absolute;
      background-color: white;
@@ -256,6 +264,7 @@
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
+
 }
 
 .amount-cc{
