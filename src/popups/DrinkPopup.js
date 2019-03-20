@@ -43,15 +43,15 @@ class DrinkPopup extends React.Component {
                 <p className="drinkpopup-time-to-water">Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}
                 <div className="cc-selector-drink">
-                    <input id="water" type="radio" name="select-drink" value="water" defaultChecked={true}/>
-                    <label className="drink-cc water" htmlFor="water"/>
-                    <input id="juice" type="radio" name="select-drink" value="juice"/>
-                    <label className="drink-cc juice" htmlFor="juice"/>
+                    <div className= "white-block-water"><input id="water" type="radio" name="select-drink" value="water" defaultChecked={true}/>
+                        <label className="drink-cc water" htmlFor="water"/><p className="text-water">Вода</p></div>
+                    <div className= "white-block-juice"><input id="juice" type="radio" name="select-drink" value="juice"/>
+                    <label className="drink-cc juice" htmlFor="juice"/><p className="text-juice">Сок</p></div>
                     <br/>
-                    <input id="tea" type="radio" name="select-drink" value="tea"/>
-                    <label className="drink-cc tea" htmlFor="tea"/>
-                    <input id="coffee" type="radio" name="select-drink" value="coffee"/>
-                    <label className="drink-cc coffee" htmlFor="coffee"/>
+                        <div className= "white-block-tea"><input id="tea" type="radio" name="select-drink" value="tea"/>
+                    <label className="drink-cc tea" htmlFor="tea"/><p className="text-tea">Чай</p></div>
+                            <div className= "white-block-coffee"> <input id="coffee" type="radio" name="select-drink" value="coffee"/>
+                    <label className="drink-cc coffee" htmlFor="coffee"/><p className="text-coffee">Кофе</p></div>
                 </div>
                 <br/>
                 <p className="drinkpopup-choice">Выберите кол-во:</p>
