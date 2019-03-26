@@ -39,31 +39,30 @@ class DrinkPopup extends React.Component {
         document.addEventListener('click', this.handleOutsideClick, false);
 
         return (
-            <div className='drink-popup-container' ref={node => {this.node = node}}>
+            <div className='drink-popup-container' ref={node => {
+                this.node = node
+            }}>
                 <p className="drinkpopup-time-to-water">Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}
                 <div className="cc-selector-drink">
-                    <div className= "white-block-water">
-                        <input id="water" type="radio" name="select-drink" value="water" defaultChecked={true}/>
-                        <label className="drink-cc water" htmlFor="water"/>
-                        <p className="text-water">Вода</p>
-                    </div>
-                    <div className= "white-block-juice">
-                        <input id="juice" type="radio" name="select-drink" value="juice"/>
-                        <label className="drink-cc juice" htmlFor="juice"/>
-                        <p className="text-juice">Сок</p>
-                    </div>
+
+                    <input id="water" type="radio" name="select-drink" value="water" defaultChecked={true}/>
+                    <label className="drink-cc water" htmlFor="water">
+                        <p className="drink-text text-water">Вода</p>
+                    </label>
+                    <input id="juice" type="radio" name="select-drink" value="juice"/>
+                    <label className="drink-cc juice" htmlFor="juice">
+                        <p className="drink-text text-juice">Сок</p>
+                    </label>
                     <br/>
-                    <div className= "white-block-tea">
-                        <input id="tea" type="radio" name="select-drink" value="tea"/>
-                        <label className="drink-cc tea" htmlFor="tea"/>
-                        <p className="text-tea">Чай</p>
-                    </div>
-                    <div className= "white-block-coffee">
-                        <input id="coffee" type="radio" name="select-drink" value="coffee"/>
-                        <label className="drink-cc coffee" htmlFor="coffee"/>
-                        <p className="text-coffee">Кофе</p>
-                    </div>
+                    <input id="tea" type="radio" name="select-drink" value="tea"/>
+                    <label className="drink-cc tea" htmlFor="tea">
+                        <p className="drink-text text-tea">Чай</p>
+                    </label>
+                    <input id="coffee" type="radio" name="select-drink" value="coffee"/>
+                    <label className="drink-cc coffee" htmlFor="coffee">
+                        <p className="drink-text text-coffee">Кофе</p>
+                    </label>
                 </div>
                 <br/>
                 <p className="drinkpopup-choice">Выберите кол-во:</p>
@@ -75,10 +74,13 @@ class DrinkPopup extends React.Component {
                     <label className="amount-cc ml300" htmlFor="ml300"/>
                     <input id="ml400" type="radio" name="select-amount" value="400"/>
                     <label className="amount-cc ml400" htmlFor="ml400"/>
-                    <input id="ml500" type="radio" name="select-amount" value="500" />
+                    <input id="ml500" type="radio" name="select-amount" value="500"/>
                     <label className="amount-cc ml500" htmlFor="ml500"/>
                 </div>
-                <button className="drink-popup-button" onClick={()=> {this.drinkWaterAndUpdateState()}}>Выпить</button>
+                <button className="drink-popup-button" onClick={() => {
+                    this.drinkWaterAndUpdateState()
+                }}>Выпить
+                </button>
             </div>
         );
     }
