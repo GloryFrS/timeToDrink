@@ -1,8 +1,7 @@
 
 .drink-popup-container {
     position: absolute;
-    /*background: #fff;*/
-    background: #c3c3c3;
+    background: #fff;
     width: 270px;
     height: 450px;
     top: 50%;
@@ -44,14 +43,14 @@
     margin-bottom: 25px;
 }
 
-.drinkpopup-choice {
-    font-family: Gotham Pro;
+.drinkpopup-text-choice-amount {
+    font-family: GothamPro;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
     font-weight: bolder;
     color: #4E4E61;
-    margin-top: 170px;
+    margin-top: 150px;
     margin-bottom: 25px;
 }
 
@@ -106,7 +105,6 @@
     -moz-filter: none;
     filter: none;
     background-color: #4848F4;
-    text-decoration-color: white;
     color: white;
 
     background-position: center;
@@ -116,7 +114,6 @@
 }
 
 .water {
-    position: absolute;
     background-color: white;
     left: 30px;
     top: 85px;
@@ -133,7 +130,6 @@
 }
 
 .juice {
-    position: absolute;
     background-color: white;
     left: 145px;
     top: 85px;
@@ -150,7 +146,6 @@
 }
 
 .tea {
-    position: absolute;
     background-color: white;
     left: 30px;
     top: 195px;
@@ -167,7 +162,6 @@
 }
 
 .coffee {
-    position: absolute;
     background-color: white;
     left: 145px;
     top: 195px;
@@ -185,6 +179,32 @@
 
 /* ВЫБОР КОЛИЧЕСТВА*/
 
+.amount-cc {
+    position: absolute;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0px 4px 40px #F1F2FB;
+    border-radius: 50%;
+    color: #4E4E61;
+
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+}
+
+.amount-text {
+    position: absolute;
+    font-family: GothamPro;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    font-weight: bolder;
+}
+
 .cc-selector-amount input {
     position: relative;
     margin: 0;
@@ -192,22 +212,6 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-}
-
-.ml200 {
-    background-image: url('../img/amount-water.jpg');
-}
-
-.ml300 {
-    background-image: url('../img/300.svg');
-}
-
-.ml400 {
-    background-image: url('../img/400.svg');
-}
-
-.ml500 {
-    background-image: url('../img/500.svg');
 }
 
 .cc-selector-amount input:active + .amount-cc {
@@ -218,39 +222,77 @@
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
+    background-color: #4848F4;
+    color: #4848F4;
 
-}
-
-.amount-cc {
-    position: absolute;
-    cursor: pointer;
-    background-size: contain;
+    background-position: center top 13px;
+    background-image: url("../img/ok.svg");
     background-repeat: no-repeat;
-    display: inline-block;
-    width: 70px;
-    height: 40px;
-    -webkit-transition: all 100ms ease-in;
-    -moz-transition: all 100ms ease-in;
-    transition: all 100ms ease-in;
-    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
-    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
-    filter: brightness(1.8) grayscale(1) opacity(.7);
+    background-size: 25px 20px;
 }
 
-.amount-cc.ml200 {
-    left: 40px;
+.ml200 {
+    background-color: white;
+    top: 340px;
+    left: 30px;
+
+    background-position: center;
+    background-image: url('../img/amount-water.jpg');
+    background-repeat: no-repeat;
+    background-size: 35px 35px;
 }
 
-.amount-cc.ml300 {
-    left: 90px;
+.text-200ml {
+    left: 2px;
+    top: 48px;
 }
 
-.amount-cc.ml400 {
-    left: 140px;
+.ml300 {
+    background-color: white;
+    top: 340px;
+    left: 87px;
+
+    background-position: center;
+    background-image: url('../img/300.svg');
+    background-repeat: no-repeat;
+    background-size: 20px 30px;
 }
 
-.amount-cc.ml500 {
-    left: 190px;
+.text-300ml {
+    left: 2px;
+    top: 48px;
+}
+
+.ml400 {
+    background-color: white;
+    top: 340px;
+    left: 144px;
+
+    background-position: center;
+    background-image: url('../img/400.svg');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.text-400ml {
+    left: 2px;
+    top: 48px;
+}
+
+.ml500 {
+    background-color: white;
+    top: 340px;
+    left: 201px;
+
+    background-position: center;
+    background-image: url('../img/500.svg');
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+}
+
+.text-500ml {
+    left: 2px;
+    top: 48px;
 }
 
 

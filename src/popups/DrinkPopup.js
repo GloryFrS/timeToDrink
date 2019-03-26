@@ -65,17 +65,25 @@ class DrinkPopup extends React.Component {
                     </label>
                 </div>
                 <br/>
-                <p className="drinkpopup-choice">Выберите кол-во:</p>
+                <p className="drinkpopup-text-choice-amount">Выберите кол-во:</p>
                 {/*Выбираем сколько пить*/}
                 <div className="cc-selector-amount">
                     <input id="ml200" type="radio" name="select-amount" value="200" defaultChecked={true}/>
-                    <label className="amount-cc ml200" htmlFor="ml200"/>
+                    <label className="amount-cc ml200" htmlFor="ml200">
+                        <p className="amount-text text-200ml">200мл</p>
+                    </label>
                     <input id="ml300" type="radio" name="select-amount" value="300"/>
-                    <label className="amount-cc ml300" htmlFor="ml300"/>
+                    <label className="amount-cc ml300" htmlFor="ml300">
+                        <p className="amount-text text-300ml">300мл</p>
+                    </label>
                     <input id="ml400" type="radio" name="select-amount" value="400"/>
-                    <label className="amount-cc ml400" htmlFor="ml400"/>
+                    <label className="amount-cc ml400" htmlFor="ml400">
+                        <p className="amount-text text-400ml">400мл</p>
+                    </label>
                     <input id="ml500" type="radio" name="select-amount" value="500"/>
-                    <label className="amount-cc ml500" htmlFor="ml500"/>
+                    <label className="amount-cc ml500" htmlFor="ml500">
+                        <p className="amount-text text-500ml">500мл</p>
+                    </label>
                 </div>
                 <button className="drink-popup-button" onClick={() => {
                     this.drinkWaterAndUpdateState()
