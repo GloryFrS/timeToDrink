@@ -82,7 +82,7 @@ class Main extends React.Component {
                     <div className='main-info-block-today'>
                         <h2 className='main-text-info-block-today'>Вы выпили сегодня:</h2>
                         <br/>
-                        <h2 className = 'main-text-info-today-drink'> {amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h2>
+                        <h2 className = 'main-text-info-today-drink'> {amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}л</h2>
                     </div>
                     <div className='main-water-block-today'>
                         <h2 className='main-text-water-block-today'>Прием воды через:</h2>
