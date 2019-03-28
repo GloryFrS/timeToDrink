@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import BackIcon from "../img/back.svg";
+import BackIcon from "../img/icon_back.svg";
 import InfoIcon from "../img/icon_info.svg";
 import "./Settings.css";
 

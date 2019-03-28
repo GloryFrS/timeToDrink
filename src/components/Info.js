@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import BackIcon from "../img/back.svg";
+import BackIcon from "../img/icon_back.svg";
 import "./Info.css";
-import Galochka from "../img/Ellipsecheck.svg";
+import CheckIcon from "../img/Ellipsecheck.svg";
 
 class Info extends React.Component {
     render() {
@@ -18,10 +18,10 @@ class Info extends React.Component {
                 {/*{Картинки для галочки уже загрузил info-check-mark!!!!!!!!!!!!!!!!!!!!!!!!*/}
 
                 <span>
-                    <p className="info-first"><img src={Galochka} alt=" " className="info-image-galochka"/>&nbsp;С предложениями по улучшению наших сервисов;</p>
+                    <p className="info-first"><img src={CheckIcon} alt=" " className="info-image-galochka"/>&nbsp;С предложениями по улучшению наших сервисов;</p>
                 </span>
                 <span>
-                    <p className="info-second"><img src={Galochka} alt=" " className="info-image-galochka"/>&nbsp;С заказами на разработку сервисов;</p>
+                    <p className="info-second"><img src={CheckIcon} alt=" " className="info-image-galochka"/>&nbsp;С заказами на разработку сервисов;</p>
                 </span>
 
                 <button className="info-button">Написать нам</button>
