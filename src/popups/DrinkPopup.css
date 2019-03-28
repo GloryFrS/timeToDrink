@@ -10,6 +10,7 @@
     margin-left: -135px;
     border-radius: 40px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    z-index: 3;
 }
 
 .drink-popup-button {

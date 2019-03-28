@@ -65,12 +65,16 @@ input[type="number"]:focus {
     font-size: 15px;
     text-align: center;
     padding-top: 154px;
-    padding-right: 45px;
-    padding-left: 45px;
-    margin-bottom: 40px;
+    padding-right: 40px;
+    padding-left: 35px;
+    margin-bottom: 35px;
 }
 
-
+.secondtraining-container-info {
+    width: 279px;
+    height: 135px;
+    margin: 0 auto;
+}
 
 .secondtraining-wakeup-text {
 
@@ -80,10 +84,11 @@ input[type="number"]:focus {
     font-size: 17px;
     padding-left: 45px;
     padding-right: 45px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     margin-bottom: 15px;
     margin-top: 10px;
+    margin-left: -40px;
 
 }
 
@@ -94,12 +99,13 @@ input[type="number"]:focus {
     font-size: 15px;
     color: white;
     padding-left: 45px;
-    text-align: center;
+    text-align: left;
     padding-right: 45px;
+    margin-left: -40px;
 }
 
 .secondtraining-time-to-wake-sleep {
-    text-align: center;
+    text-align: left;
 }
 
 .secondtraining-time-to-wake-up {

@@ -57,14 +57,14 @@ class SecondTraining extends React.Component {
                     это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость выпить жидкости
                 </h2>
 
-                <div className='secondtraining-container-info' style={{display: 'inline'}}>
+                <div className='secondtraining-container-info'>
                     <p className='secondtraining-wakeup-text'>В будние дни:</p>
                     <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='secondtraining-time-to-wake-sleep'><input type="time" id="weekdays-time-wake-up" className='secondtraining-time-to-wake-up'/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="time" id="weekdays-time-go-to-sleep" className='secondtraining-time-to-sleep'/></div>
                 </div>
                 <br/>
-                <div style={{display: 'inline'}}>
+                <div className='secondtraining-container-info'>
                     <p className='secondtraining-wakeup-text'>В выходные дни:</p>
                     <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='secondtraining-time-to-wake-sleep'><input type="time" id="weekends-time-wake-up" className='secondtraining-time-to-wake-up'/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -26,6 +26,13 @@
     margin-left: 14px;
 }
 
+
+.settings-container-info {
+    width: 279px;
+    height: 135px;
+    margin: 0 auto;
+}
+
 .settings-decree {
     font-family: GothamPro;
     font-size: 16px;
@@ -62,10 +69,11 @@
     font-size: 17px;
     padding-left: 45px;
     padding-right: 45px;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     margin-bottom: 15px;
     margin-top: 10px;
+    margin-left: -40px;
 
 }
 
@@ -76,13 +84,15 @@
     font-size: 15px;
     color: #6A697E;
     padding-left: 45px;
-    text-align: center;
+    text-align: left;
     padding-right: 45px;
+    margin-left: -40px;
 
 }
 
 .settings-time-to-wake-sleep {
-    text-align: center;
+    text-align: left;
+    /*margin-left: -40px;*/
 }
 
 .settings-time-to-wake-up {
@@ -90,8 +100,8 @@
     background: white;
     border-radius: 49px;
     border: 0;
-    width: 124px;
-    height: 51px;
+    width: 88px;
+    height: 40px;
     outline: none;
     font-family: GothamPro;
     line-height: 23px;
@@ -109,8 +119,8 @@
     background: white;
     border-radius: 49px;
     border: 0;
-    width:124px;
-    height: 51px;
+    width:88px;
+    height: 40px;
     outline:  none;
     font-family: GothamPro;
     line-height: 23px;
