@@ -147,6 +147,7 @@ class App extends React.Component {
 
                 <Route exact path="/settings" render={(props) => (
                     <Settings {...props}
+                              state={this.state}
                               setNewStateFromSettings={this.setNewStateFromSettings}
                     />
                 )}/>
