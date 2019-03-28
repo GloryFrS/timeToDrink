@@ -9,7 +9,7 @@ class Info extends React.Component {
         return (
             <div className="info-main-container">
                 <Link to='/main'>
-                    <img src={BackIcon} alt=''/>
+                    <img src={BackIcon} className='info-image-back' alt=''/>
                 </Link>
                 <br/>
                 <h1 className="info-header">Сервис разработан и поддерживается командой LUNA Apps</h1>

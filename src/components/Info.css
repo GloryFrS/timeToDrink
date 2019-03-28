@@ -15,7 +15,12 @@
     background-size: 100% 100%, 100% 100%, auto, auto, auto, cover;
     margin: 0;
 }
-
+.info-image-back {
+    width: 30px;
+    height: 30px;
+    margin-top: 50px;
+    margin-left: 23px;
+}
 .info-header {
     font-family: GothamPro;
     font-weight: bolder;
@@ -26,6 +31,7 @@
     /*margin-top: 70px;*/
     margin-right: 59px;
     color: #4E4E61;
+    margin-top: 30px;
 }
 
 .info-header2 {

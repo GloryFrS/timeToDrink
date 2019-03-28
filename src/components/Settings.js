@@ -62,7 +62,7 @@ class Settings extends React.Component {
         return (
             <div className="settings-body-container">
                 <Link to='/main'>
-                    <img src={BackIcon} alt=''/>
+                    <img src={BackIcon} className='settings-image-back' alt=''/>
                 </Link>
                 <Link to='/info'>
                     <img src={InfoIcon} className='settings-image-info' alt=''/>

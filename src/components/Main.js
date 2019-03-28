@@ -9,6 +9,7 @@ import "./Main.css";
 import WellDonePopup from "../popups/WellDonePopup";
 import ProgressBar from "./ProgressBar";
 import imgDrop from "../img/main-drop.svg";
+import Plus from "../img/+.svg";
 
 class Main extends React.Component {
     constructor(props) {
@@ -59,7 +60,7 @@ class Main extends React.Component {
         return (
             <div className='main-body-container'>
                 <Link to='/settings'>
-                    <img src={SettingsIcon} alt=''/>
+                    <img src={SettingsIcon} className='main-image-settings' alt=''/>
                 </Link>
                 <Link to='/info'>
                     <img src={InfoIcon} className='main-image-info' alt=''/>
@@ -69,26 +70,26 @@ class Main extends React.Component {
                     <img className='main-user-photo'
                          src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
                          alt="..."/>
-                    <h2 className='main-addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
+                    <h2 className='main-addition-first'>Привет<br/> {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
                 </div>
                 <div className="main-drop-wave-container">
                     <img src={imgDrop} className="main-water-drop" alt=""/>
                 </div>
-                <Link to="/start">Start</Link>
-                <br/>
-                <button onClick={this.changeDrinkPopupVisibility}>Водички хлебнуть</button>
+                {/*<Link to="/start">Start</Link>*/}
+                {/*<br/>*/}
+                <button className='main-button-water' onClick={this.changeDrinkPopupVisibility}><img src={Plus} className='main-image-button' alt="" /></button>
                 <div className="container-bottom-blocks">
-                    <div >
-                        <h2>Вы выпили сегодня</h2>
+                    <div className='main-info-block-today'>
+                        <h2 className='main-text-info-block-today'>Вы выпили сегодня:</h2>
                         <br/>
-                        <h2>{amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h2>
+                        <h2 className = 'main-text-info-today-drink'> {amountOfWaterDrinkingToday}/{getAmountOfWater(this.props.state.weight)}</h2>
                     </div>
-                    <div >
-                        <h2>Прием воды через</h2>
+                    <div className='main-water-block-today'>
+                        <h2 className='main-text-water-block-today'>Прием воды через:</h2>
                         <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>
                     </div>
                 </div>
-                <ProgressBar progress={100 * amountOfWaterDrinkingToday / getAmountOfWater(this.props.state.weight)}/>
+                <ProgressBar progress={100 * amountOfWaterDrinkingToday / getAmountOfWater(this.props.state.weight)} />
                 {drinkPopup}
                 {wellDonePopup}
             </div>
