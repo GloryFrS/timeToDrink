@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import DrinkPopup from '../popups/DrinkPopup'
-import InfoIcon from "../img/information.svg";
-import SettingsIcon from "../img/settings.svg";
+import InfoIcon from "../img/icon_info.svg";
+import SettingsIcon from "../img/icon_settings.svg";
 import {dateIsToday, getAmountOfWater, getTimeUntilTheNextWaterIntake} from "../params/Params";
 import Timer from "./Timer";
 import "./Main.css";
