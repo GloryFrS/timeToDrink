@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
 import BackIcon from "../img/back.svg";
-import InfoIcon from "../img/info.png";
+import InfoIcon from "../img/information.svg";
 import "./Settings.css";
 
 class Settings extends React.Component {
@@ -65,7 +65,7 @@ class Settings extends React.Component {
                     <img src={BackIcon} alt=''/>
                 </Link>
                 <Link to='/info'>
-                    <img src={InfoIcon} width='25px' alt=''/>
+                    <img src={InfoIcon} className='settings-image-info' alt=''/>
                 </Link>
                 <br/>
                 <p className="settings-decree">Укажите свой актуальный вес:</p>

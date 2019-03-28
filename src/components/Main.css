@@ -1,3 +1,24 @@
+.main-body-container {
+    overflow: auto;
+    height: 100%;
+    position: relative;
+
+    background: url("../img/info-background-wave1.svg") 100% 0 no-repeat fixed,
+    url("../img/info-background-wave2.svg") 100% 0 no-repeat fixed,
+    url("../img/info-ellipse-1.svg") 77% 42% no-repeat fixed,
+    url("../img/info-ellipse-2.svg") 85% 40% no-repeat fixed,
+    url("../img/info-ellipse-3.svg") 74% 39% no-repeat fixed,
+    rgba(221, 223, 230, 0.5);
+
+    background-size: 100% 100%, 100% 100%, auto, auto, auto, cover;
+    margin: 0;
+}
+
+.main-image-info {
+    margin-left: -60px;
+    margin-top: 50px;
+}
+
 .container-bottom-blocks {
     list-style-type: none;
     text-align: center;
@@ -15,8 +36,19 @@
     height: 90px;
     width: 90px;
     display: block;
-    margin: 0 auto;
+    margin-top: -118px;
+    /*margin: 0 auto;*/
+    border: 4px solid #FFFFFF;
+    box-shadow: 0px 4px 40px #D9D9FB;
     border-radius: 50%; /* Радиус скругления */
+}
+
+.main-addition-first {
+    font-family: GothamPro;
+    font-size: 15px;
+    line-height: 21px;
+    text-align: center;
+    color: #4E4E61;
 }
 
 .main-drop-wave-container {

@@ -1,14 +1,14 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import DrinkPopup from '../popups/DrinkPopup'
-import InfoIcon from "../img/info.png";
-import SettingsIcon from "../img/settings.png";
+import InfoIcon from "../img/information.svg";
+import SettingsIcon from "../img/settings.svg";
 import {dateIsToday, getAmountOfWater, getTimeUntilTheNextWaterIntake} from "../params/Params";
 import Timer from "./Timer";
 import "./Main.css";
 import WellDonePopup from "../popups/WellDonePopup";
 import ProgressBar from "./ProgressBar";
-import imgDrop from "../img/drop-water.svg";
+import imgDrop from "../img/main-drop.svg";
 
 class Main extends React.Component {
     constructor(props) {
@@ -57,19 +57,19 @@ class Main extends React.Component {
             ? this.props.state.amountOfWaterPerDay : 0;
 
         return (
-            <div>
+            <div className='main-body-container'>
                 <Link to='/settings'>
-                    <img src={SettingsIcon} width='25px' alt=''/>
+                    <img src={SettingsIcon} alt=''/>
                 </Link>
                 <Link to='/info'>
-                    <img src={InfoIcon} width='25px' alt=''/>
+                    <img src={InfoIcon} className='main-image-info' alt=''/>
                 </Link>
                 <br/>
                 <div>
                     <img className='main-user-photo'
                          src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
                          alt="..."/>
-                    <h2 className='addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
+                    <h2 className='main-addition-first'>Привет {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
                 </div>
                 <div className="main-drop-wave-container">
                     <img src={imgDrop} className="main-water-drop" alt=""/>

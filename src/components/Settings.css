@@ -14,13 +14,17 @@
     margin: 0;
 }
 
+.settings-image-info {
+    margin-left: -60px;
+}
+
 .settings-decree {
     font-family: GothamPro;
     font-size: 16px;
     line-height: 18px;
     color: #4E4E61;
     font-weight: bolder;
-    text-align: left;
+    text-align: center;
     margin-left: 36px;
     margin-right: 30px;
     margin-bottom: 20px;
