@@ -13,7 +13,6 @@ class ApiManager {
             read: 'read.php',
             create: 'create.php',
             update: 'update.php',
-            readKey: 'readKey.php',
         }
     }
 
@@ -67,14 +66,13 @@ class ApiManager {
     };
 
     static loadUserInfo(id, processLoadedData) {
-        console.log('LOAD DATA');
         axios.get(ApiManager.url + ApiManager.action.read, {params: {id: id}})
             .then(res => {
                 console.log(res);
                 processLoadedData(res.data, '/main');
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.response);
                 const redirect = (error.message === "Network Error" || error.message === "Request failed with status code 500") ? '/network-error' : '/start' ;
                 //console.log(error.response.data.message);
                 processLoadedData(null, redirect);
@@ -122,14 +120,13 @@ class ApiManager {
             })
     };
 
-    static updateNotificationsSubscriptionAndTime(user, subToNotification) {
+    static updateTimezone(user) {
 
         const timezone = parseInt(new Date().getTimezoneOffset() / -60 , 10);
 
         let formData = new FormData();
 
         formData.set('id', user.id);
-        formData.set('signed_up_for_notifications', (subToNotification ? 1 : 0).toString());
         formData.set('timezone', timezone.toString());
 
         axios({
@@ -142,24 +139,30 @@ class ApiManager {
                 console.log(res);
             })
             .catch(error => {
-                console.log(error.message);
-                console.log(error);
+                console.log(error.response);
             })
     };
 
-    static loadAccessKey(setAccessToken) {
+    static updateNotificationsSubscription(user, sub) {
+        let formData = new FormData();
+
+        formData.set('id', user.id);
+        formData.set('signed_up_for_notifications', sub);
+
         axios({
-            method: 'get',
-            url: ApiManager.url + ApiManager.action.readKey,
-            //config: {headers: {'Content-Type': 'multipart/form-data'}}
+            method: 'post',
+            url: ApiManager.url + ApiManager.action.update,
+            data: formData,
+            config: {headers: {'Content-Type': 'multipart/form-data'}}
         })
             .then(res => {
-                setAccessToken(res.data.key);
+                console.log(res);
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.response);
             })
     };
+
 }
 
 export default ApiManager;

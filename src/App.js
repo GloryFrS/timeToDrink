@@ -41,15 +41,15 @@ class App extends React.Component {
         connect.subscribe((e) => {
             switch (e.detail.type) {
                 case 'VKWebAppGetUserInfoResult':
-                    this.setState({fetchedUser: e.detail.data});
+                    this.setState({fetchedUser: e.detail.data}, () => ApiManager.updateTimezone(this.state.fetchedUser));
                     break;
+
+                case 'VKWebAppAllowNotificationsResult ':
+                    this.setState({signedUpForNotifications: 1}, () => ApiManager.updateNotificationsSubscription(this.state.signedUpForNotifications));
+                    break;
+
                 case 'VKWebAppCallAPIMethodResult':
-                    this.setState({
-                        signedUpForNotifications: !!e.detail.data.response.is_allowed
-                    }, () => ApiManager.updateNotificationsSubscriptionAndTime(
-                        this.state.fetchedUser,
-                        this.state.signedUpForNotifications
-                    ));
+                    this.setState({signedUpForNotifications: !!e.detail.data.response.is_allowed});
                     break;
                 default:
                     console.log(e.detail.type);
@@ -111,11 +111,18 @@ class App extends React.Component {
                 weekendsWakeUp: loadedData.weekends_wake_time,
                 weekendsGoTOSleep: loadedData.weekends_sleep_time,
                 lastWaterIntake: loadedData.last_water_intake,
-                amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day)
-            }, () => console.log(this.state));
+                amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day),
+                signedUpForNotifications: loadedData.signed_up_for_notifications
+            }, () => this.requestASubscription());
         }
     }
 
+    requestASubscription() {
+        if (this.state.signedUpForNotifications === 0) {
+            console.log("Request to notify subs");
+            //connect.send("VKWebAppAllowNotifications", {});
+        }
+    }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking
     setNewStateAfterDrinking(newState) {
         if (newState.lastWaterIntake && newState.amountOfWaterPerDay) {
