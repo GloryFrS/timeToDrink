@@ -41,7 +41,7 @@ class App extends React.Component {
         connect.subscribe((e) => {
             switch (e.detail.type) {
                 case 'VKWebAppGetUserInfoResult':
-                    this.setState({fetchedUser: e.detail.data}, () => ApiManager.loadAccessKey(this.setAccessToken));
+                    this.setState({fetchedUser: e.detail.data});
                     break;
                 case 'VKWebAppCallAPIMethodResult':
                     this.setState({

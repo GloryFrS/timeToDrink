@@ -4,7 +4,8 @@ import {dateIsToday, formatDate} from "../params/Params";
 class ApiManager {
 
     static get url() {
-        return "http://timetodrink/api/user/";
+        // return "http://timetodrink/api/user/";
+        return "http://app9.vk-irs.ru/api/user/"
     }
 
     static get action() {
@@ -66,6 +67,7 @@ class ApiManager {
     };
 
     static loadUserInfo(id, processLoadedData) {
+        console.log('LOAD DATA');
         axios.get(ApiManager.url + ApiManager.action.read, {params: {id: id}})
             .then(res => {
                 console.log(res);
@@ -73,7 +75,7 @@ class ApiManager {
             })
             .catch(error => {
                 console.log(error);
-                const redirect = error.message === "Network Error" ? '/network-error' : '/start' ;
+                const redirect = (error.message === "Network Error" || error.message === "Request failed with status code 500") ? '/network-error' : '/start' ;
                 //console.log(error.response.data.message);
                 processLoadedData(null, redirect);
             })
@@ -152,7 +154,6 @@ class ApiManager {
             //config: {headers: {'Content-Type': 'multipart/form-data'}}
         })
             .then(res => {
-                console.log(res.data.key);
                 setAccessToken(res.data.key);
             })
             .catch(error => {

@@ -116,7 +116,7 @@
 
 .main-text-info-today-drink {
     font-family: GothamPro;
-    font-size: 35px;
+    font-size: 25px;
     line-height: 53px;
     text-align: center;
     color: #FFFFFF;
@@ -146,9 +146,9 @@
 
 .timer {
     font-family: GothamPro;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 53px;
     text-align: center;
     color: #FFFFFF;
-    margin-left: -9px;
+    margin-left: -12px;
 }

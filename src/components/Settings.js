@@ -92,10 +92,9 @@ class Settings extends React.Component {
                     </div>
                 </div>
                 <br/>
-                {/*<Link to='/main' className="settings-save-button"*/}
-                      {/*onClick={this.checkAndUpdateParameters}>Сохранить</Link>*/}
-                <button className="settings-save-button"
-                        onClick={this.checkAndUpdateParameters}>Сохранить</button>
+                <Link to='/main' className="settings-save-button"
+                      onClick={this.checkAndUpdateParameters}>Сохранить</Link>
+
             </div>
         )
     };

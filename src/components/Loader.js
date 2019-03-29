@@ -6,7 +6,7 @@ import ApiManager from "../api/ApiManager";
 
 class Loader extends React.Component {
     _isMounted = false;
-    _dataIsLoaded = false;
+    _dataIsLoading = false;
 
     constructor(props) {
         super(props);
@@ -23,7 +23,6 @@ class Loader extends React.Component {
 
     processLoadedData = (loadedData, newRedirect) =>{
         if (this._isMounted) {
-            this._dataIsLoaded = true;
             this.setState({
                 redirectTo: newRedirect,
                 loadedData: loadedData,
@@ -35,6 +34,7 @@ class Loader extends React.Component {
         this._isMounted = true;
         console.log('Loader WillReceiveProps', nextProps.fetchedUser.id);
         if (nextProps.fetchedUser && !this.state.loadedData && !this._dataIsLoaded) {
+            this._dataIsLoading = true;
             ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.processLoadedData);
         }
     }
