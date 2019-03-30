@@ -75,8 +75,12 @@ class Settings extends React.Component {
                 <div className='settings-container-info'>
                     <p className='settings-wakeup-text'>В будние дни:</p>
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
-                    <div className='settings-time-to-wake-sleep'><input type="time" id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up' defaultValue={this.state.prevState &&  this.state.prevState.weekdaysWakeUp ? this.state.prevState.weekdaysWakeUp.substring(0, 5) : null}/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="time" id="settings-weekdays-time-go-to-sleep" className='settings-time-to-sleep' defaultValue={this.state.prevState &&  this.state.prevState.weekdaysGoTOSleep ? this.state.prevState.weekdaysGoTOSleep.substring(0, 5) : null}/>
+                    <div className='settings-time-to-wake-sleep'>
+                        <input type="time" id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up'
+                               defaultValue={this.state.prevState &&  this.state.prevState.weekdaysWakeUp ? this.state.prevState.weekdaysWakeUp.substring(0, 5) : null}/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="time" id="settings-weekdays-time-go-to-sleep" className='settings-time-to-sleep'
+                               defaultValue={this.state.prevState &&  this.state.prevState.weekdaysGoTOSleep ? this.state.prevState.weekdaysGoTOSleep.substring(0, 5) : null}/>
                     </div>
                 </div>
                 <br/>
