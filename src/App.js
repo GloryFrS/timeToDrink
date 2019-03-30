@@ -1,5 +1,5 @@
 import React from 'react';
-import connect from '@vkontakte/vkui-connect';
+import connect from '@vkontakte/vkui-connect-mock';
 import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
 

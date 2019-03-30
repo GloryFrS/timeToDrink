@@ -1,13 +1,12 @@
 .registration-is-complete-container {
     position: absolute;
     background: #FFFFFF;
-    padding: 1%;
-    width: 340px;
+    width: 320px;
     height: 190px;
     top: 45%;
     left: 50%;
     margin-top: -95px;
-    margin-left: -170px;
+    margin-left: -160px;
     cursor: default;
     z-index: 10001;
     border-radius: 40px;

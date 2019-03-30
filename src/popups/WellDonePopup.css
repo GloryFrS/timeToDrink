@@ -1,13 +1,12 @@
 .well-done-popup-container {
     position: absolute;
     background: #4848F4;
-    padding: 1%;
-    width: 350px;
-    height: 230px;
+    width: 320px;
+    height: 220px;
     top: 45%;
     left: 50%;
-    margin-top: -115px;
-    margin-left: -175px;
+    margin-top: -110px;
+    margin-left: -160px;
     cursor: default;
     z-index: 10001;
     border-radius: 40px;
@@ -19,7 +18,7 @@
     font-weight: bold;
     font-size: 36px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 35px;
     font-family: GothamPro;
     color: #FFFFFF;
 }
@@ -29,6 +28,8 @@
     font-size: 16px;
     text-align: center;
     margin-top: 25px;
+    padding-left: 45px;
+    padding-right: 45px;
     font-family: GothamPro;
     color: #FFFFFF;
 }
@@ -37,7 +38,7 @@
     line-height: 29px;
     font-size: 24px;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 18px;
     font-family: GothamPro;
     color: #FFFFFF;
 }
