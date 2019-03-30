@@ -97,11 +97,12 @@
     margin-top: 70px;
     width: 92px;
     height: 92px;
-    background: #4848F4;
+    /*background: #4848F4;*/
     margin-left: 24px;
     border-radius: 24px;
     float: left;
     margin-bottom: 50px;
+    background: url("../img/main_blue_block.svg") center;
 }
 
 .main-text-info-block-today {
@@ -120,6 +121,7 @@
     line-height: 53px;
     text-align: center;
     color: #FFFFFF;
+    margin-left: -8px;
 }
 
 .main-water-block-today {
@@ -127,12 +129,13 @@
     margin-top: 70px;
     width: 92px;
     height: 92px;
-    background: #4848F4;
+    /*background: #4848F4;*/
     margin-left: 10px;
     border-radius: 24px;
     margin-right: 24px;
     float: left;
     margin-bottom: 50px;
+    background: url("../img/main_blue_block.svg") center;
 }
 
 .main-text-water-block-today {
