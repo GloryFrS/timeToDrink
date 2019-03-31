@@ -22,8 +22,9 @@ h1, h2, p, img, button {
     url("../img/Ellipse-6.svg") 62% 65% no-repeat fixed,
     url("../img/Ellipse-7.svg") 58% 60% no-repeat fixed,
     url("../img/Ellipse-8.svg") 68% 81% no-repeat fixed,
-    url("../img/background_start_wave_1.svg") repeat-x fixed,
-    url("../img/background_start_wave_2.svg") 100% 35% no-repeat fixed,
+    url("../img/background_start_wave.svg") repeat-x fixed,
+    /*url("../img/background_start_wave_1.svg") repeat-x fixed,*/
+    /*url("../img/background_start_wave_2.svg") 100% 35% no-repeat fixed,*/
     url("../img/water.svg") 50% 35% no-repeat fixed,
     url("../img/Ellipse-9.svg") 25% 45% no-repeat fixed,
     url("../img/Ellipse-10.svg") 29% 35% no-repeat fixed,
@@ -34,7 +35,8 @@ h1, h2, p, img, button {
     animation: wave 20s linear infinite;
     -webkit-animation: wave 20s linear infinite;
 
-    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, 100% 100%, 50% 30%, 35%, auto, auto, auto, auto, cover;
+    /*background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, 100% 100%, 50% 30%, 35%, auto, auto, auto, auto, cover;*/
+    background-size: auto, auto, auto, auto, auto, auto, auto, auto, auto, auto, 100% 100%, 35%, auto, auto, auto, auto, cover;
     margin: 0;
 
 

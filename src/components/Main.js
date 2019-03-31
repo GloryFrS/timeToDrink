@@ -40,7 +40,9 @@ class Main extends React.Component {
     };
 
     changeDrinkPopupVisibility() {
-        this.setState({drinkPopupIsVisible: !this.state.drinkPopupIsVisible});
+        if (!this.state.wellDonePopupIsVisible) {
+            this.setState({drinkPopupIsVisible: !this.state.drinkPopupIsVisible});
+        }
     };
 
     render() {

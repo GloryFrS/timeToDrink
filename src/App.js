@@ -44,8 +44,12 @@ class App extends React.Component {
                     this.setState({fetchedUser: e.detail.data}, () => ApiManager.updateTimezone(this.state.fetchedUser));
                     break;
 
-                case 'VKWebAppAllowNotificationsResult ':
+                case 'VKWebAppAllowNotificationsResult':
                     this.setState({signedUpForNotifications: 1}, () => ApiManager.updateNotificationsSubscription(this.state.signedUpForNotifications));
+                    break;
+
+                case 'VKWebAppDenyNotificationsResult':
+                    this.setState({signedUpForNotifications: 0}, () => ApiManager.updateNotificationsSubscription(this.state.signedUpForNotifications));
                     break;
 
                 case 'VKWebAppCallAPIMethodResult':
@@ -120,7 +124,7 @@ class App extends React.Component {
     requestASubscription() {
         if (this.state.signedUpForNotifications === 0) {
             console.log("Request to notify subs");
-            //connect.send("VKWebAppAllowNotifications", {});
+            connect.send("VKWebAppAllowNotifications", {});
         }
     }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking
