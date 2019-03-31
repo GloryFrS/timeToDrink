@@ -14,7 +14,7 @@ class FirstTraining extends React.Component {
     }
 
     onChange = (event) => {
-        if (event.target.value !== '') {
+        if (event.target.value !== '' && parseInt(event.target.value, 10) > 0 && parseInt(event.target.value, 10) < 300) {
             this.props.setWeight(event);
             this.setState({
                 dataIsCorrect: true,

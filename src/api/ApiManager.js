@@ -1,5 +1,5 @@
 import axios from "axios";
-import {dateIsToday, formatDate} from "../params/Params";
+import {dateIsToday, formatDate, Params} from "../params/Params";
 
 class ApiManager {
 
@@ -73,9 +73,12 @@ class ApiManager {
             })
             .catch(error => {
                 console.log(error.response);
-                const redirect = (error.message === "Network Error" || error.message === "Request failed with status code 500") ? '/network-error' : '/start' ;
                 //console.log(error.response.data.message);
-                processLoadedData(null, redirect);
+                if (error.message === "Network Error" || error.message === "Request failed with status code 500") {
+                    processLoadedData(null, '/network-error');
+                } else {
+                    processLoadedData(Params.USER_REGISTRATION_FLAG, '/start');
+                }
             })
     };
 

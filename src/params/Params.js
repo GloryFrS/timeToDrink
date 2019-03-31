@@ -1,6 +1,7 @@
 export const Params = {
     WATER_PER_KILOGRAM: 0.03,
-    TIME_BETWEEN_WATER_INTAKES: 7200   // in seconds = 2 hours
+    TIME_BETWEEN_WATER_INTAKES: 7200,   // in seconds = 2 hours
+    USER_REGISTRATION_FLAG: 1
 };
 
 export const formatDate = date =>{

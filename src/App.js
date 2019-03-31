@@ -12,6 +12,7 @@ import Settings from "./components/Settings";
 import Info from "./components/Info";
 import Loader from "./components/Loader";
 import NetworkError from "./components/NetworkError";
+import {Params} from "./params/Params";
 
 class App extends React.Component {
     constructor(props) {
@@ -45,11 +46,17 @@ class App extends React.Component {
                     break;
 
                 case 'VKWebAppAllowNotificationsResult':
-                    this.setState({signedUpForNotifications: 1}, () => ApiManager.updateNotificationsSubscription(this.state.signedUpForNotifications));
+                    this.setState({signedUpForNotifications: 1}, () => ApiManager.updateNotificationsSubscription(
+                        this.state.fetchedUser,
+                        this.state.signedUpForNotifications
+                    ));
                     break;
 
                 case 'VKWebAppDenyNotificationsResult':
-                    this.setState({signedUpForNotifications: 0}, () => ApiManager.updateNotificationsSubscription(this.state.signedUpForNotifications));
+                    this.setState({signedUpForNotifications: 0}, () => ApiManager.updateNotificationsSubscription(
+                        this.state.fetchedUser,
+                        this.state.signedUpForNotifications
+                    ));
                     break;
 
                 case 'VKWebAppCallAPIMethodResult':
@@ -108,23 +115,27 @@ class App extends React.Component {
     // Set new state from Loaded Data
     setNewStateFromLoadedData(loadedData) {
         if (loadedData) {
-            this.setState({
-                weight: parseInt(loadedData.weight, 10),
-                weekdaysWakeUp: loadedData.weekdays_wake_time,
-                weekdaysGoTOSleep: loadedData.weekdays_sleep_time,
-                weekendsWakeUp: loadedData.weekends_wake_time,
-                weekendsGoTOSleep: loadedData.weekends_sleep_time,
-                lastWaterIntake: loadedData.last_water_intake,
-                amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day),
-                signedUpForNotifications: loadedData.signed_up_for_notifications
-            }, () => this.requestASubscription());
+            if (loadedData === Params.USER_REGISTRATION_FLAG) {
+                this.setState({signedUpForNotifications: 0}, () => this.requestASubscription());
+            } else {
+                this.setState({
+                    weight: parseInt(loadedData.weight, 10),
+                    weekdaysWakeUp: loadedData.weekdays_wake_time,
+                    weekdaysGoTOSleep: loadedData.weekdays_sleep_time,
+                    weekendsWakeUp: loadedData.weekends_wake_time,
+                    weekendsGoTOSleep: loadedData.weekends_sleep_time,
+                    lastWaterIntake: loadedData.last_water_intake,
+                    amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day),
+                    signedUpForNotifications: loadedData.signed_up_for_notifications
+                }, () => this.requestASubscription());
+            }
         }
     }
 
     requestASubscription() {
         if (this.state.signedUpForNotifications === 0) {
             console.log("Request to notify subs");
-            connect.send("VKWebAppAllowNotifications", {});
+            //connect.send("VKWebAppAllowNotifications", {});
         }
     }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking
