@@ -38,12 +38,14 @@ class SecondTraining extends React.Component {
     };
 
     checkAndRegisterUser = (event) => {
-        const times = this.getTimes();
-        if (times.dataIsCorrect) {
-            this.props.setStateAndRegisterUser(times);
-            this.changePopupVisibility();
-        } else {
-            event.preventDefault();
+        if (!this.state.popupIsVisible) {
+            const times = this.getTimes();
+            if (times.dataIsCorrect) {
+                this.props.setStateAndRegisterUser(times);
+                this.changePopupVisibility();
+            } else {
+                event.preventDefault();
+            }
         }
     };
 
