@@ -31,12 +31,15 @@ class Settings extends React.Component {
             weekendsGoTOSleep: document.getElementById("settings-weekends-time-go-to-sleep").value,
             weight: document.getElementById("settings-weight").value,
         };
+        console.log(!valueIsTime(newParameters.weekdaysWakeUp));
+
         if (
             !valueIsTime(newParameters.weekdaysWakeUp) ||
             !valueIsTime(newParameters.weekdaysGoTOSleep) ||
-            !valueIsTime(newParameters.weight) ||
             !valueIsTime(newParameters.weekendsWakeUp) ||
-            !valueIsTime(newParameters.weekendsGoTOSleep)) {
+            !valueIsTime(newParameters.weekendsGoTOSleep) ||
+            newParameters.weight === '' || parseInt(newParameters.weight, 10) < 0 || parseInt(newParameters.weight, 10) > 300
+        ) {
             return null
         }
         return newParameters
@@ -91,11 +94,13 @@ class Settings extends React.Component {
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='settings-time-to-wake-sleep'>
                         <InputMask id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up' mask="29:59" maskChar="-"
+                                   typeof='number'
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
                                    defaultValue={defaultWeekdaysWakeUp}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekdays-time-go-to-sleep"
+                                   typeof='number'
                                    className='settings-time-to-sleep' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
@@ -113,12 +118,14 @@ class Settings extends React.Component {
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='settings-time-to-wake-sleep'>
                         <InputMask id="settings-weekends-time-wake-up"
+                                   typeof='number'
                                    className='settings-time-to-wake-up' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
                                    defaultValue={defaultWeekendsWakeUp}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekends-time-go-to-sleep"
+                                   typeof='number'
                                    className='settings-time-to-sleep' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
