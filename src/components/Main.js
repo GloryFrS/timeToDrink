@@ -89,6 +89,7 @@ class Main extends React.Component {
                         <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>
                     </div>
                 </div>
+
                 <ProgressBar progress={100 * amountOfWaterDrinkingToday / getAmountOfWater(this.props.state.weight)} />
                 {drinkPopup}
                 {wellDonePopup}

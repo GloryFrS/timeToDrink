@@ -96,14 +96,10 @@
 }
 
 .settings-time-to-wake-up {
-    /*text-align: center;*/
-    /*vertical-align: middle;*/
+    text-align: center;
 
-    padding-left: 22px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 80px;
-
+    width: 88px;
+    vertical-align: middle;
     background: white;
     border-radius: 49px;
     border: 0;
@@ -115,18 +111,14 @@
     color: #4848F4;
     font-weight: bold;
     display:inline-block;
-    box-shadow: 0px 4px 40px #F1F2FB;
 }
 
 .settings-time-to-sleep {
-    /*text-align: center;*/
-    /*background: white;*/
+    text-align: center;
 
-    padding-left: 22px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 80px;
-
+    width: 88px;
+    vertical-align: middle;
+    background: white;
     border-radius: 49px;
     border: 0;
     height: 40px;
@@ -137,8 +129,6 @@
     color: #4848F4;
     font-weight: bold;
     display:inline-block;
-    vertical-align: middle;
-    box-shadow: 0px 4px 40px #F1F2FB;
 }
 
 .settings-save-button {

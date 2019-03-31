@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import {getAmountOfWater} from '../params/Params';
+import {getAmountOfWater, valueIsTime} from '../params/Params';
 import './SecondTraining.css';
 import RegistrationIsComplete from "../popups/RegistrationIsComplete";
+import InputMask from 'react-input-mask';
 
 class SecondTraining extends React.Component {
 
@@ -27,8 +28,10 @@ class SecondTraining extends React.Component {
             dataIsCorrect: false
         };
 
-        if (times.weekdaysWakeUp !== '' && times.weekdaysGoTOSleep !== '' &&
-            times.weekendsWakeUp !== '' && times.weekendsGoTOSleep !== '') {
+        if (valueIsTime(times.weekdaysWakeUp) &&
+            valueIsTime(times.weekdaysGoTOSleep) &&
+            valueIsTime(times.weekendsWakeUp) &&
+            valueIsTime(times.weekendsGoTOSleep)) {
             times.dataIsCorrect = true;
         }
         return times
@@ -65,11 +68,16 @@ class SecondTraining extends React.Component {
                     <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span>
                     <br/>
                     <div className='secondtraining-time-to-wake-sleep'>
-                        <input type="time" id="weekdays-time-wake-up"
-                               className='secondtraining-time-to-wake-up'/>
+                        <InputMask id="weekdays-time-wake-up" className='secondtraining-time-to-wake-up' mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="time" id="weekdays-time-go-to-sleep"
-                               className='secondtraining-time-to-sleep'/>
+                        <InputMask id="weekdays-time-go-to-sleep" className='secondtraining-time-to-sleep' mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
+                        {/*<input type="time" id="weekdays-time-wake-up"*/}
+                               {/*className='secondtraining-time-to-wake-up'/>*/}
+                        {/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/}
+                        {/*<input type="time" id="weekdays-time-go-to-sleep"*/}
+                               {/*className='secondtraining-time-to-sleep'/>*/}
                     </div>
                 </div>
                 <br/>
@@ -78,11 +86,16 @@ class SecondTraining extends React.Component {
                     <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span>
                     <br/>
                     <div className='secondtraining-time-to-wake-sleep'>
-                        <input type="time" id="weekends-time-wake-up"
-                               className='secondtraining-time-to-wake-up'/>
+                        <InputMask id="weekends-time-wake-up" className='secondtraining-time-to-wake-up' mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="time" id="weekends-time-go-to-sleep"
-                               className='secondtraining-time-to-sleep'/>
+                        <InputMask id="weekends-time-go-to-sleep" className='secondtraining-time-to-sleep' mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
+                        {/*<input type="time" id="weekends-time-wake-up"*/}
+                               {/*className='secondtraining-time-to-wake-up'/>*/}
+                        {/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/}
+                        {/*<input type="time" id="weekends-time-go-to-sleep"*/}
+                               {/*className='secondtraining-time-to-sleep'/>*/}
                     </div>
                 </div>
                 <br/>

@@ -40,3 +40,7 @@ export const getTimeUntilTheNextWaterIntake = date => {
     return diff >= Params.TIME_BETWEEN_WATER_INTAKES ? 0 : Params.TIME_BETWEEN_WATER_INTAKES - diff;
 };
 
+export const valueIsTime = value => {
+    if (!value) return false;
+    return !!value.match('([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}');
+};
