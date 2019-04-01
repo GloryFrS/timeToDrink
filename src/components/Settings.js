@@ -94,16 +94,16 @@ class Settings extends React.Component {
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='settings-time-to-wake-sleep'>
                         <InputMask id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up' mask="29:59" maskChar="-"
-                                   typeof='number'
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   inputMode='numeric'
                                    defaultValue={defaultWeekdaysWakeUp}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekdays-time-go-to-sleep"
-                                   typeof='number'
                                    className='settings-time-to-sleep' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   inputMode='numeric'
                                    defaultValue={defaultWeekdaysGoTOSleep}/>
                         {/*<input type="time" id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up'*/}
                         {/*defaultValue={this.state.prevState &&  this.state.prevState.weekdaysWakeUp ? this.state.prevState.weekdaysWakeUp.substring(0, 5) : null}/>*/}
@@ -118,17 +118,17 @@ class Settings extends React.Component {
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='settings-time-to-wake-sleep'>
                         <InputMask id="settings-weekends-time-wake-up"
-                                   typeof='number'
                                    className='settings-time-to-wake-up' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   inputMode='numeric'
                                    defaultValue={defaultWeekendsWakeUp}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekends-time-go-to-sleep"
-                                   typeof='number'
                                    className='settings-time-to-sleep' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   inputMode='numeric'
                                    defaultValue={defaultWeekendsGoTOSleep}/>
                         {/*<input type="time" id="settings-weekends-time-wake-up" className='settings-time-to-wake-up'*/}
                         {/*defaultValue={this.state.prevState &&  this.state.prevState.weekendsWakeUp ? this.state.prevState.weekendsWakeUp.substring(0, 5) : null}/>*/}
