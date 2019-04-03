@@ -123,6 +123,8 @@ input[type="number"]:focus {
     color: #4848F4;
     font-weight: bold;
     display:inline-block;
+    outline: none;
+
 
 }
 
@@ -141,6 +143,8 @@ input[type="number"]:focus {
     color: #4848F4;
     font-weight: bold;
     display:inline-block;
+    outline: none;
+
 }
 
 

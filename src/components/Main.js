@@ -8,7 +8,10 @@ import Timer from "./Timer";
 import "./Main.css";
 import WellDonePopup from "../popups/WellDonePopup";
 import ProgressBar from "./ProgressBar";
-import imgDrop from "../img/main-drop.svg";
+import imgDrop from "../img/main-drop2.svg";
+import ellipse1 from "../img/Ellipse-3.svg";
+import ellipse6 from "../img/Ellipse-6.svg";
+import ellipse8 from "../img/Ellipse-8.svg";
 import Plus from "../img/+.svg";
 
 class Main extends React.Component {
@@ -76,6 +79,13 @@ class Main extends React.Component {
                 </div>
                 <div className="main-drop-wave-container">
                     <img src={imgDrop} className="main-water-drop" alt=""/>
+
+                    <img src={ellipse1} className='main-drop-ell'/>
+                    <img src={ellipse1} className='main-drop-ell2'/>
+                    <img src={ellipse6} className='main-drop-ell3'/>
+                    <img src={ellipse8} className='main-drop-ell4'/>
+                    <img src={ellipse8} className='main-drop-ell5'/>
+
                 </div>
                 {/*<Link to="/start">Start</Link>*/}
                 {/*<br/>*/}

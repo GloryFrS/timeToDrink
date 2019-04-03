@@ -72,9 +72,92 @@
 .main-drop-wave-container {
     position: relative;
     text-align: center;
-    width: 100%;
+    width: 190px;
     height: 250px;
     z-index: 1;
+    left: 50%;
+    margin-left: -95px;
+    margin-top: 20px;
+}
+
+.main-drop-ell {
+    position: absolute;
+    top: 68%;
+    left: 24%;
+
+    animation: ell 8s linear infinite;
+    -webkit-animation: ell 8s linear infinite;
+}
+
+@keyframes ell {
+    from { top: 68%; left: 24%}
+    to {
+        top: 30%; left: 30%;
+    }
+}
+
+.main-drop-ell2 {
+    position: absolute;
+    top: 72%;
+    left: 62%;
+
+    animation: ell2 5s linear infinite;
+    -webkit-animation: ell2 5s linear infinite;
+}
+
+@keyframes ell2 {
+    from { top: 72%; left: 62%}
+    to {
+        top: 40%; left: 45%;
+    }
+}
+
+.main-drop-ell3 {
+    position: absolute;
+    top: 86%;
+    left: 53%;
+
+    animation: ell3 7s linear infinite;
+    -webkit-animation: ell3 7s linear infinite;
+}
+
+@keyframes ell3 {
+    from { top: 86%; left: 53%}
+    to {
+        top: 30%; left: 60%;
+    }
+}
+
+.main-drop-ell4 {
+    position: absolute;
+    top: 75%;
+    left: 75%;
+
+    animation: ell4 4s linear infinite;
+    -webkit-animation: ell4 4s linear infinite;
+}
+
+@keyframes ell4 {
+    from { top: 75%; left: 75%}
+    to {
+        top: 30%; left: 60%;
+    }
+}
+
+.main-drop-ell5 {
+    position: absolute;
+    top: 78%;
+    left: 29%;
+
+    animation: ell5 6s linear infinite;
+    -webkit-animation: ell5 6s linear infinite;
+}
+
+@keyframes ell5 {
+    from { top: 78%; left: 29%}
+    to {
+        top: 20%; left: 55%;
+    }
 }
 
 .main-button-water {
@@ -89,7 +172,8 @@
     left: 50%;
     z-index: 2;
     margin-left: -30px;
-    top: 445px;
+    top: 425px;
+    outline: none;
 }
 
 .main-info-block-today {

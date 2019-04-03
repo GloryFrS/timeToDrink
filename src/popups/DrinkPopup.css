@@ -31,6 +31,7 @@
     border: none;
     outline: none;
     cursor: pointer;
+    box-shadow: 0 4px 20px rgba(56, 59, 75, 0.5);
 }
 
 .drinkpopup-time-to-water {
@@ -70,9 +71,9 @@
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
-    -webkit-transition: all 100ms ease-in;
-    -moz-transition: all 100ms ease-in;
-    transition: all 100ms ease-in;
+    -webkit-transition: all 20ms ease-in;
+    -moz-transition: all 20ms ease-in;
+    transition: all 20ms ease-in;
 }
 
 .drink-text {
@@ -192,9 +193,9 @@
     border-radius: 50%;
     color: #4E4E61;
 
-    -webkit-transition: all 100ms ease-in;
-    -moz-transition: all 100ms ease-in;
-    transition: all 100ms ease-in;
+    -webkit-transition: all 20ms ease-in;
+    -moz-transition: all 20ms ease-in;
+    transition: all 20ms ease-in;
 }
 
 .amount-text {

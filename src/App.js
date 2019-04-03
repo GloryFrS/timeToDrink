@@ -1,5 +1,5 @@
 import React from 'react';
-import connect from '@vkontakte/vkui-connect-mock';
+import connect from '@vkontakte/vkui-connect';
 import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
 
@@ -135,7 +135,7 @@ class App extends React.Component {
     requestASubscription() {
         if (this.state.signedUpForNotifications === 0) {
             console.log("Request to notify subs");
-            //connect.send("VKWebAppAllowNotifications", {});
+            connect.send("VKWebAppAllowNotifications", {});
         }
     }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking
