@@ -7,6 +7,8 @@ class DrinkPopup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectedDrink: 'water',
+            selectedAmount: 200,
             updatedDate: null,
         };
         this.changeUpdatedData = this.changeUpdatedData.bind(this);
@@ -36,8 +38,62 @@ class DrinkPopup extends React.Component {
         document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
+    updateDrink(drink) {
+        this.setState({selectedDrink: drink})
+    }
+
+    updateAmount(amount) {
+        this.setState({selectedAmount: amount})
+    }
+
     render() {
         document.addEventListener('click', this.handleOutsideClick, false);
+
+        let drinkWater = 'block-drink water-background water-position';
+        let drinkJuice = 'block-drink juice-background juice-position';
+        let drinkTea = 'block-drink tea-background tea-position';
+        let drinkCoffee = 'block-drink coffee-background coffee-position';
+
+        switch (this.state.selectedDrink) {
+            case 'water':
+                drinkWater = 'block-drink block-drink-checked water-position';
+                break;
+            case 'juice':
+                drinkJuice = 'block-drink block-drink-checked juice-position';
+                break;
+            case 'tea':
+                drinkTea = 'block-drink block-drink-checked tea-position';
+                break;
+            case 'coffee':
+                drinkCoffee = 'block-drink block-drink-checked coffee-position';
+                break;
+            default:
+                drinkWater = 'block-drink block-drink-checked water-position';
+                break;
+        }
+
+        let amount200 = 'block-amount ml200-background ml200-position';
+        let amount300 = 'block-amount ml300-background ml300-position';
+        let amount400 = 'block-amount ml400-background ml400-position';
+        let amount500 = 'block-amount ml500-background ml500-position';
+
+        switch (this.state.selectedAmount) {
+            case 200:
+                amount200 = 'block-amount block-amount-checked ml200-position';
+                break;
+            case 300:
+                amount300 = 'block-amount block-amount-checked ml300-position';
+                break;
+            case 400:
+                amount400 = 'block-amount block-amount-checked ml400-position';
+                break;
+            case 500:
+                amount500 = 'block-amount block-amount-checked ml500-position';
+                break;
+            default:
+                amount200 = 'block-amount block-amount-checked ml200-position';
+                break;
+        }
 
         return (
             <div className='drink-popup-container' ref={node => {
@@ -45,47 +101,38 @@ class DrinkPopup extends React.Component {
             }}>
                 <p className="drinkpopup-time-to-water">Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}
-                <div className="cc-selector-drink">
-
-                    <input id="water" type="radio" name="select-drink" value="water" defaultChecked={true}/>
-                    <label className="drink-cc water" htmlFor="water">
+                <div className='drinkpopup-select-drink'>
+                    <div className={drinkWater} onClick={() => this.updateDrink('water')}>
                         <p className="drink-text text-water">Вода</p>
-                    </label>
-                    <input id="juice" type="radio" name="select-drink" value="juice"/>
-                    <label className="drink-cc juice" htmlFor="juice">
+                    </div>
+                    <div className={drinkJuice} onClick={() => this.updateDrink('juice')}>
                         <p className="drink-text text-juice">Сок</p>
-                    </label>
-                    <br/>
-                    <input id="tea" type="radio" name="select-drink" value="tea"/>
-                    <label className="drink-cc tea" htmlFor="tea">
+                    </div>
+                    <div className={drinkTea} onClick={() => this.updateDrink('tea')}>
                         <p className="drink-text text-tea">Чай</p>
-                    </label>
-                    <input id="coffee" type="radio" name="select-drink" value="coffee"/>
-                    <label className="drink-cc coffee" htmlFor="coffee">
+                    </div>
+                    <div className={drinkCoffee} onClick={() => this.updateDrink('coffee')}>
                         <p className="drink-text text-coffee">Кофе</p>
-                    </label>
+                    </div>
                 </div>
                 <br/>
                 <p className="drinkpopup-text-choice-amount">Выберите кол-во:</p>
                 {/*Выбираем сколько пить*/}
-                <div className="cc-selector-amount">
-                    <input id="ml200" type="radio" name="select-amount" value="200" defaultChecked={true}/>
-                    <label className="amount-cc ml200" htmlFor="ml200">
+                <div className='drinkpopup-select-amount'>
+                    <div className={amount200} onClick={() => this.updateAmount(200)}>
                         <p className="amount-text text-200ml">200мл</p>
-                    </label>
-                    <input id="ml300" type="radio" name="select-amount" value="300"/>
-                    <label className="amount-cc ml300" htmlFor="ml300">
+                    </div>
+                    <div className={amount300} onClick={() => this.updateAmount(300)}>
                         <p className="amount-text text-300ml">300мл</p>
-                    </label>
-                    <input id="ml400" type="radio" name="select-amount" value="400"/>
-                    <label className="amount-cc ml400" htmlFor="ml400">
+                    </div>
+                    <div className={amount400} onClick={() => this.updateAmount(400)}>
                         <p className="amount-text text-400ml">400мл</p>
-                    </label>
-                    <input id="ml500" type="radio" name="select-amount" value="500"/>
-                    <label className="amount-cc ml500" htmlFor="ml500">
+                    </div>
+                    <div className={amount500} onClick={() => this.updateAmount(500)}>
                         <p className="amount-text text-500ml">500мл</p>
-                    </label>
+                    </div>
                 </div>
+
                 <button className="drink-popup-button" onClick={() => {
                     this.drinkWaterAndUpdateState()
                 }}>Выпить

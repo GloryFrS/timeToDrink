@@ -52,12 +52,21 @@
     text-align: center;
     font-weight: bolder;
     color: #4E4E61;
-    margin-top: 150px;
+    margin-top: 185px;
     margin-bottom: 25px;
 }
 
+.drink-text {
+    position: absolute;
+    font-family: GothamPro;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
 
-.drink-cc {
+    font-weight: bolder;
+}
+
+.block-drink {
     position: absolute;
     cursor: pointer;
 
@@ -76,33 +85,7 @@
     transition: all 20ms ease-in;
 }
 
-.drink-text {
-    position: absolute;
-    font-family: GothamPro;
-    font-size: 15px;
-    line-height: 18px;
-    text-align: center;
-
-    font-weight: bolder;
-}
-/* Все накопировал*/
-/* пример можешь глянуть по ссылке http://jsfiddle.net/La8wQ/22/    там понятнее!*/
-
-/* ВЫБОР НАПИТКА*/
-.cc-selector-drink input {
-    margin: 0;
-    padding: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-}
-
-.cc-selector-drink input:active + .drink-cc {
-    opacity: .5;
-}
-
-.cc-selector-drink input:checked + .drink-cc{
+.block-drink-checked {
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
@@ -115,15 +98,17 @@
     background-size: 40px 30px;
 }
 
-.water {
+.water-background {
     background-color: white;
-    left: 30px;
-    top: 85px;
-
     background-position: center;
     background-image: url('../img/water-drink.png');
     background-repeat: no-repeat;
     background-size: 40px 40px;
+}
+
+.water-position {
+    left: 30px;
+    top: 85px;
 }
 
 .text-water {
@@ -131,15 +116,17 @@
     bottom: 7px;
 }
 
-.juice {
+.juice-background {
     background-color: white;
-    left: 145px;
-    top: 85px;
-
     background-position: top 22px left 25px;
     background-image: url('../img/juice.svg');
     background-repeat: no-repeat;
     background-size: 45px 45px;
+}
+
+.juice-position {
+    left: 145px;
+    top: 85px;
 }
 
 .text-juice {
@@ -147,15 +134,17 @@
     bottom: 7px;
 }
 
-.tea {
+.tea-background {
     background-color: white;
-    left: 30px;
-    top: 195px;
-
     background-position: top 27px left 33px;
     background-image: url('../img/tea.svg');
     background-repeat: no-repeat;
     background-size: 40px 40px;
+}
+
+.tea-position {
+    left: 30px;
+    top: 195px;
 }
 
 .text-tea {
@@ -163,15 +152,17 @@
     bottom: 7px;
 }
 
-.coffee {
+.coffee-background {
     background-color: white;
-    left: 145px;
-    top: 195px;
-
     background-position: top 22px left 27px;
     background-image: url('../img/coffee.svg');
     background-repeat: no-repeat;
     background-size: 45px 45px;
+}
+
+.coffee-position {
+    left: 145px;
+    top: 195px;
 }
 
 .text-coffee {
@@ -181,7 +172,7 @@
 
 /* ВЫБОР КОЛИЧЕСТВА*/
 
-.amount-cc {
+.block-amount {
     position: absolute;
     cursor: pointer;
     background-size: contain;
@@ -198,29 +189,7 @@
     transition: all 20ms ease-in;
 }
 
-.amount-text {
-    position: absolute;
-    font-family: GothamPro;
-    font-size: 12px;
-    line-height: 18px;
-    text-align: center;
-    font-weight: bolder;
-}
-
-.cc-selector-amount input {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
-.cc-selector-amount input:active + .amount-cc {
-    opacity: .5;
-}
-
-.cc-selector-amount input:checked + .amount-cc {
+.block-amount-checked {
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
@@ -233,11 +202,17 @@
     background-size: 25px 20px;
 }
 
-.ml200 {
-    background-color: white;
-    top: 340px;
-    left: 30px;
+.amount-text {
+    position: absolute;
+    font-family: GothamPro;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    font-weight: bolder;
+}
 
+.ml200-background {
+    background-color: white;
     background-position: center;
     /*background-image: url('../img/amount-water.jpg');*/
     background-image: url('../img/water-cup.svg');
@@ -245,20 +220,27 @@
     background-size: 25px 25px;
 }
 
+.ml200-position {
+    top: 340px;
+    left: 30px;
+}
+
 .text-200ml {
     left: 2px;
     top: 48px;
 }
 
-.ml300 {
+.ml300-background {
     background-color: white;
-    top: 340px;
-    left: 87px;
-
     background-position: center;
     background-image: url('../img/300.svg');
     background-repeat: no-repeat;
     background-size: 20px 30px;
+}
+
+.ml300-position {
+    top: 340px;
+    left: 87px;
 }
 
 .text-300ml {
@@ -266,15 +248,17 @@
     top: 48px;
 }
 
-.ml400 {
+.ml400-background {
     background-color: white;
-    top: 340px;
-    left: 144px;
-
     background-position: center;
     background-image: url('../img/400.svg');
     background-repeat: no-repeat;
     background-size: 30px 30px;
+}
+
+.ml400-position {
+    top: 340px;
+    left: 144px;
 }
 
 .text-400ml {
@@ -282,25 +266,20 @@
     top: 48px;
 }
 
-.ml500 {
+.ml500-background {
     background-color: white;
-    top: 340px;
-    left: 201px;
-
     background-position: center;
     background-image: url('../img/500.svg');
     background-repeat: no-repeat;
     background-size: 30px 30px;
 }
 
+.ml500-position {
+    top: 340px;
+    left: 201px;
+}
+
 .text-500ml {
     left: 2px;
     top: 48px;
-}
-
-
-.amount-cc:hover {
-    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
-    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
-    filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
