@@ -9,6 +9,7 @@ class DrinkPopup extends React.Component {
         this.state = {
             selectedDrink: 'water',
             selectedAmount: 200,
+            dataIsUpdating: false,
             updatedDate: null,
         };
         this.changeUpdatedData = this.changeUpdatedData.bind(this);
@@ -20,9 +21,14 @@ class DrinkPopup extends React.Component {
     };
 
     drinkWaterAndUpdateState() {
-        const amountOfWater = document.querySelector('input[name="select-amount"]:checked').value;
-        const drink = document.querySelector('input[name="select-drink"]:checked').value;
-        ApiManager.updateLastWaterIntake(this.props.state, amountOfWater, drink, this.changeUpdatedData);
+        if (!this.state.dataIsUpdating) {
+            this.setState({dataIsUpdating: true}, () => ApiManager.updateLastWaterIntake(
+                this.props.state,
+                this.state.selectedAmount,
+                this.state.selectedDrink,
+                this.changeUpdatedData
+            ));
+        }
     };
 
     handleOutsideClick(e) {
