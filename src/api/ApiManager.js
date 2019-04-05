@@ -82,19 +82,40 @@ class ApiManager {
             })
     };
 
-    static updateLastWaterIntake(state, amountOfWater, changeUpdatedData) {
+    static updateLastWaterIntake(state, amountOfWater, drink, changeUpdatedData) {
         amountOfWater = 0.001 * parseInt(amountOfWater, 10);
-        const today = new Date();
 
+        const today = new Date();
+        let factor = 0;
+
+        switch (drink) {
+            case 'water':
+                factor = 1;
+                break;
+            case 'juice':
+                factor = 0.85;
+                break;
+            case 'tea':
+                factor = 0.9;
+                break;
+            case 'coffee':
+                factor = 0.95;
+                break;
+            default:
+                console.log(drink);
+                break;
+        }
+
+        amountOfWater = parseFloat((amountOfWater * factor).toFixed(3));
 
         if (dateIsToday(state.lastWaterIntake)) {
-            amountOfWater += parseFloat(state.amountOfWaterPerDay.toFixed(1));
+            amountOfWater = (amountOfWater + parseFloat(state.amountOfWaterPerDay)).toFixed(3);
         }
 
         const todayFormat = formatDate(today);
-        console.log(state.fetchedUser.id);
-        console.log(amountOfWater);
-        console.log(todayFormat);
+        //console.log(state.fetchedUser.id);
+        //console.log(amountOfWater);
+        //console.log(todayFormat);
 
         let formData = new FormData();
 
@@ -110,10 +131,9 @@ class ApiManager {
         })
             .then(res => {
                 console.log(res);
-                //changeUpdatedData(null);
                 const updatedData = {
                     lastWaterIntake: todayFormat,
-                    amountOfWaterPerDay: parseFloat(amountOfWater.toFixed(1)),
+                    amountOfWaterPerDay: parseFloat(amountOfWater),
                 };
                 changeUpdatedData(updatedData);
             })

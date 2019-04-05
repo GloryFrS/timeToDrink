@@ -121,7 +121,7 @@
     top: 85px;
 
     background-position: center;
-    background-image: url('../img/water.png');
+    background-image: url('../img/water-drink.png');
     background-repeat: no-repeat;
     background-size: 40px 40px;
 }
@@ -239,9 +239,10 @@
     left: 30px;
 
     background-position: center;
-    background-image: url('../img/amount-water.jpg');
+    /*background-image: url('../img/amount-water.jpg');*/
+    background-image: url('../img/water-cup.svg');
     background-repeat: no-repeat;
-    background-size: 35px 35px;
+    background-size: 25px 25px;
 }
 
 .text-200ml {

@@ -19,7 +19,8 @@ class DrinkPopup extends React.Component {
 
     drinkWaterAndUpdateState() {
         const amountOfWater = document.querySelector('input[name="select-amount"]:checked').value;
-        ApiManager.updateLastWaterIntake(this.props.state, amountOfWater, this.changeUpdatedData);
+        const drink = document.querySelector('input[name="select-drink"]:checked').value;
+        ApiManager.updateLastWaterIntake(this.props.state, amountOfWater, drink, this.changeUpdatedData);
     };
 
     handleOutsideClick(e) {

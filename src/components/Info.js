@@ -24,11 +24,11 @@ class Info extends React.Component {
                     <p className="info-second"><img src={CheckIcon} alt=" " className="info-image-galochka"/>&nbsp;С заказами на разработку сервисов;</p>
                 </span>
 
-                <button className="info-button">Написать нам</button>
+                <a href="https://vk.com/im?media=&sel=-178245062" className="info-button">Написать нам</a>
                 <br/>
                 <small className="info-connect">
                     Свяжитесь с нами по email: <br/>
-                    <a href="mailto:ask@htmlbook.ru" className="info-connect-mail"> hello@lunaapps.ru</a>
+                    <a href="mailto:hello@lunaapps.ru" className="info-connect-mail"> hello@lunaapps.ru</a>
                 </small>
             </div>
         )

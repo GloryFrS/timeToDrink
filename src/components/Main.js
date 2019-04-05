@@ -80,11 +80,11 @@ class Main extends React.Component {
                 <div className="main-drop-wave-container">
                     <img src={imgDrop} className="main-water-drop" alt=""/>
 
-                    <img src={ellipse1} className='main-drop-ell'/>
-                    <img src={ellipse1} className='main-drop-ell2'/>
-                    <img src={ellipse6} className='main-drop-ell3'/>
-                    <img src={ellipse8} className='main-drop-ell4'/>
-                    <img src={ellipse8} className='main-drop-ell5'/>
+                    <img src={ellipse1} className='main-drop-ell' alt=''/>
+                    <img src={ellipse1} className='main-drop-ell2' alt=''/>
+                    <img src={ellipse6} className='main-drop-ell3' alt=''/>
+                    <img src={ellipse8} className='main-drop-ell4' alt=''/>
+                    <img src={ellipse8} className='main-drop-ell5' alt=''/>
 
                 </div>
                 {/*<Link to="/start">Start</Link>*/}
