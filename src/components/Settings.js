@@ -98,7 +98,7 @@ class Settings extends React.Component {
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
                                    inputMode='numeric'
                                    defaultValue={defaultWeekdaysWakeUp}/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekdays-time-go-to-sleep"
                                    className='settings-time-to-sleep' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
@@ -123,7 +123,7 @@ class Settings extends React.Component {
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
                                    inputMode='numeric'
                                    defaultValue={defaultWeekendsWakeUp}/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekends-time-go-to-sleep"
                                    className='settings-time-to-sleep' mask="29:59" maskChar="-"
                                    formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}

@@ -75,7 +75,7 @@ class SecondTraining extends React.Component {
                                    className='secondtraining-time-to-wake-up'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekdays-time-go-to-sleep"
                                    inputMode='numeric'
                                    className='secondtraining-time-to-sleep'
@@ -99,7 +99,7 @@ class SecondTraining extends React.Component {
                                    className='secondtraining-time-to-wake-up'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekends-time-go-to-sleep"
                                    inputMode='numeric'
                                    className='secondtraining-time-to-sleep'
