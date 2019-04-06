@@ -27,6 +27,10 @@ class ApiManager {
         formData.set('weekends_wake_time', state.weekendsWakeUp);
         formData.set('weekends_sleep_time', state.weekendsGoTOSleep);
 
+        if (state.signedUpForNotifications !== null) {
+            formData.set('signed_up_for_notifications', state.signedUpForNotifications);
+        }
+
         axios({
             method: 'post',
             url: ApiManager.url + ApiManager.action.create,

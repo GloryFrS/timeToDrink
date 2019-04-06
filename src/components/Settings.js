@@ -60,8 +60,10 @@ class Settings extends React.Component {
 
         const newParameters = this.getNewParameters();
         console.log(newParameters);
-        if (newParameters && this.dataIsChanged(newParameters)) {
-            this.props.setNewStateFromSettings(newParameters);
+        if (newParameters) {
+            if (this.dataIsChanged(newParameters)){
+                this.props.setNewStateFromSettings(newParameters);
+            }
         } else {
             console.log('crush');
             event.preventDefault();
