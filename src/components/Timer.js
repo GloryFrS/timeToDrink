@@ -17,7 +17,7 @@ class Timer extends React.Component {
 
     componentDidMount() {
         this._isMounted = true;
-        this.setNewState(this.props.seconds);
+        this.setNewState(parseInt(this.props.seconds));
     }
 
     startTimer() {

@@ -70,7 +70,6 @@ class Main extends React.Component {
                 <Link to='/info'>
                     <img src={InfoIcon} className='main-image-info' alt=''/>
                 </Link>
-                <br/>
                 <div>
                     <img className='main-user-photo'
                          src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}

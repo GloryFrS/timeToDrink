@@ -15,7 +15,8 @@ const formatNull = (time) => time < 10 ? '0' + time : time;
 // get date format YYYY-MM-DD, return true if received date is today, else false
 export const dateIsToday = date =>{
     if (!date) return false;
-    const receivedDate = new Date(date);
+    const timeArr = date.split(/[^0-9]/);
+    const receivedDate = new Date(timeArr[0], timeArr[1]-1, timeArr[2], timeArr[3], timeArr[4], timeArr[5]);
     const today = new Date();
     return today.toDateString() === receivedDate.toDateString();
 };
@@ -31,7 +32,10 @@ export const secondsToTime = totalSeconds => {
 };
 
 export const diffDatesInSeconds = (date1, date2 = new Date()) => {
-    date1 = new Date(date1);
+    if (!date1) return 0;
+
+    const timeArr = date1.split(/[^0-9]/);
+    date1 = new Date(timeArr[0], timeArr[1]-1, timeArr[2], timeArr[3], timeArr[4], timeArr[5]);
     const diff = (date2.getTime() - date1.getTime()) / 1000;
     return diff > 0 ? diff.toFixed(0) : (diff * -1).toFixed(0);
 };
