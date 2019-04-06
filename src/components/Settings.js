@@ -59,7 +59,6 @@ class Settings extends React.Component {
     checkAndUpdateParameters = (event) => {
 
         const newParameters = this.getNewParameters();
-        console.log(newParameters);
         if (newParameters) {
             if (this.dataIsChanged(newParameters)){
                 this.props.setNewStateFromSettings(newParameters);
