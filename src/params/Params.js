@@ -41,6 +41,7 @@ export const diffDatesInSeconds = (date1, date2 = new Date()) => {
 };
 
 export const getTimeUntilTheNextWaterIntake = date => {
+    if (!date) return 0;
     const diff = parseInt(diffDatesInSeconds(date), 10);
     return diff >= Params.TIME_BETWEEN_WATER_INTAKES ? 0 : Params.TIME_BETWEEN_WATER_INTAKES - diff;
 };
