@@ -32,7 +32,7 @@ export const secondsToTime = totalSeconds => {
 };
 
 export const diffDatesInSeconds = (date1, date2 = new Date()) => {
-    if (!date1) return 0;
+    if (!date1) return Params.TIME_BETWEEN_WATER_INTAKES;
 
     const timeArr = date1.split(/[^0-9]/);
     date1 = new Date(timeArr[0], timeArr[1]-1, timeArr[2], timeArr[3], timeArr[4], timeArr[5]);
