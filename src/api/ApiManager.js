@@ -18,14 +18,17 @@ class ApiManager {
 
 
     static registerUser = (state) => {
-        let formData = new FormData();
 
+        const timezone = parseInt(new Date().getTimezoneOffset() / -60 , 10);
+
+        let formData = new FormData();
         formData.set('id', state.fetchedUser.id);
         formData.set('weight', state.weight);
         formData.set('weekdays_wake_time', state.weekdaysWakeUp);
         formData.set('weekdays_sleep_time', state.weekdaysGoTOSleep);
         formData.set('weekends_wake_time', state.weekendsWakeUp);
         formData.set('weekends_sleep_time', state.weekendsGoTOSleep);
+        formData.set('timezone', timezone.toString());
 
         if (state.signedUpForNotifications !== null) {
             formData.set('signed_up_for_notifications', state.signedUpForNotifications);
