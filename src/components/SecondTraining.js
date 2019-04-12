@@ -74,13 +74,15 @@ class SecondTraining extends React.Component {
                                    inputMode='numeric'
                                    className='secondtraining-time-to-wake-up'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   defaultValue={'08:00'}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekdays-time-go-to-sleep"
                                    inputMode='numeric'
                                    className='secondtraining-time-to-sleep'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   defaultValue={'00:00'}/>
                         {/*<input type="time" id="weekdays-time-wake-up"*/}
                                {/*className='secondtraining-time-to-wake-up'/>*/}
                         {/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/}
@@ -98,13 +100,15 @@ class SecondTraining extends React.Component {
                                    inputMode='numeric'
                                    className='secondtraining-time-to-wake-up'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   defaultValue={'10:00'}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekends-time-go-to-sleep"
                                    inputMode='numeric'
                                    className='secondtraining-time-to-sleep'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'/>
+                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   defaultValue={'01:00'}/>
                         {/*<input type="time" id="weekends-time-wake-up"*/}
                                {/*className='secondtraining-time-to-wake-up'/>*/}
                         {/*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/}

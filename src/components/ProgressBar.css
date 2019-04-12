@@ -1,60 +1,85 @@
+.progress-bar-container {
+    position: relative;
+
+}
+
 .line9 {
     position: absolute;
+    right: 7%;
+
     width: 22px;
-    top: 237px;
+    top: 0px;
 }
+
 
 .line8 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 263px;
+    top: 26px;
 }
 .line7 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 289px;
+    top: 52px;
 }
 .line6 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 315px;
+    top: 78px;
 }
 .line5 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 341px;
+    top: 104px;
 }
 
 .line4 {
     position: absolute;
+    right: 7%;
+
     width: 22px;
-    top: 367px;
+    top: 130px;
 }
 
 .line3 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 393px;
+    top: 156px;
 }
 .line2 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 419px;
+    top: 176px;
 }
 .line1 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 445px;
+    top: 202px;
 }
 .line0 {
     position: absolute;
+    right: 7%;
+
     width: 11px;
-    top: 471px;
+    top: 228px;
 }
 
 .progress-bar-line {
     height: 3px;
-    right: 7%;
 
     background: #8a8c93;
     border-radius: 16px;

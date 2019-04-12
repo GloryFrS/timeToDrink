@@ -25,7 +25,7 @@ class ProgressBar extends React.Component {
             document.getElementById('line' + i).style.backgroundColor = '#4847F1';
         }
         return (
-            <div>
+            <div className='progress-bar-container'>
                 <div className='line9 progress-bar-line' id='line9'/>
                 <div className='line8 progress-bar-line' id='line8'/>
                 <div className='line7 progress-bar-line' id='line7'/>

@@ -21,15 +21,17 @@
     margin-top: 50px;
     margin-left: 23px;
 }
+
 .info-header {
     font-family: GothamPro;
     font-weight: bolder;
     line-height: 32px;
     font-size: 23px;
     text-align: left;
-    margin-left: 22px;
+    margin-left: 10%;
+
     /*margin-top: 70px;*/
-    margin-right: 59px;
+    margin-right: 10%;
     color: #4E4E61;
     margin-top: 30px;
 }
@@ -39,8 +41,10 @@
     font-weight: bolder;
     line-height: 28px;
     font-size: 20px;
-    margin-top: 74px;
-    margin-left: 22px;
+    margin-top: 10%;
+    margin-left: 10%;
+
+
     text-align: left;
     color: #4E4E61;
 }
@@ -59,7 +63,8 @@
     font-size: 16px;
     line-height: 22px;
     color: #4E4E61;
-    margin-left: 22px;
+    margin-left: 10%;
+
     margin-right: 45px;
     font-weight: bolder;
 }
@@ -70,7 +75,8 @@
     font-size: 16px;
     line-height: 22px;
     color: #4E4E61;
-    margin-left: 22px;
+    margin-left: 10%;
+
     margin-right: 45px;
     font-weight: bolder;
 }
@@ -92,7 +98,8 @@
     height: 64px;
     cursor: pointer;
     margin-top: 40px;
-    padding-left: 22px;
+
+
     padding-right: 22px;
     margin-bottom: 10px;
     left: 50%;
@@ -108,7 +115,8 @@
     color: #4E4E61;
     font-weight: bolder;
     padding-bottom: 30px;
-    margin-left: 22px;
+    margin-left: 10%;
+
     margin-right: 50px;
 }
 
@@ -117,7 +125,8 @@
     font-size: 16px;
     line-height: 24px;
     text-decoration: none;
-    margin-left: 22px;
+    margin-left: 10%;
+
     cursor: pointer;
 }
 
