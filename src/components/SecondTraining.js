@@ -25,6 +25,7 @@ class SecondTraining extends React.Component {
             weekdaysGoTOSleep: document.getElementById("weekdays-time-go-to-sleep").value,
             weekendsWakeUp: document.getElementById("weekends-time-wake-up").value,
             weekendsGoTOSleep: document.getElementById("weekends-time-go-to-sleep").value,
+            krada: this.props.krada,
             dataIsCorrect: false
         };
 
@@ -52,9 +53,8 @@ class SecondTraining extends React.Component {
     render() {
 
         let popup = this.state.popupIsVisible ?
-            <Link to='/main'>
-                <RegistrationIsComplete/>
-            </Link>
+            
+            <RegistrationIsComplete/>
             : '';
         return (
             <div className='secondtraining-container'>
@@ -62,7 +62,7 @@ class SecondTraining extends React.Component {
                     <p className='secondtraining-user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</p>
                     <br/> {getAmountOfWater(this.props.weight)} л
                     это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость
-                    выпить жидкости
+                    выпить жидкость
                 </h2>
 
                 <div className='secondtraining-container-info'>

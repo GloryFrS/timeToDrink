@@ -34,7 +34,7 @@ class Loader extends React.Component {
         this._isMounted = true;
         if (nextProps.fetchedUser && !this.state.loadedData && !this._dataIsLoaded) {
             this._dataIsLoading = true;
-            ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.processLoadedData);
+            ApiManager.loadUserInfo(nextProps.fetchedUser.id, this.props.krada, this.processLoadedData);
         }
     }
 

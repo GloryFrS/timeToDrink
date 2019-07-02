@@ -1,6 +1,6 @@
 import React from 'react';
-import connect from '@vkontakte/vkui-connect-mock';
-import {Switch, Route} from "react-router-dom";
+import connect from '@vkontakte/vkui-connect';
+import {Switch, Route, BrowserRouter} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
 
 import ApiManager from "./api/ApiManager";
@@ -29,6 +29,9 @@ class App extends React.Component {
             amountOfWaterPerDay: null,
             signedUpForNotifications: null,
             ACCESS_TOKEN: null,
+            krada: '',
+            desktop_web: '0'
+            
         };
         this.setWeight = this.setWeight.bind(this);
         this.setAccessToken = this.setAccessToken.bind(this);
@@ -39,7 +42,31 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        connect.subscribe((e) => {
+        /* Получение защищенной строки */
+        var krada = null;
+        var self = this;
+        var ccc = null;
+    
+        const paresedQuery = this.parseQueryString(window.location.search);
+        var str = "https://app9.vk-irs.ru/?";
+        Object.keys(paresedQuery).forEach(function (key) {
+            str = str + key + "=" + paresedQuery[key]+"&";
+            if(paresedQuery[key] === 'desktop_web'){
+                ccc = "1";
+            } 
+        });
+        str = str.substring(0, str.length - 1);        
+        self.setState({desktop_web: ccc}); 
+        krada = str;
+
+        /***************************/
+
+        // когда получена защищенная строка
+        if(krada){
+            self.setState({krada: krada }); 
+            connect.send('VKWebAppGetUserInfo', {});                              
+        }
+        connect.subscribe((e) => {            
             switch (e.detail.type) {
                 case 'VKWebAppGetUserInfoResult':
                     this.setState({fetchedUser: e.detail.data}, () => ApiManager.updateTimezone(this.state.fetchedUser));
@@ -66,9 +93,21 @@ class App extends React.Component {
                     console.log(e.detail.type);
             }
         });
-        connect.send('VKWebAppGetUserInfo', {});
+        
 
     }
+    // генерация строки проверки
+	parseQueryString = (string) => {
+		return string.slice(1).split('&')
+				.map((queryParam) => {
+						let kvp = queryParam.split('=');
+						return {key: kvp[0], value: kvp[1]}
+				})
+				.reduce((query, kvp) => {
+						query[kvp.key] = kvp.value;
+						return query
+				}, {})
+	};
 
     // Set new state access token
     setAccessToken(token) {
@@ -150,48 +189,55 @@ class App extends React.Component {
 
     render() {
         return (
-            <Switch>
-                <Route exact path="/start" render={(props) => (
-                    <Start {...props} fetchedUser={this.state.fetchedUser}/>
-                )}/>
+            <BrowserRouter>
+                <Switch location={this.props.location}>
+                    <Route exact path="/start" render={(props) => (
+                        <Start {...props} 
+                        fetchedUser={this.state.fetchedUser}
+                        web={this.state.desktop_web}
+                        />
+                    )}/>
 
-                <Route exact path="/first-training" render={(props) => (
-                    <FirstTraining {...props} setWeight={this.setWeight}/>
-                )}/>
+                    <Route exact path="/first-training" render={(props) => (
+                        <FirstTraining {...props} setWeight={this.setWeight}/>
+                    )}/>
 
-                <Route exact path="/second-training" render={(props) => (
-                    <SecondTraining {...props}
-                                    fetchedUser={this.state.fetchedUser}
-                                    weight={this.state.weight}
-                                    setStateAndRegisterUser={this.setStateAndRegisterUser}
-                    />
-                )}/>
+                    <Route exact path="/second-training" render={(props) => (
+                        <SecondTraining {...props}
+                                        fetchedUser={this.state.fetchedUser}
+                                        weight={this.state.weight}
+                                        setStateAndRegisterUser={this.setStateAndRegisterUser}
+                                        krada={this.state.krada}
+                        />
+                    )}/>
 
-                <Route exact path="/settings" render={(props) => (
-                    <Settings {...props}
-                              state={this.state}
-                              setNewStateFromSettings={this.setNewStateFromSettings}
-                    />
-                )}/>
+                    <Route exact path="/settings" render={(props) => (
+                        <Settings {...props}
+                                state={this.state}
+                                setNewStateFromSettings={this.setNewStateFromSettings}
+                        />
+                    )}/>
 
-                <Route exact path="/main" render={(props) => (
-                    <Main {...props}
-                          state={this.state}
-                          setNewStateAfterDrinking={this.setNewStateAfterDrinking}
-                    />
-                )}/>
+                    <Route exact path="/main" render={(props) => (
+                        <Main {...props}
+                            state={this.state}
+                            setNewStateAfterDrinking={this.setNewStateAfterDrinking}
+                        />
+                    )}/>
 
-                <Route exact path="/info" component={Info}/>
+                    <Route exact path="/info" component={Info}/>
 
-                <Route exact path="/" render={(props) => (
-                    <Loader {...props}
-                            fetchedUser={this.state.fetchedUser}
-                            setNewStateFromLoadedData={this.setNewStateFromLoadedData}
-                    />
-                )}/>
+                    <Route exact path="/" render={(props) => (
+                        <Loader {...props}
+                                fetchedUser={this.state.fetchedUser}
+                                setNewStateFromLoadedData={this.setNewStateFromLoadedData}
+                                krada={this.state.krada}
+                        />
+                    )}/>
 
-                <Route exact path="/network-error" component={NetworkError}/>
-            </Switch>
+                    <Route exact path="/network-error" component={NetworkError}/>
+                </Switch>
+            </BrowserRouter>
         );
     }
 }

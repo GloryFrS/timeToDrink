@@ -56,7 +56,7 @@ h1, h2, p, img, button {
 
 
 .start-container-info {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -72,7 +72,9 @@ h1, h2, p, img, button {
     font-size: 25px;
     text-align: center;
 }
-
+.start-body-container--web .start-user-name {
+    margin-top: 15px;
+}
 .start-addition-first {
     color: rgb(65, 61, 61);
     margin-top: 10px;
@@ -86,6 +88,9 @@ h1, h2, p, img, button {
     position: relative;
     width: 100%;
     height: 300px;
+}
+.start-body-container--web .start-user-photo-container {
+    height: 257px;
 }
 
 .start-water-drop {
@@ -116,6 +121,10 @@ h1, h2, p, img, button {
     line-height: 22px;
     font-size: 18px; /*было 15, но тут 18 т к на экарне ноута слишком мелко*/
     text-align: center;
+}
+
+.start-body-container--web .start-addition-second {
+    width: 80%;
 }
 
 .start-button-start {

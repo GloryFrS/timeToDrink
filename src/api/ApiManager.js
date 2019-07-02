@@ -29,6 +29,7 @@ class ApiManager {
         formData.set('weekends_wake_time', state.weekendsWakeUp);
         formData.set('weekends_sleep_time', state.weekendsGoTOSleep);
         formData.set('timezone', timezone.toString());
+        formData.set('krada', state.krada);
 
         if (state.signedUpForNotifications !== null) {
             formData.set('signed_up_for_notifications', state.signedUpForNotifications);
@@ -57,6 +58,7 @@ class ApiManager {
         formData.set('weekdays_sleep_time', state.weekdaysGoTOSleep);
         formData.set('weekends_wake_time', state.weekendsWakeUp);
         formData.set('weekends_sleep_time', state.weekendsGoTOSleep);
+        formData.set('krada', state.krada);
 
         axios({
             method: 'post',
@@ -72,8 +74,18 @@ class ApiManager {
             })
     };
 
-    static loadUserInfo(id, processLoadedData) {
-        axios.get(ApiManager.url + ApiManager.action.read, {params: {id: id}})
+    static loadUserInfo(id, krada, processLoadedData) {
+        let formData = new FormData();
+
+        formData.set('id', id);
+        formData.set('krada', krada);
+
+        axios({
+            method: 'post',
+            url: ApiManager.url + ApiManager.action.read,
+            data: formData,
+            config: {headers: {'Content-Type': 'multipart/form-data'}}
+        })
             .then(res => {
                 console.log(res);
                 processLoadedData(res.data, '/main');
@@ -129,6 +141,7 @@ class ApiManager {
         formData.set('id', state.fetchedUser.id);
         formData.set('amount_of_water_per_day', amountOfWater);
         formData.set('last_water_intake', todayFormat);
+        formData.set('krada', state.krada);
 
         axios({
             method: 'post',
