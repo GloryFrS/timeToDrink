@@ -19,7 +19,7 @@ class RegistrationIsComplete extends React.Component {
     }
 
     render() {
-        if (this.state.redirectTo) return(<Redirect to={this.state.redirectTo}/>);
+        if (this.state.redirectTo) return(<Redirect push to={this.state.redirectTo}/>);
         return (
             <div onClick={this.handleClick} className="registration-is-complete-container">
                 <h1 className="registration-is-complete-header">Отлично!</h1>

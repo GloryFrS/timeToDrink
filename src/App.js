@@ -1,6 +1,6 @@
 import React from 'react';
 import connect from '@vkontakte/vkui-connect';
-import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
 
 import ApiManager from "./api/ApiManager";
@@ -64,7 +64,7 @@ class App extends React.Component {
         // когда получена защищенная строка
         if(krada){
             self.setState({krada: krada }); 
-            connect.send('VKWebAppGetUserInfo', {});                              
+                                         
         }
         connect.subscribe((e) => {            
             switch (e.detail.type) {
@@ -93,6 +93,7 @@ class App extends React.Component {
                     console.log(e.detail.type);
             }
         });
+        connect.send('VKWebAppGetUserInfo', {});
         
 
     }
@@ -189,55 +190,54 @@ class App extends React.Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <Switch location={this.props.location}>
-                    <Route exact path="/start" render={(props) => (
-                        <Start {...props} 
-                        fetchedUser={this.state.fetchedUser}
-                        web={this.state.desktop_web}
-                        />
-                    )}/>
+            <Switch>
+                <Route exact path="/start" render={(props) => (
+                    <Start {...props} 
+                    fetchedUser={this.state.fetchedUser}
+                    web={this.state.desktop_web}
+                    />
+                )}/>
 
-                    <Route exact path="/first-training" render={(props) => (
-                        <FirstTraining {...props} setWeight={this.setWeight}/>
-                    )}/>
+                <Route exact path="/first-training" render={(props) => (
+                    <FirstTraining {...props} setWeight={this.setWeight}/>
+                )}/>
 
-                    <Route exact path="/second-training" render={(props) => (
-                        <SecondTraining {...props}
-                                        fetchedUser={this.state.fetchedUser}
-                                        weight={this.state.weight}
-                                        setStateAndRegisterUser={this.setStateAndRegisterUser}
-                                        krada={this.state.krada}
-                        />
-                    )}/>
-
-                    <Route exact path="/settings" render={(props) => (
-                        <Settings {...props}
-                                state={this.state}
-                                setNewStateFromSettings={this.setNewStateFromSettings}
-                        />
-                    )}/>
-
-                    <Route exact path="/main" render={(props) => (
-                        <Main {...props}
+                <Route exact path="/second-training" render={(props) => (
+                    <SecondTraining {...props}
+                                    fetchedUser={this.state.fetchedUser}
+                                    weight={this.state.weight}
+                                    setStateAndRegisterUser={this.setStateAndRegisterUser}
+                                    krada={this.state.krada}
+                    />
+                )}/>
+            
+                <Route exact path="/settings" render={(props) => (
+                    <Settings {...props}
                             state={this.state}
-                            setNewStateAfterDrinking={this.setNewStateAfterDrinking}
-                        />
-                    )}/>
+                            setNewStateFromSettings={this.setNewStateFromSettings}
+                    />
+                )}/>
 
-                    <Route exact path="/info" component={Info}/>
+                <Route exact path="/main" render={(props) => (
+                    <Main {...props}
+                        state={this.state}
+                        setNewStateAfterDrinking={this.setNewStateAfterDrinking}
+                    />
+                )}/>
 
-                    <Route exact path="/" render={(props) => (
-                        <Loader {...props}
-                                fetchedUser={this.state.fetchedUser}
-                                setNewStateFromLoadedData={this.setNewStateFromLoadedData}
-                                krada={this.state.krada}
-                        />
-                    )}/>
+                <Route exact path="/info" component={Info}/>
 
-                    <Route exact path="/network-error" component={NetworkError}/>
-                </Switch>
-            </BrowserRouter>
+                <Route exact path="/" render={(props) => (
+                    <Loader {...props}
+                            fetchedUser={this.state.fetchedUser}
+                            setNewStateFromLoadedData={this.setNewStateFromLoadedData}
+                            krada={this.state.krada}
+                    />
+                )}/>
+
+                <Route exact path="/network-error" component={NetworkError}/>
+            </Switch>
+            
         );
     }
 }

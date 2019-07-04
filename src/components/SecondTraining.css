@@ -166,4 +166,5 @@ input[type="number"]:focus {
     outline: none;
     margin: 19px auto auto;
     margin-bottom: 50px;
+    white-space: nowrap;
 }

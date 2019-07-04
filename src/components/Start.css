@@ -146,3 +146,15 @@ h1, h2, p, img, button {
     /*padding-bottom: 50px;*/
     margin-bottom: 50px;
 }
+@media (max-width: 320px){
+    .start-user-name {
+        margin-top: 63px;
+    }
+    .start-user-photo-container {
+        height: 239px;
+    }
+    .start-addition-second {
+       width: 90%;
+    }
+
+}

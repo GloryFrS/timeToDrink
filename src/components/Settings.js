@@ -12,7 +12,9 @@ class Settings extends React.Component {
         super(props);
 
         this.state = {
-            prevState: null
+            prevState: null,
+            errDate: false,
+            errWeight: false,
         }
     }
 
@@ -38,7 +40,7 @@ class Settings extends React.Component {
             !valueIsTime(newParameters.weekdaysGoTOSleep) ||
             !valueIsTime(newParameters.weekendsWakeUp) ||
             !valueIsTime(newParameters.weekendsGoTOSleep) ||
-            newParameters.weight === '' || parseInt(newParameters.weight, 10) < 0 || parseInt(newParameters.weight, 10) > 300
+            newParameters.weight === '' || parseInt(newParameters.weight, 10) < 10 || parseInt(newParameters.weight, 10) > 300
         ) {
             return null
         }
@@ -62,11 +64,21 @@ class Settings extends React.Component {
         if (newParameters) {
             if (this.dataIsChanged(newParameters)){
                 this.props.setNewStateFromSettings(newParameters);
+                this.setState({ errDate: false })
             }
         } else {
-            console.log('crush');
+            this.setState({ errDate: true })
             event.preventDefault();
         }
+    };
+    onChange = (event) => {
+        if (event.target.value !== '' && parseInt(event.target.value, 10) > 9 && parseInt(event.target.value, 10) < 300) {
+            this.setState({errWeight: false});
+        } else  {
+            this.setState({errWeight: true});
+            
+        }
+        
     };
 
     render() {
@@ -85,10 +97,11 @@ class Settings extends React.Component {
                     <img src={InfoIcon} className='settings-image-info' alt=''/>
                 </Link>
                 <br/>
-                <p className="settings-decree">Укажите свой актуальный вес:</p>
+                <p className="settings-decree">Укажите свой актуальный вес в килограммах:</p>
                 <input type="number" min="1" max="250" className="settings-weight" id="settings-weight"
                        onChange={this.onChange}
                        defaultValue={(this.state.prevState && this.state.prevState.weight) ? this.state.prevState.weight : ''}/>
+                {this.state.errWeight ? <div className='err'>"Недопустимое число" Укажите вес от 10 до 259</div>:''} 
                 <br/>
                 <div className='settings-container-info'>
                     <p className='settings-wakeup-text'>В будние дни:</p>
@@ -138,6 +151,7 @@ class Settings extends React.Component {
                         {/*defaultValue={this.state.prevState &&  this.state.prevState.weekendsGoTOSleep ? this.state.prevState.weekendsGoTOSleep.substring(0, 5) : null}/>*/}
                     </div>
                 </div>
+                {this.state.errDate ? <div className='err'>Ошибка! Проверьте все поля</div>: ''}
                 <br/>
                 <Link to='/main' className="settings-save-button"
                       onClick={this.checkAndUpdateParameters.bind(this)} >Сохранить</Link>

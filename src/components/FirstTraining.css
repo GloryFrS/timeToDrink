@@ -37,6 +37,21 @@
     font-family: GothamPro;
     src: url("../fonts/GothamPro.ttf");
 }
+.err {
+    margin: auto;
+    text-align: center;
+    width: 290px;
+    color: #fff;
+    background: #8d0000;
+    padding: 12px;
+    border-radius: 45px;
+    margin-top: 29px;
+}
+input::placeholder {
+    color: #b8b8b8;
+    font-size: 24px;
+    font-weight: 100;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

@@ -16,7 +16,7 @@ const Start = ({fetchedUser, web}) => {
     return (
         <div className={"start-body-container " + desktop}>
             <div className="start-container-info">
-                <h1 className='start-user-name'>{fetchedUser.first_name}</h1>
+                <h1 className='start-user-name'>{fetchedUser.first_name},</h1>
                 <h2 className='start-addition-first'>достаточно ли ты пьешь воды?</h2>
                 <div className="start-user-photo-container">
                     <img className='start-user-photo' src={fetchedUser.photo_200} alt=""/>

@@ -10,7 +10,8 @@ class SecondTraining extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            popupIsVisible: false
+            popupIsVisible: false,
+            err: false
         };
         this.changePopupVisibility = this.changePopupVisibility.bind(this);
     }
@@ -18,7 +19,7 @@ class SecondTraining extends React.Component {
     changePopupVisibility() {
         this.setState({popupIsVisible: true});
     }
-
+    
     getTimes = () => {
         const times = {
             weekdaysWakeUp: document.getElementById("weekdays-time-wake-up").value,
@@ -44,7 +45,9 @@ class SecondTraining extends React.Component {
             if (times.dataIsCorrect) {
                 this.props.setStateAndRegisterUser(times);
                 this.changePopupVisibility();
+                this.setState({err: false});
             } else {
+                this.setState({err: true});
                 event.preventDefault();
             }
         }
@@ -75,10 +78,11 @@ class SecondTraining extends React.Component {
                                    className='secondtraining-time-to-wake-up'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
-                                   defaultValue={'08:00'}/>
+                                   defaultValue={'08:00'}
+                                   />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekdays-time-go-to-sleep"
-                                   inputMode='numeric'
+                                   inputMode='numeric' 
                                    className='secondtraining-time-to-sleep'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
@@ -97,14 +101,14 @@ class SecondTraining extends React.Component {
                     <br/>
                     <div className='secondtraining-time-to-wake-sleep'>
                         <InputMask id="weekends-time-wake-up"
-                                   inputMode='numeric'
+                                   inputMode='numeric' 
                                    className='secondtraining-time-to-wake-up'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
                                    defaultValue={'10:00'}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekends-time-go-to-sleep"
-                                   inputMode='numeric'
+                                   inputMode='numeric' 
                                    className='secondtraining-time-to-sleep'
                                    mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
                                    pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
@@ -116,6 +120,7 @@ class SecondTraining extends React.Component {
                                {/*className='secondtraining-time-to-sleep'/>*/}
                     </div>
                 </div>
+                {this.state.err ? <div className='err'>Неверная дата</div>: ''}
                 <br/>
                 <button className='secondtraining-button-start' onClick={this.checkAndRegisterUser.bind(this)}>Начать
                     больше пить
