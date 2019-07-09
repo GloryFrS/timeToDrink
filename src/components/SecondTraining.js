@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from "react-router-dom/es/Link";
 import {getAmountOfWater, valueIsTime} from '../params/Params';
 import './SecondTraining.css';
 import RegistrationIsComplete from "../popups/RegistrationIsComplete";
@@ -72,12 +71,12 @@ class SecondTraining extends React.Component {
                     <p className='secondtraining-wakeup-text'>В будние дни:</p>
                     <span className='secondtraining-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span>
                     <br/>
+                    
                     <div className='secondtraining-time-to-wake-sleep'>
                         <InputMask id="weekdays-time-wake-up"
-                                   inputMode='numeric'
+                                   type='time'
                                    className='secondtraining-time-to-wake-up'
-                                   mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   placeholder='--:--'
                                    defaultValue={'08:00'}
                                    />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

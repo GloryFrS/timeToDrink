@@ -39,7 +39,7 @@ class FirstTraining extends React.Component {
                 <div style={this.state.err ? {display: 'block'}:{display: 'none'}} className='err'>Ошибка! "Недопустимое число"</div>
                 <br/>
                 {this.state.theAmountOfWater}
-                <Link to="/second-training" className="firsttraining-button-start" onClick={e => {if(!this.state.dataIsCorrect) e.preventDefault()} }>Начнем</Link>
+                <Link to="/second-training" className="firsttraining-button-start"  onClick={e => {if(!this.state.dataIsCorrect) e.preventDefault()} }>Начнем</Link>
             </div>
         );
     }

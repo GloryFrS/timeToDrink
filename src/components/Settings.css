@@ -16,13 +16,13 @@
 .settings-image-back {
     width: 30px;
     height: 30px;
-    margin-top: 50px;
+    margin-top: 10%;
     margin-left: 24px;
 }
 .settings-image-info {
     width: 30px;
     height: 30px;
-    margin-top: 50px;
+    margin-top: 10%;
     margin-left: 14px;
 }
 
@@ -133,11 +133,12 @@
 
 .settings-save-button {
     font-family: GothamPro;
-    line-height: 57px; /*спросить*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     text-align: center;
     text-decoration: none;
-    display: block;
     color: white;
     box-sizing: border-box;
     border-radius: 56px;
@@ -152,4 +153,8 @@
     outline: none;
 
     box-shadow: 0 4px 20px rgba(106, 110, 128, 0.9);
+}
+
+.settings-save-button:active {
+    background: #1010db; 
 }

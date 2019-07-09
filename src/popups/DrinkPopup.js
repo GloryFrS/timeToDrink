@@ -14,6 +14,7 @@ class DrinkPopup extends React.Component {
         };
         this.changeUpdatedData = this.changeUpdatedData.bind(this);
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
+        this.handleClose = this.handleClose.bind(this); 
     }
 
     changeUpdatedData = (updatedData) => {
@@ -30,6 +31,9 @@ class DrinkPopup extends React.Component {
             ));
         }
     };
+    handleClose(e) {
+        this.props.changeDrinkPopupVisibility();
+    }
 
     handleOutsideClick(e) {
         // ignore clicks on the component itself
@@ -102,9 +106,11 @@ class DrinkPopup extends React.Component {
         }
 
         return (
+            
             <div className='drink-popup-container' ref={node => {
                 this.node = node
             }}>
+                <span onClick={this.handleClose} className='popup-close'>+</span>
                 <p className="drinkpopup-time-to-water">Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}
                 <div className='drinkpopup-select-drink'>
@@ -121,7 +127,6 @@ class DrinkPopup extends React.Component {
                         <p className="drink-text text-coffee">Кофе</p>
                     </div>
                 </div>
-                <br/>
                 <p className="drinkpopup-text-choice-amount">Выберите кол-во:</p>
                 {/*Выбираем сколько пить*/}
                 <div className='drinkpopup-select-amount'>
@@ -144,6 +149,7 @@ class DrinkPopup extends React.Component {
                 }}>Выпить
                 </button>
             </div>
+            
         );
     }
 }

@@ -195,11 +195,11 @@
 
 .main-text-info-today-drink {
     font-family: GothamPro;
-    font-size: 25px;
-    line-height: 53px;
+    font-size: 20px;
+    margin-top: 20%;
     text-align: center;
     color: #FFFFFF;
-    margin-left: -8px;
+    /* margin-left: -8px; */
 }
 
 .main-water-block-today {

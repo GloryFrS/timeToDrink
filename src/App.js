@@ -2,7 +2,6 @@ import React from 'react';
 import connect from '@vkontakte/vkui-connect';
 import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
-
 import ApiManager from "./api/ApiManager";
 import Main from './components/Main';
 import Start from './components/Start';

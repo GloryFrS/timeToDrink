@@ -18,7 +18,7 @@
 .info-image-back {
     width: 30px;
     height: 30px;
-    margin-top: 50px;
+    margin-top: 10%;
     margin-left: 23px;
 }
 
@@ -83,13 +83,15 @@
 
 .info-button {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     outline: none;
     font-family: GothamPro;
     line-height: 65px; /*спросить*/
     font-size: 20px;
     text-align: center;
     text-decoration: none;
-    display: block;
     color: white;
     box-sizing: border-box;
     border-radius: 56px;
@@ -106,6 +108,9 @@
     margin-left: -135px;
 
     box-shadow: 0 4px 20px rgba(106, 110, 128, 0.9);
+}
+.info-button:active {
+    background: #1010db;
 }
 
 .info-connect {

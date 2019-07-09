@@ -14,12 +14,10 @@
 }
 
 .drink-popup-button {
-    position: absolute;
+    display: flex;
+    justify-content: center;
     background: #4848F4;
-    top: 50%;
-    left: 50%;
-    margin-top: 195px;
-    margin-left: -95px;
+    margin-top: 27px;
     width: 190px;
     height: 55px;
     border-radius: 56px;
@@ -32,6 +30,9 @@
     outline: none;
     cursor: pointer;
     box-shadow: 0 4px 20px rgba(56, 59, 75, 0.5);
+}
+.drink-popup-button:active {
+    background: #1010db;
 }
 
 .drinkpopup-time-to-water {
@@ -52,31 +53,24 @@
     text-align: center;
     font-weight: bolder;
     color: #4E4E61;
-    margin-top: 185px;
-    margin-bottom: 25px;
 }
 
 .drink-text {
-    position: absolute;
+    margin-top: 72px;
     font-family: GothamPro;
     font-size: 15px;
-    line-height: 18px;
     text-align: center;
-
     font-weight: bolder;
 }
 
 .block-drink {
-    position: absolute;
+    margin: 4px;
     cursor: pointer;
-
     height: 100px;
     width: 100px;
     box-shadow: 0 4px 40px #F1F2FB;
     border-radius: 24px;
-
     color: #4E4E61;
-
     background-size: contain;
     background-repeat: no-repeat;
     display: inline-block;
@@ -84,7 +78,11 @@
     -moz-transition: all 20ms ease-in;
     transition: all 20ms ease-in;
 }
-
+.drinkpopup-select-drink {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .block-drink-checked {
     -webkit-filter: none;
     -moz-filter: none;
@@ -109,6 +107,24 @@
 .water-position {
     left: 30px;
     top: 85px;
+}
+.popup-close {
+    right: -6px;
+    width: 30px;
+    height: 30px;
+    background: #4848f4;
+    border-radius: 50%;
+    content: '+';
+    position: absolute;
+    top: -6px;
+    font-size: 27px;
+    transform: rotate(45deg);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text-water {
@@ -171,9 +187,12 @@
 }
 
 /* ВЫБОР КОЛИЧЕСТВА*/
-
+.drinkpopup-select-amount {
+    display: flex;
+    justify-content: center;
+}
 .block-amount {
-    position: absolute;
+    margin: 5px;
     cursor: pointer;
     background-size: contain;
     background-repeat: no-repeat;
@@ -203,7 +222,7 @@
 }
 
 .amount-text {
-    position: absolute;
+    margin-top: 47px;
     font-family: GothamPro;
     font-size: 12px;
     line-height: 18px;

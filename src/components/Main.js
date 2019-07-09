@@ -55,9 +55,10 @@ class Main extends React.Component {
                         changeDrinkPopupVisibility={this.changeDrinkPopupVisibility}
             />
             : "";
+        const timer = <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>;
 
         let wellDonePopup = this.state.wellDonePopupIsVisible ?
-            <WellDonePopup changeWellDonePopupVisibility={this.changeWellDonePopupVisibility}/>: "";
+            <WellDonePopup timer={timer} changeWellDonePopupVisibility={this.changeWellDonePopupVisibility}/>: "";
 
         let amountOfWaterDrinkingToday = dateIsToday(this.props.state.lastWaterIntake) && this.props.state.amountOfWaterPerDay
             ? this.props.state.amountOfWaterPerDay : 0;
@@ -104,7 +105,7 @@ class Main extends React.Component {
                     </div>
                     <div className='main-water-block-today main-bottom-block'>
                         <h2 className='main-text-water-block-today'>Прием воды через:</h2>
-                        <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>
+                        {timer}
                     </div>
                 </div>
 
