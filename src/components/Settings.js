@@ -15,12 +15,20 @@ class Settings extends React.Component {
             prevState: null,
             errDate: false,
             errWeight: false,
+            value: ''
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.setState({
             prevState: this.props.state,
+        })
+    }
+
+
+    componentDidMount() {
+        this.setState({
+            value: (this.state.prevState && this.state.prevState.weight) ? this.state.prevState.weight : ''
         })
     }
 
@@ -40,7 +48,7 @@ class Settings extends React.Component {
             !valueIsTime(newParameters.weekdaysGoTOSleep) ||
             !valueIsTime(newParameters.weekendsWakeUp) ||
             !valueIsTime(newParameters.weekendsGoTOSleep) ||
-            newParameters.weight === '' || parseInt(newParameters.weight, 10) < 10 || parseInt(newParameters.weight, 10) > 300
+            newParameters.weight === '' || parseInt(newParameters.weight, 10) < 10 || parseInt(newParameters.weight, 10) > 299
         ) {
             return null
         }
@@ -72,11 +80,14 @@ class Settings extends React.Component {
         }
     };
     onChange = (event) => {
+        const re = /^[0-9\b]+$/;
+        if (event.target.value === '' || re.test(event.target.value)) {
+            this.setState({value: event.target.value})
+        }
         if (event.target.value !== '' && parseInt(event.target.value, 10) > 9 && parseInt(event.target.value, 10) < 300) {
             this.setState({errWeight: false});
         } else  {
-            this.setState({errWeight: true});
-            
+            this.setState({errWeight: true}); 
         }
         
     };
@@ -98,26 +109,24 @@ class Settings extends React.Component {
                 </Link>
                 <br/>
                 <p className="settings-decree">Укажите свой актуальный вес в килограммах:</p>
-                <input type="number" min="1" max="250" className="settings-weight" id="settings-weight"
+                <input type='tel' className="settings-weight" id="settings-weight"
                        onChange={this.onChange}
-                       defaultValue={(this.state.prevState && this.state.prevState.weight) ? this.state.prevState.weight : ''}/>
-                {this.state.errWeight ? <div className='err'>"Недопустимое число" Укажите вес от 10 до 259</div>:''} 
+                       value={this.state.value}/>
+                {this.state.errWeight ? <div className='err'>"Недопустимое число" Укажите вес от 10 до 299</div>:''} 
                 <br/>
                 <div className='settings-container-info'>
                     <p className='settings-wakeup-text'>В будние дни:</p>
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='settings-time-to-wake-sleep'>
-                        <InputMask id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up' mask="29:59" maskChar="-"
-                                   formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
-                                   inputMode='numeric'
-                                   defaultValue={defaultWeekdaysWakeUp}/>
+                        <InputMask 
+                                    id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up' 
+                                    type='time' 
+                                    placeholder='--:--'
+                                    defaultValue={defaultWeekdaysWakeUp}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekdays-time-go-to-sleep"
-                                   className='settings-time-to-sleep' mask="29:59" maskChar="-"
-                                   formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
-                                   inputMode='numeric'
+                                   className='settings-time-to-sleep' type='time'
+                                   placeholder='--:--'
                                    defaultValue={defaultWeekdaysGoTOSleep}/>
                         {/*<input type="time" id="settings-weekdays-time-wake-up" className='settings-time-to-wake-up'*/}
                         {/*defaultValue={this.state.prevState &&  this.state.prevState.weekdaysWakeUp ? this.state.prevState.weekdaysWakeUp.substring(0, 5) : null}/>*/}
@@ -132,17 +141,15 @@ class Settings extends React.Component {
                     <span className='settings-wake-time'>Просыпаюсь в: &nbsp;&nbsp;&nbsp;&nbsp;  Засыпаю в:</span> <br/>
                     <div className='settings-time-to-wake-sleep'>
                         <InputMask id="settings-weekends-time-wake-up"
-                                   className='settings-time-to-wake-up' mask="29:59" maskChar="-"
-                                   formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
-                                   inputMode='numeric'
+                                   className='settings-time-to-wake-up' 
+                                    placeholder='--:--'
+                                    type='time'
                                    defaultValue={defaultWeekendsWakeUp}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="settings-weekends-time-go-to-sleep"
-                                   className='settings-time-to-sleep' mask="29:59" maskChar="-"
-                                   formatChars={{'2': '[0-2]', '9': '[0-9]', '5': '[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
-                                   inputMode='numeric'
+                                   className='settings-time-to-sleep' 
+                                   placeholder='--:--'
+                                   type='time'
                                    defaultValue={defaultWeekendsGoTOSleep}/>
                         {/*<input type="time" id="settings-weekends-time-wake-up" className='settings-time-to-wake-up'*/}
                         {/*defaultValue={this.state.prevState &&  this.state.prevState.weekendsWakeUp ? this.state.prevState.weekendsWakeUp.substring(0, 5) : null}/>*/}

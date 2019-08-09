@@ -104,7 +104,7 @@ class Main extends React.Component {
                         <h2 className = 'main-text-info-today-drink'> {amountOfWaterDrinkingToday.toFixed(1)}/{getAmountOfWater(this.props.state.weight)}л</h2>
                     </div>
                     <div className='main-water-block-today main-bottom-block'>
-                        <h2 className='main-text-water-block-today'>Прием воды через:</h2>
+                        <h2 className='main-text-water-block-today'>Прием жидкости через:</h2>
                         {timer}
                     </div>
                 </div>

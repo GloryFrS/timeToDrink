@@ -132,9 +132,10 @@ class ApiManager {
         }
 
         const todayFormat = formatDate(today);
-        //console.log(state.fetchedUser.id);
-        //console.log(amountOfWater);
-        //console.log(todayFormat);
+        console.log(state.fetchedUser.id);
+        console.log(amountOfWater);
+        console.log(todayFormat);
+        console.log(state.krada);
 
         let formData = new FormData();
 

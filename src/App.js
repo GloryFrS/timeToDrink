@@ -2,6 +2,7 @@ import React from 'react';
 import connect from '@vkontakte/vkui-connect';
 import {Switch, Route} from "react-router-dom";
 import '@vkontakte/vkui/dist/vkui.css';
+import './components/header.css'
 import ApiManager from "./api/ApiManager";
 import Main from './components/Main';
 import Start from './components/Start';
@@ -10,8 +11,10 @@ import FirstTraining from "./components/FirstTraining";
 import Settings from "./components/Settings";
 import Info from "./components/Info";
 import Loader from "./components/Loader";
-import NetworkError from "./components/NetworkError";
+import NetworkError from "./components/NetworkError"; 
 import {Params} from "./params/Params";
+import { Offline, Online } from "react-detect-offline";
+import lost from './img/lost.png';
 
 class App extends React.Component {
     constructor(props) {
@@ -189,53 +192,64 @@ class App extends React.Component {
 
     render() {
         return (
-            <Switch>
-                <Route exact path="/start" render={(props) => (
-                    <Start {...props} 
-                    fetchedUser={this.state.fetchedUser}
-                    web={this.state.desktop_web}
-                    />
-                )}/>
-
-                <Route exact path="/first-training" render={(props) => (
-                    <FirstTraining {...props} setWeight={this.setWeight}/>
-                )}/>
-
-                <Route exact path="/second-training" render={(props) => (
-                    <SecondTraining {...props}
-                                    fetchedUser={this.state.fetchedUser}
-                                    weight={this.state.weight}
-                                    setStateAndRegisterUser={this.setStateAndRegisterUser}
-                                    krada={this.state.krada}
-                    />
-                )}/>
-            
-                <Route exact path="/settings" render={(props) => (
-                    <Settings {...props}
-                            state={this.state}
-                            setNewStateFromSettings={this.setNewStateFromSettings}
-                    />
-                )}/>
-
-                <Route exact path="/main" render={(props) => (
-                    <Main {...props}
-                        state={this.state}
-                        setNewStateAfterDrinking={this.setNewStateAfterDrinking}
-                    />
-                )}/>
-
-                <Route exact path="/info" component={Info}/>
-
-                <Route exact path="/" render={(props) => (
-                    <Loader {...props}
+            <div className="bodyApp">
+                <Online>
+                    <div className="iosheader"></div>
+                    <Switch>
+                        <Route exact path="/start" render={(props) => (
+                            <Start {...props} 
                             fetchedUser={this.state.fetchedUser}
-                            setNewStateFromLoadedData={this.setNewStateFromLoadedData}
-                            krada={this.state.krada}
-                    />
-                )}/>
+                            web={this.state.desktop_web}
+                            />
+                        )}/>
 
-                <Route exact path="/network-error" component={NetworkError}/>
-            </Switch>
+                        <Route exact path="/first-training" render={(props) => (
+                            <FirstTraining {...props} setWeight={this.setWeight}/>
+                        )}/>
+
+                        <Route exact path="/second-training" render={(props) => (
+                            <SecondTraining {...props}
+                                            fetchedUser={this.state.fetchedUser}
+                                            weight={this.state.weight}
+                                            setStateAndRegisterUser={this.setStateAndRegisterUser}
+                                            krada={this.state.krada}
+                            />
+                        )}/>
+                    
+                        <Route exact path="/settings" render={(props) => (
+                            <Settings {...props}
+                                    state={this.state}
+                                    setNewStateFromSettings={this.setNewStateFromSettings}
+                            />
+                        )}/>
+
+                        <Route exact path="/main" render={(props) => (
+                            <Main {...props}
+                                state={this.state}
+                                setNewStateAfterDrinking={this.setNewStateAfterDrinking}
+                            />
+                        )}/>
+
+                        <Route exact path="/info" component={Info}/>
+
+                        <Route exact path="/" render={(props) => (
+                            <Loader {...props}
+                                    fetchedUser={this.state.fetchedUser}
+                                    setNewStateFromLoadedData={this.setNewStateFromLoadedData}
+                                    krada={this.state.krada}
+                            />
+                        )}/>
+
+                        <Route exact path="/network-error" component={NetworkError}/>
+                    </Switch>
+                </Online>
+                <Offline>
+                    <div className="lost-connection">
+                        <img src={lost} alt=''/>
+                        <p>Ох! Похоже, интернет соединение было потеряно...</p>	
+                    </div>
+                </Offline>
+            </div>
             
         );
     }

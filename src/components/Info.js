@@ -28,7 +28,7 @@ class Info extends React.Component {
                 <br/>
                 <small className="info-connect">
                     Свяжитесь с нами по email: <br/>
-                    <a href="mailto:hello@lunaapps.ru" target="_blank" rel="noopener noreferrer" className="info-connect-mail"> hello@lunaapps.ru</a>
+                    <a href="mailto:hello@lunapps.ru" target="_blank" rel="noopener noreferrer" className="info-connect-mail"> hello@lunapps.ru</a>
                 </small>
             </div>
         )

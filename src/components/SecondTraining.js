@@ -61,9 +61,9 @@ class SecondTraining extends React.Component {
         return (
             <div className='secondtraining-container'>
                 <h2 className='secondtraining-addition-first'>
-                    <p className='secondtraining-user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}</p>
+                    <p className='secondtraining-user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}!</p>
                     <br/> {getAmountOfWater(this.props.weight)} л
-                    это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимость
+                     - это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимости
                     выпить жидкость
                 </h2>
 
@@ -81,10 +81,9 @@ class SecondTraining extends React.Component {
                                    />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekdays-time-go-to-sleep"
-                                   inputMode='numeric' 
-                                   className='secondtraining-time-to-sleep'
-                                   mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   type='time'
+                                   className='secondtraining-time-to-sleep' 
+                                   placeholder='--:--'
                                    defaultValue={'00:00'}/>
                         {/*<input type="time" id="weekdays-time-wake-up"*/}
                                {/*className='secondtraining-time-to-wake-up'/>*/}
@@ -100,17 +99,15 @@ class SecondTraining extends React.Component {
                     <br/>
                     <div className='secondtraining-time-to-wake-sleep'>
                         <InputMask id="weekends-time-wake-up"
-                                   inputMode='numeric' 
+                                   type='time'
                                    className='secondtraining-time-to-wake-up'
-                                   mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   placeholder='--:--'
                                    defaultValue={'10:00'}/>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <InputMask id="weekends-time-go-to-sleep"
-                                   inputMode='numeric' 
+                                   type='time' 
                                    className='secondtraining-time-to-sleep'
-                                   mask="29:59" maskChar="-" formatChars={{'2':'[0-2]', '9':'[0-9]', '5':'[0-5]'}}
-                                   pattern='([0-1]{1}[0-9]{1}|20|21|22|23):[0-5]{1}[0-9]{1}' placeholder='--:--'
+                                   placeholder='--:--'
                                    defaultValue={'01:00'}/>
                         {/*<input type="time" id="weekends-time-wake-up"*/}
                                {/*className='secondtraining-time-to-wake-up'/>*/}

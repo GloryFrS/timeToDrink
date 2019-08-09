@@ -92,43 +92,54 @@
 
 .settings-time-to-wake-sleep {
     text-align: left;
+    display: flex;
     /*margin-left: -40px;*/
 }
 
 .settings-time-to-wake-up {
-    text-align: center;
+    /* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 88px;
-    vertical-align: middle;
     background: white;
     border-radius: 49px;
     border: 0;
     height: 40px;
     outline: none;
     font-family: GothamPro;
-    line-height: 23px;
     font-size: 18px;
     color: #4848F4;
     font-weight: bold;
-    display:inline-block;
+    font-size: 16px;
 }
 
 .settings-time-to-sleep {
+    /* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
     text-align: center;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 88px;
-    vertical-align: middle;
     background: white;
     border-radius: 49px;
     border: 0;
     height: 40px;
     outline:  none;
     font-family: GothamPro;
-    line-height: 23px;
     font-size: 18px;
     color: #4848F4;
     font-weight: bold;
-    display:inline-block;
+    font-size: 16px;
 }
 
 .settings-save-button {
@@ -158,3 +169,6 @@
 .settings-save-button:active {
     background: #1010db; 
 }
+::-webkit-clear-button, ::-webkit-inner-spin-button, ::-webkit-calendar-picker-indicator {
+    display: none;
+  }
