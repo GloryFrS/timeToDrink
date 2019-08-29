@@ -177,7 +177,7 @@ class App extends React.Component {
     requestASubscription() {
         if (this.state.signedUpForNotifications === 0) {
             console.log("Request to notify subs");
-            //connect.send("VKWebAppAllowNotifications", {});
+            connect.send("VKWebAppAllowNotifications", {});
         }
     }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking

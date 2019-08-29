@@ -3,7 +3,7 @@
 .firsttraining-container {
     overflow: auto;
 
-    height: 100vh;
+    height: 100%;
     background: url("../img/Ellipse-1.svg") 22% 86% no-repeat fixed,
     url("../img/Ellipse-2.svg") 25% 74% no-repeat fixed,
     url("../img/Ellipse-3.svg") 20% 61% no-repeat fixed,
@@ -72,7 +72,7 @@ input[type="number"]:focus {
     line-height: 22px;
     font-size: 18px;
     text-align: center;
-    padding-top: 154px;
+    padding-top: 120px;
     padding-right: 45px;
     padding-left: 45px;
 }
@@ -97,7 +97,7 @@ input[type="number"]:focus {
     outline: none;
     border: 0;
     font-family: GothamPro;
-    line-height: 20px;
+    /* line-height: 20px; */
     font-size: 28px;
     color: #4848F4;
     font-weight: bold;
@@ -138,3 +138,17 @@ input[type="number"]:focus {
 .firsttraining-button-start:active {
     background: #1010db;
 }
+
+@media only screen and (max-device-width: 667px) 
+    and (-webkit-device-pixel-ratio: 2) {
+        .firsttraining-addition-first {
+            padding-top: 60px;
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+        .firsttraining-drink-water {
+            padding-top: 17px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+ }

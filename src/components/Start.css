@@ -12,7 +12,7 @@ h1, h2, p, img, button {
     overflow: auto;
     height: 100%;
     width: 100%;
-    position: relative;
+    position: fixed;
     background: url("../img/background_start_cloud_3.svg") 100% 0 no-repeat fixed,
     url("../img/background_start_cloud_4.svg") 80% 0 no-repeat fixed,
     url("../img/Ellipse-1.svg") 31% 90% no-repeat fixed,
@@ -149,7 +149,12 @@ h1, h2, p, img, button {
 .start-button-start:active {
     background: #1010db;
 }
-@media (max-width: 320px){
+
+
+
+
+@media only screen and (max-device-width: 667px) 
+    and (-webkit-device-pixel-ratio: 2) {
     .start-user-name {
         margin-top: 63px;
     }
@@ -159,5 +164,4 @@ h1, h2, p, img, button {
     .start-addition-second {
        width: 90%;
     }
-
-}
+ }

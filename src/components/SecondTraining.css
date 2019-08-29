@@ -116,7 +116,7 @@ input[type="number"]:focus {
     appearance: none;
 
     text-align: center;
-    width: 88px;
+    width: 100%;
     vertical-align: middle;
     background: white;
     border-radius: 49px;
@@ -140,7 +140,7 @@ input[type="number"]:focus {
     appearance: none;
     
     text-align: center;
-    width: 88px;
+    width: 100%;
     vertical-align: middle;
     background: white;
     border-radius: 49px;
@@ -191,3 +191,19 @@ input[type="number"]:focus {
 .secondtraining-button-start:focus {
     outline: none;
 }
+
+
+@media only screen and (max-device-width: 667px) 
+    and (-webkit-device-pixel-ratio: 2) {
+        .secondtraining-addition-first {
+            padding-top: 80px
+        }
+ }
+
+ @media only screen and (max-device-width: 736px) 
+    and (-webkit-device-pixel-ratio: 3) {
+        .secondtraining-addition-first {
+            padding-top: 80px
+        }
+       
+ }

@@ -21,10 +21,12 @@ class Info extends React.Component {
                     <p className="info-first"><img src={CheckIcon} alt=" " className="info-image-galochka"/>&nbsp;С предложениями по улучшению наших сервисов;</p>
                 </span>
                 <span>
-                    <p className="info-second"><img src={CheckIcon} alt=" " className="info-image-galochka"/>&nbsp;С заказами на разработку сервисов;</p>
+                    <p className="info-second"><img src={CheckIcon} alt=" " className="info-image-galochka"/>&nbsp;С заказами на разработку сервисов.</p>
                 </span>
 
                 <a href="https://vk.com/im?media=&sel=-178245062"  target="_blank" rel="noopener noreferrer" className="info-button">Написать нам</a>
+                
+                <a href="https://vk.me/lunasup"  target="_blank" rel="noopener noreferrer" className="info-button">Поддержка</a>
                 <br/>
                 <small className="info-connect">
                     Свяжитесь с нами по email: <br/>

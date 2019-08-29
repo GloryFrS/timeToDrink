@@ -106,7 +106,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 88px;
+    width: 100%;
     background: white;
     border-radius: 49px;
     border: 0;
@@ -129,7 +129,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 88px;
+    width: 100%;
     background: white;
     border-radius: 49px;
     border: 0;

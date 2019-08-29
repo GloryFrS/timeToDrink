@@ -230,3 +230,13 @@
     color: #FFFFFF;
     margin-top: 24px;
 }
+img.main-water-drop {
+    width: 100%;
+}
+
+@media screen and ( max-height: 400px ) { 
+    .well-done-popup-container {
+        top: auto!important;
+        bottom: 0;
+    }
+ }

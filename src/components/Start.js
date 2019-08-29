@@ -23,7 +23,7 @@ const Start = ({fetchedUser, web}) => {
                 </div>
 
                 <h2 className='start-addition-second'>Сервис “Время пить воду” поможет тебе стать более здоровым.</h2>
-                <Link to="/first-training" data-to="main" className="start-button-start">Начнем!</Link>
+                <Link to="/first-training" data-to="main" className="start-button-start" replace>Начнем!</Link>
             </div>
         </div>
     );

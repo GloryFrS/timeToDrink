@@ -10,6 +10,7 @@ class SecondTraining extends React.Component {
         super(props);
         this.state = {
             popupIsVisible: false,
+            popupSub: false,
             err: false
         };
         this.changePopupVisibility = this.changePopupVisibility.bind(this);
@@ -51,6 +52,7 @@ class SecondTraining extends React.Component {
             }
         }
     };
+   
 
     render() {
 
@@ -58,12 +60,13 @@ class SecondTraining extends React.Component {
             
             <RegistrationIsComplete/>
             : '';
+        
         return (
             <div className='secondtraining-container'>
                 <h2 className='secondtraining-addition-first'>
                     <p className='secondtraining-user-name'>{this.props.fetchedUser ? this.props.fetchedUser.first_name : 'Username'}!</p>
                     <br/> {getAmountOfWater(this.props.weight)} л
-                     - это очень много, давай определимся, когда тебе будет удобно получать напоминания о необходимости
+                     - это твоя норма жидкости, давай определимся, когда тебе будет удобно получать напоминания о необходимости
                     выпить жидкость
                 </h2>
 
@@ -121,6 +124,7 @@ class SecondTraining extends React.Component {
                 <button className='secondtraining-button-start' onClick={this.checkAndRegisterUser.bind(this)}>Начать
                     больше пить
                 </button>
+                
                 {popup}
             </div>
         )

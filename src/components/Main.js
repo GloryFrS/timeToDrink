@@ -8,7 +8,7 @@ import Timer from "./Timer";
 import "./Main.css";
 import WellDonePopup from "../popups/WellDonePopup";
 import ProgressBar from "./ProgressBar";
-import imgDrop from "../img/main-drop2.svg";
+import imgDrop from "../img/main-drop3.png";
 import ellipse1 from "../img/Ellipse-3.svg";
 import ellipse6 from "../img/Ellipse-6.svg";
 import ellipse8 from "../img/Ellipse-8.svg";
@@ -23,12 +23,32 @@ class Main extends React.Component {
             updatedData: null,
             drinkPopupIsVisible: false,
             wellDonePopupIsVisible: false,
+            underDrink: false
         };
         this.updateLastWaterIntake = this.updateLastWaterIntake.bind(this);
         this.changeDrinkPopupVisibility = this.changeDrinkPopupVisibility.bind(this);
         this.changeWellDonePopupVisibility = this.changeWellDonePopupVisibility.bind(this);
 
     }
+
+    componentDidMount() {
+        if (this.props.state.amountOfWaterPerDay >= getAmountOfWater(this.props.state.weight)) {
+            this.setState({  underDrink: true  });
+        }
+        
+    }
+    componentDidUpdate(prevProps, prevState) {
+        
+        if (this.props.state.amountOfWaterPerDay >= getAmountOfWater(this.props.state.weight)){
+            console.log("лимит");
+            
+            if(prevState.underDrink === false){
+                this.setState({ underDrink: true });
+            } 
+        }
+    }
+      
+    
 
     updateLastWaterIntake = (updatedData) => {
         if (updatedData) {
@@ -55,15 +75,28 @@ class Main extends React.Component {
                         changeDrinkPopupVisibility={this.changeDrinkPopupVisibility}
             />
             : "";
-        const timer = <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>;
-
+        const timer = !this.state.underDrink ?
+            <div className='main-water-block-today main-bottom-block'>
+                <h2 className='main-text-water-block-today'>Прием жидкости через:</h2>
+                <Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>
+            </div> : '';
+        
+        
+        const buttonVisible = this.state.underDrink ? '' : <button className='main-button-water' onClick={this.changeDrinkPopupVisibility}><img src={Plus} className='main-image-button' alt="" /></button>;
         let wellDonePopup = this.state.wellDonePopupIsVisible ?
-            <WellDonePopup timer={timer} changeWellDonePopupVisibility={this.changeWellDonePopupVisibility}/>: "";
+            <WellDonePopup timer={<Timer seconds={getTimeUntilTheNextWaterIntake(this.props.state.lastWaterIntake)}/>} end={this.state.underDrink} changeWellDonePopupVisibility={this.changeWellDonePopupVisibility}/>: "";
 
         let amountOfWaterDrinkingToday = dateIsToday(this.props.state.lastWaterIntake) && this.props.state.amountOfWaterPerDay
             ? this.props.state.amountOfWaterPerDay : 0;
 
+        const style = {
+            'display': 'flex',
+            'justify-content': 'center',
+            'padding-right': '33px',
+            'margin-top': '16px'
+        }
         return (
+
             <div className='main-body-container'>
                 <Link to='/settings'>
                     <img src={SettingsIcon} className='main-image-settings' alt=''/>
@@ -75,7 +108,7 @@ class Main extends React.Component {
                     <img className='main-user-photo'
                          src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
                          alt="..."/>
-                    <h2 className='main-addition-first'>Привет<br/> {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
+                    <h2 className='main-addition-first'>Привет,<br/> {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
                 </div>
 
                 <div className='main-drop-and-progressbar-container'>
@@ -93,20 +126,17 @@ class Main extends React.Component {
                         <img src={ellipse8} className='main-drop-ell5' alt=''/>
 
                     </div>
-                    <button className='main-button-water' onClick={this.changeDrinkPopupVisibility}><img src={Plus} className='main-image-button' alt="" /></button>
+                    {buttonVisible}
                 </div>
                 {/*<Link to="/start">Start</Link>*/}
                 {/*<br/>*/}
-                <div className="container-bottom-blocks">
+                <div className="container-bottom-blocks" style={this.state.underDrink ? style : {}}>
                     <div className='main-info-block-today main-bottom-block'>
                         <h2 className='main-text-info-block-today'>Вы выпили сегодня:</h2>
                         <br/>
                         <h2 className = 'main-text-info-today-drink'> {amountOfWaterDrinkingToday.toFixed(1)}/{getAmountOfWater(this.props.state.weight)}л</h2>
                     </div>
-                    <div className='main-water-block-today main-bottom-block'>
-                        <h2 className='main-text-water-block-today'>Прием жидкости через:</h2>
-                        {timer}
-                    </div>
+                    {timer}
                 </div>
 
                 {drinkPopup}

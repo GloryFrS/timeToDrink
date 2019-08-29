@@ -32,3 +32,35 @@
     font-family: GothamPro;
     color: #4E4E61;
 }
+
+.sub-button {
+    /* display: flex; */
+    /* margin-top: -34px; */
+    text-align: center;
+}
+
+
+
+.sub-button button {
+    background: #fff;
+    color: #4848f4;
+    box-shadow: none;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 13px;
+    font-size: 22px;
+    border: 1px solid;
+    border-radius: 20px;
+}
+
+.subscribe-skip {
+    background: none;
+    color: #b5b5b5!important;
+    font-size: 12px!important;
+    border: none!important;
+}
+
+.sub-title {
+    font-size: 22px;
+    line-height: 25px;
+}

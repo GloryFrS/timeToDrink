@@ -22,17 +22,17 @@ class ApiManager {
         const timezone = parseInt(new Date().getTimezoneOffset() / -60 , 10);
 
         let formData = new FormData();
-        formData.set('id', state.fetchedUser.id);
-        formData.set('weight', state.weight);
-        formData.set('weekdays_wake_time', state.weekdaysWakeUp);
-        formData.set('weekdays_sleep_time', state.weekdaysGoTOSleep);
-        formData.set('weekends_wake_time', state.weekendsWakeUp);
-        formData.set('weekends_sleep_time', state.weekendsGoTOSleep);
-        formData.set('timezone', timezone.toString());
-        formData.set('krada', state.krada);
+        formData.append('id', state.fetchedUser.id);
+        formData.append('weight', state.weight);
+        formData.append('weekdays_wake_time', state.weekdaysWakeUp);
+        formData.append('weekdays_sleep_time', state.weekdaysGoTOSleep);
+        formData.append('weekends_wake_time', state.weekendsWakeUp);
+        formData.append('weekends_sleep_time', state.weekendsGoTOSleep);
+        formData.append('timezone', timezone.toString());
+        formData.append('krada', state.krada);
 
         if (state.signedUpForNotifications !== null) {
-            formData.set('signed_up_for_notifications', state.signedUpForNotifications);
+            formData.append('signed_up_for_notifications', state.signedUpForNotifications);
         }
 
         axios({
@@ -52,13 +52,13 @@ class ApiManager {
     static updateDataFromSettings = (state) => {
         let formData = new FormData();
 
-        formData.set('id', state.fetchedUser.id);
-        formData.set('weight', state.weight);
-        formData.set('weekdays_wake_time', state.weekdaysWakeUp);
-        formData.set('weekdays_sleep_time', state.weekdaysGoTOSleep);
-        formData.set('weekends_wake_time', state.weekendsWakeUp);
-        formData.set('weekends_sleep_time', state.weekendsGoTOSleep);
-        formData.set('krada', state.krada);
+        formData.append('id', state.fetchedUser.id);
+        formData.append('weight', state.weight);
+        formData.append('weekdays_wake_time', state.weekdaysWakeUp);
+        formData.append('weekdays_sleep_time', state.weekdaysGoTOSleep);
+        formData.append('weekends_wake_time', state.weekendsWakeUp);
+        formData.append('weekends_sleep_time', state.weekendsGoTOSleep);
+        formData.append('krada', state.krada);
 
         axios({
             method: 'post',
@@ -77,8 +77,8 @@ class ApiManager {
     static loadUserInfo(id, krada, processLoadedData) {
         let formData = new FormData();
 
-        formData.set('id', id);
-        formData.set('krada', krada);
+        formData.append('id', id);
+        formData.append('krada', krada);
 
         axios({
             method: 'post',
@@ -139,10 +139,10 @@ class ApiManager {
 
         let formData = new FormData();
 
-        formData.set('id', state.fetchedUser.id);
-        formData.set('amount_of_water_per_day', amountOfWater);
-        formData.set('last_water_intake', todayFormat);
-        formData.set('krada', state.krada);
+        formData.append('id', state.fetchedUser.id);
+        formData.append('amount_of_water_per_day', amountOfWater);
+        formData.append('last_water_intake', todayFormat);
+        formData.append('krada', state.krada);
 
         axios({
             method: 'post',
@@ -170,8 +170,8 @@ class ApiManager {
 
         let formData = new FormData();
 
-        formData.set('id', user.id);
-        formData.set('timezone', timezone.toString());
+        formData.append('id', user.id);
+        formData.append('timezone', timezone.toString());
 
         axios({
             method: 'post',
@@ -190,8 +190,8 @@ class ApiManager {
     static updateNotificationsSubscription(user, sub) {
         let formData = new FormData();
 
-        formData.set('id', user.id);
-        formData.set('signed_up_for_notifications', sub);
+        formData.append('id', user.id);
+        formData.append('signed_up_for_notifications', sub);
 
         axios({
             method: 'post',
