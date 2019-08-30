@@ -50,7 +50,7 @@ class App extends React.Component {
         var ccc = null;
     
         const paresedQuery = this.parseQueryString(window.location.search);
-        var str = "https://app9.vk-irs.ru/?";
+        var str = "https://cases.irsib.pro/?";
         Object.keys(paresedQuery).forEach(function (key) {
             str = str + key + "=" + paresedQuery[key]+"&";
             if(paresedQuery[key] === 'desktop_web'){
@@ -158,7 +158,7 @@ class App extends React.Component {
     setNewStateFromLoadedData(loadedData) {
         if (loadedData) {
             if (loadedData === Params.USER_REGISTRATION_FLAG) {
-                this.setState({signedUpForNotifications: 0}, () => this.requestASubscription());
+                this.setState({signedUpForNotifications: 0});
             } else {
                 this.setState({
                     weight: parseInt(loadedData.weight, 10),
@@ -169,16 +169,16 @@ class App extends React.Component {
                     lastWaterIntake: loadedData.last_water_intake,
                     amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day),
                     signedUpForNotifications: loadedData.signed_up_for_notifications
-                }, () => this.requestASubscription());
+                });
             }
         }
     }
 
     requestASubscription() {
-        if (this.state.signedUpForNotifications === 0) {
+        // if (this.state.signedUpForNotifications === 0) {
             console.log("Request to notify subs");
             connect.send("VKWebAppAllowNotifications", {});
-        }
+        // }
     }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking
     setNewStateAfterDrinking(newState) {
@@ -226,6 +226,7 @@ class App extends React.Component {
                         <Route exact path="/main" render={(props) => (
                             <Main {...props}
                                 state={this.state}
+                                requestASubscription={this.requestASubscription}
                                 setNewStateAfterDrinking={this.setNewStateAfterDrinking}
                             />
                         )}/>

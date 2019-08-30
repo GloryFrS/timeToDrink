@@ -1,4 +1,14 @@
-
+/* body::before {
+    content: '';
+    background: #4848f4;
+    background-size: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+} */
 
 .firsttraining-container {
     overflow: auto;

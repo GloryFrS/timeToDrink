@@ -2,6 +2,7 @@ import React from 'react';
 import ApiManager from "../api/ApiManager";
 import "./DrinkPopup.css";
 
+
 class DrinkPopup extends React.Component {
 
     constructor(props) {
@@ -10,11 +11,12 @@ class DrinkPopup extends React.Component {
             selectedDrink: 'water',
             selectedAmount: 200,
             dataIsUpdating: false,
-            updatedDate: null,
+            updatedDate: null
         };
         this.changeUpdatedData = this.changeUpdatedData.bind(this);
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
         this.handleClose = this.handleClose.bind(this); 
+        
     }
 
     changeUpdatedData = (updatedData) => {
@@ -34,12 +36,14 @@ class DrinkPopup extends React.Component {
     handleClose(e) {
         this.props.changeDrinkPopupVisibility();
     }
+  
 
     handleOutsideClick(e) {
         // ignore clicks on the component itself
         if (this.node.contains(e.target)) {
             return;
         }
+        
         document.removeEventListener('click', this.handleOutsideClick, false);
         this.props.changeDrinkPopupVisibility();
     }
@@ -110,6 +114,7 @@ class DrinkPopup extends React.Component {
             <div className='drink-popup-container' ref={node => {
                 this.node = node
             }}>
+                
                 <span onClick={this.handleClose} className='popup-close'>+</span>
                 <p className="drinkpopup-time-to-water">Время пить жидкость!</p>
                 {/*Выбираем что попить (вода, сок, чай, кофе)*/}

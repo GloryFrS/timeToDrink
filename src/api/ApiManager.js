@@ -5,7 +5,7 @@ class ApiManager {
 
     static get url() {
         // return "http://timetodrink/api/user/";
-        return "https://app9.vk-irs.ru/api/user/"
+        return "https://cases.irsib.pro/api/user/"
     }
 
     static get action() {

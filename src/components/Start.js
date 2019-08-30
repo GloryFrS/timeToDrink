@@ -13,7 +13,9 @@ const Start = ({fetchedUser, web}) => {
     };   
     let desktop = web === "1" ? "start-body-container--web" : "";
     return (
+        
         <div className={"start-body-container " + desktop}>
+            {/* <SubPlease notSubModal={true}/> */}
             <div className="start-container-info">
                 <h1 className='start-user-name'>{fetchedUser.first_name},</h1>
                 <h2 className='start-addition-first'>достаточно ли ты пьёшь воды?</h2>

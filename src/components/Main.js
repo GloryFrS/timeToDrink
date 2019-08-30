@@ -14,6 +14,7 @@ import ellipse6 from "../img/Ellipse-6.svg";
 import ellipse8 from "../img/Ellipse-8.svg";
 import Plus from "../img/+.svg";
 
+
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -23,17 +24,21 @@ class Main extends React.Component {
             updatedData: null,
             drinkPopupIsVisible: false,
             wellDonePopupIsVisible: false,
-            underDrink: false
+            underDrink: false,
+            subModal: false
         };
         this.updateLastWaterIntake = this.updateLastWaterIntake.bind(this);
         this.changeDrinkPopupVisibility = this.changeDrinkPopupVisibility.bind(this);
         this.changeWellDonePopupVisibility = this.changeWellDonePopupVisibility.bind(this);
-
+        
     }
 
     componentDidMount() {
         if (this.props.state.amountOfWaterPerDay >= getAmountOfWater(this.props.state.weight)) {
             this.setState({  underDrink: true  });
+        }
+        if (this.props.state.signedUpForNotifications === null) {
+            this.setState({ subModal: true });
         }
         
     }
@@ -67,11 +72,13 @@ class Main extends React.Component {
             this.setState({drinkPopupIsVisible: !this.state.drinkPopupIsVisible});
         }
     };
+    
 
     render() {
         let drinkPopup = this.state.drinkPopupIsVisible ?
             <DrinkPopup updateLastWaterIntake={this.updateLastWaterIntake}
                         state={this.props.state}
+                        requestASubscription={this.props.requestASubscription}
                         changeDrinkPopupVisibility={this.changeDrinkPopupVisibility}
             />
             : "";
@@ -89,28 +96,26 @@ class Main extends React.Component {
         let amountOfWaterDrinkingToday = dateIsToday(this.props.state.lastWaterIntake) && this.props.state.amountOfWaterPerDay
             ? this.props.state.amountOfWaterPerDay : 0;
 
-        const style = {
-            'display': 'flex',
-            'justify-content': 'center',
-            'padding-right': '33px',
-            'margin-top': '16px'
-        }
+        const notyButton = this.props.state.signedUpForNotifications === 0 ? <div onClick={this.props.requestASubscription} className='main-image-noty'/> : null;
         return (
 
             <div className='main-body-container'>
+               
                 <Link to='/settings'>
                     <img src={SettingsIcon} className='main-image-settings' alt=''/>
                 </Link>
                 <Link to='/info'>
                     <img src={InfoIcon} className='main-image-info' alt=''/>
                 </Link>
+                
+            
                 <div>
                     <img className='main-user-photo'
                          src={this.props.state.fetchedUser ? this.props.state.fetchedUser.photo_200 : 'https://bipbap.ru/wp-content/uploads/2017/12/BbC-eGVCMAAY1yv.jpg'}
                          alt="..."/>
                     <h2 className='main-addition-first'>Привет,<br/> {this.props.state.fetchedUser ? this.props.state.fetchedUser.first_name : 'Username'}</h2>
                 </div>
-
+                {notyButton}
                 <div className='main-drop-and-progressbar-container'>
                     <ProgressBar progress={100 * amountOfWaterDrinkingToday / getAmountOfWater(this.props.state.weight)} />
 
@@ -130,7 +135,7 @@ class Main extends React.Component {
                 </div>
                 {/*<Link to="/start">Start</Link>*/}
                 {/*<br/>*/}
-                <div className="container-bottom-blocks" style={this.state.underDrink ? style : {}}>
+                <div className={this.state.underDrink ? "container-bottom-blocks limit-block" : "container-bottom-blocks"} >
                     <div className='main-info-block-today main-bottom-block'>
                         <h2 className='main-text-info-block-today'>Вы выпили сегодня:</h2>
                         <br/>

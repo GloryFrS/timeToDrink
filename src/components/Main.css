@@ -56,7 +56,7 @@
 }
 
 .main-drop-and-progressbar-container {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .main-drop-wave-container {
@@ -233,7 +233,24 @@
 img.main-water-drop {
     width: 100%;
 }
-
+.limit-block {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+.limit-block .main-info-block-today {
+    margin-left: 0;
+}
+.main-image-noty {
+    margin: 5px auto;
+    width: 30px;
+    height: 30px;
+    background:url("../img/notification.gif")no-repeat;
+    overflow: hidden;
+    background-position: center;
+    background-size: 89px 76px;
+    border-radius: 5px;
+}
 @media screen and ( max-height: 400px ) { 
     .well-done-popup-container {
         top: auto!important;
