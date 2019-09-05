@@ -30,6 +30,7 @@ class App extends React.Component {
             lastWaterIntake: null,
             amountOfWaterPerDay: null,
             signedUpForNotifications: null,
+            sendMassagesSubscription: null,
             ACCESS_TOKEN: null,
             krada: '',
             desktop_web: '0'
@@ -87,7 +88,19 @@ class App extends React.Component {
                         this.state.signedUpForNotifications
                     ));
                     break;
-
+                case 'VKWebAppAllowMessagesFromGroupResult':
+                    this.setState({sendMassagesSubscription: 1}, () => ApiManager.updateSendMassagesSubscription(
+                        this.state.fetchedUser,
+                        this.state.sendMassagesSubscription
+                    ));
+                    break;
+                case 'VKWebAppAllowMessagesFromGroupFailed':
+                    this.setState({sendMassagesSubscription: 0}, () => ApiManager.updateSendMassagesSubscription(
+                        this.state.fetchedUser,
+                        this.state.sendMassagesSubscription,
+                        this.state.krada
+                    ));
+                    break;
                 case 'VKWebAppCallAPIMethodResult':
                     this.setState({signedUpForNotifications: !!e.detail.data.response.is_allowed});
                     break;
@@ -96,6 +109,7 @@ class App extends React.Component {
             }
         });
         connect.send('VKWebAppGetUserInfo', {});
+        
         
 
     }
@@ -168,7 +182,8 @@ class App extends React.Component {
                     weekendsGoTOSleep: loadedData.weekends_sleep_time,
                     lastWaterIntake: loadedData.last_water_intake,
                     amountOfWaterPerDay: parseFloat(loadedData.amount_of_water_per_day),
-                    signedUpForNotifications: loadedData.signed_up_for_notifications
+                    signedUpForNotifications: loadedData.signed_up_for_notifications,
+                    sendMassagesSubscription: loadedData.signed_send_massage
                 });
             }
         }
@@ -176,8 +191,8 @@ class App extends React.Component {
 
     requestASubscription() {
         // if (this.state.signedUpForNotifications === 0) {
-            console.log("Request to notify subs");
-            connect.send("VKWebAppAllowNotifications", {});
+            console.log("Request to send massage subs");
+            connect.send("VKWebAppAllowMessagesFromGroup", {"group_id": 186174806});
         // }
     }
     // Set new state lastWaterIntake and amountOfWaterPerDay after drinking

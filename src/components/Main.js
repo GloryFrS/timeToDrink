@@ -37,19 +37,24 @@ class Main extends React.Component {
         if (this.props.state.amountOfWaterPerDay >= getAmountOfWater(this.props.state.weight)) {
             this.setState({  underDrink: true  });
         }
-        if (this.props.state.signedUpForNotifications === null) {
-            this.setState({ subModal: true });
-        }
+        
         
     }
     componentDidUpdate(prevProps, prevState) {
-        
-        if (this.props.state.amountOfWaterPerDay >= getAmountOfWater(this.props.state.weight)){
-            console.log("лимит");
+        const WaterDrinkingToday = dateIsToday(this.props.state.lastWaterIntake) && this.props.state.amountOfWaterPerDay
+            ? this.props.state.amountOfWaterPerDay : 0;
+        if ( WaterDrinkingToday >= getAmountOfWater(this.props.state.weight)){
+            console.log("лимит" , WaterDrinkingToday, getAmountOfWater(this.props.state.weight));
             
             if(prevState.underDrink === false){
                 this.setState({ underDrink: true });
             } 
+        } else {
+            if(this.state.underDrink === true){
+                this.setState({ underDrink: false });
+                console.log("лимит" , WaterDrinkingToday, getAmountOfWater(this.props.state.weight));
+            }
+            
         }
     }
       
@@ -78,7 +83,6 @@ class Main extends React.Component {
         let drinkPopup = this.state.drinkPopupIsVisible ?
             <DrinkPopup updateLastWaterIntake={this.updateLastWaterIntake}
                         state={this.props.state}
-                        requestASubscription={this.props.requestASubscription}
                         changeDrinkPopupVisibility={this.changeDrinkPopupVisibility}
             />
             : "";
@@ -96,7 +100,7 @@ class Main extends React.Component {
         let amountOfWaterDrinkingToday = dateIsToday(this.props.state.lastWaterIntake) && this.props.state.amountOfWaterPerDay
             ? this.props.state.amountOfWaterPerDay : 0;
 
-        const notyButton = this.props.state.signedUpForNotifications === 0 ? <div onClick={this.props.requestASubscription} className='main-image-noty'/> : null;
+        const notyButton = this.props.state.sendMassagesSubscription === 0 ? <div onClick={this.props.requestASubscription} className='main-image-noty'/> : null;
         return (
 
             <div className='main-body-container'>

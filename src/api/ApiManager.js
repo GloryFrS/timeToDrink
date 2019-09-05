@@ -206,6 +206,26 @@ class ApiManager {
                 console.log(error.response);
             })
     };
+    static updateSendMassagesSubscription(user, sub, krada) {
+        let formData = new FormData();
+
+        formData.append('id', user.id);
+        formData.append('signed_send_massage', sub);
+        formData.append('krada', krada);
+
+        axios({
+            method: 'post',
+            url: ApiManager.url + ApiManager.action.update,
+            data: formData,
+            config: {headers: {'Content-Type': 'multipart/form-data'}}
+        })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(error => {
+                console.log(error.response);
+            })
+    };
 
 }
 

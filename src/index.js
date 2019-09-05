@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import connect from '@vkontakte/vkui-connect';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom";
+import mVKMiniAppsScrollHelper from '@vkontakte/mvk-mini-apps-scroll-helper';
 
 import registerServiceWorker from './sw';
 
@@ -16,9 +17,10 @@ connect.send('VKWebAppInit', {});
 // Но не забывайте, что на данный момент у технологии есть достаточно подводных камней
 // Подробнее про сервис воркеры можно почитать тут — https://vk.cc/8MHpmT 
 registerServiceWorker();
-
+const root = document.getElementById('root');
+mVKMiniAppsScrollHelper(root);
 ReactDOM.render((
     <Router>
         <App/>
     </Router>
-), document.getElementById('root'));
+), root);
